@@ -5,26 +5,50 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     margin: 1.5em 2em;
-}
 
-a {
-    display: flex;
-    align-items: flex-end;
+    #logo {
+        display: flex;
+        align-items: flex-end;
+        font-weight: regular;
 
-    #logo-title {
-        font-size: 3em;
+        #logo-title {
+            font-size: 3em;
+        }
+        
+        #catchy-phrase {
+            padding-bottom: 0.5em;
+        }
     }
-    
-    #catchy-phrase {
-        padding-bottom: 0.5em;
+
+    #icons {
+        display: flex;
+        align-items: flex-end;
+
+        a {
+            margin-left: 1em;
+        }
     }
-}
 
-#icons {
-    display: flex;
-    align-items: flex-end;
+    #menu {
+        visibility: hidden; /* temporary */
+        
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: fixed;
+        right: 0;
+        top: 6em;
+        width: 15em;
+        background-color: $light-grey;
+        box-shadow: -7px 7px 4px -6px rgba(82,82,82,0.61);
+        padding-bottom: 1em;
 
-    a {
-        margin-left: 1em;
+        a {
+            text-align: center;
+            margin: 1.5em 1em 0em 1em;
+            padding-bottom: 0.5em;
+            border-bottom: solid 1px grey;
+            font-weight: medium;
+        }
     }
 }

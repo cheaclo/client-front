@@ -6,6 +6,8 @@
 
 $dark-grey: #525252;
 
+$light-grey: #F8F8F8;
+
 body {
     margin: 0;
     font-family: Spartan;
@@ -16,11 +18,11 @@ a {
     text-decoration: none;
     color: $dark-grey;
 
-    :hover {
+    &:hover {
         cursor: pointer;
     }
 
-    :visited {
+    &:visited {
         text-decoration: none;
     }
 }
