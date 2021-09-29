@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Spartan;
+    src: url(assets/fonts/Spartan/Spartan-VariableFont_wght.ttf);
+}
+
+$dark-grey: #525252;
+
+body {
+    margin: 0;
+    font-family: Spartan;
+    color: $dark-grey;
+}
+
+a {
+    text-decoration: none;
+    color: $dark-grey;
+
+    :hover {
+        cursor: pointer;
+    }
+
+    :visited {
+        text-decoration: none;
+    }
+}

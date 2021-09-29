@@ -1,0 +1,30 @@
+@import '../../styles.scss';
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1.5em 2em;
+}
+
+a {
+    display: flex;
+    align-items: flex-end;
+
+    #logo-title {
+        font-size: 3em;
+    }
+    
+    #catchy-phrase {
+        padding-bottom: 0.5em;
+    }
+}
+
+#icons {
+    display: flex;
+    align-items: flex-end;
+
+    a {
+        margin-left: 1em;
+    }
+}
