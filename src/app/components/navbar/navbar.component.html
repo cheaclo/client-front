@@ -6,9 +6,9 @@
     <div id="icons">
         <a><img src="assets/icons/search.svg" /></a>
         <a><img src="assets/icons/cart.svg" /></a>
-        <a><img src="assets/icons/account.svg" /></a>
+        <a (click)="toggleMenu()"><img src="assets/icons/account.svg" /></a>
     </div>
-    <div id="menu">
+    <div #menuRef [ngClass]="menuClass" class="menu">
         <a>Account</a>
         <a>Saved</a>
         <a>Recommendations</a>
