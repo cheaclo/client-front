@@ -1,0 +1,42 @@
+nav {
+  margin: 0.5em 1em;
+
+  #logo {
+    flex-direction: column;
+
+    #logo-title {
+      font-size: 1.5em;
+    }
+
+    #catchy-phrase {
+      font-size: 0.5em;
+    }
+
+    :last-child {
+      padding-left: 0.25em;
+    }
+  }
+
+  #icons {
+    display: flex;
+    align-items: flex-end;
+
+    a {
+      margin-left: 0.5em;
+    }
+
+    img {
+      width: 2em;
+    }
+  }
+
+  .menu {
+    top: 3em;
+
+    a {
+      width: 10em;
+      font-size: 0.75em;
+    }
+  }
+}
+

@@ -1,66 +1,55 @@
-@import '/src/styles.scss';
+@import '../../../styles.scss';
 
 nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  #logo {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1.5em 2em;
+    font-weight: regular;
+  }
 
-    #logo {
-        display: flex;
-        align-items: flex-end;
-        font-weight: regular;
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+    right: 0;
+    overflow-y: hidden;
+    background-color: $light-grey;
+    box-shadow: -7px 7px 4px -6px $shadow-color;
+    transition: ease-in-out 400ms max-width;
+    overflow-x: hidden;
 
-        #logo-title {
-            font-size: 3em;
-        }
-
-        #catchy-phrase {
-            padding-bottom: 0.5em;
-        }
+    a {
+      text-align: center;
+      margin: 1.5em 1em 0em 1em;
+      padding-bottom: 0.5em;
+      border-bottom: solid 1px grey;
+      font-weight: medium;
     }
 
-    #icons {
-        display: flex;
-        align-items: flex-end;
-
-        a {
-            margin-left: 1em;
-        }
+    &:last-child {
+      padding-bottom: 1em;
     }
+  }
 
-    .menu {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        position: fixed;
-        right: 0;
-        top: 6em;
-        overflow-y: hidden;
-        background-color: $light-grey;
-        box-shadow: -7px 7px 4px -6px rgba(82,82,82,0.61);
-        transition: ease-in-out 400ms max-width;
-        overflow-x: hidden;
+  .menu-closed {
+    max-width: 0;
+  }
 
-        a {
-            width: 13em;
-            text-align: center;
-            margin: 1.5em 1em 0em 1em;
-            padding-bottom: 0.5em;
-            border-bottom: solid 1px grey;
-            font-weight: medium;
-        }
-
-        &:last-child {
-          padding-bottom: 1em;
-        }
-    }
-
-    .menu-closed {
-      max-width: 0;
-    }
-
-    .menu-opened {
-      max-width: 15em;
-    }
+  .menu-opened {
+    max-width: 15em;
+  }
 }
+
+/* Mobile */
+@media screen and (max-width: $breakpoint-tablet) {
+  @import './scss/mobile.scss';
+}
+/* Tablet and Desktop */
+@media screen and (min-width: $breakpoint-tablet) {
+  @import './scss/desktop.scss';
+}
+

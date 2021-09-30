@@ -1,0 +1,30 @@
+nav {
+  margin: 1.5em 2em;
+
+  #logo {
+    flex-direction: row;
+    align-items: flex-end;
+
+    #logo-title {
+        font-size: 3em;
+    }
+
+    #catchy-phrase {
+        padding-bottom: 0.5em;
+    }
+  }
+
+  #icons {
+      a {
+          margin-left: 1em;
+      }
+  }
+
+  .menu {
+      top: 6em;
+
+      a {
+          width: 13em;
+      }
+  }
+}
