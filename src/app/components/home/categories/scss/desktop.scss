@@ -1,0 +1,30 @@
+#categories-container {
+  margin: 5em 2em 0em 2em;
+
+  div {
+    width: 20%;
+
+    img {
+      &:hover {
+        cursor: pointer;
+        opacity: 0.4;
+      }
+    }
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      font-size: 1.5em;
+      font-weight: bold;
+      z-index: -1;
+      color: black;
+    }
+
+    img:hover + p {
+      visibility: visible;
+    }
+  }
+}
