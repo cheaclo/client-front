@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -5,13 +6,11 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ShopService {
-  //TODO: replace this list with service incjection
-  tempNames: string[] = ['hm', 'ca', 'reserved'];
+  getAllShopsPath = '/shop/all';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getShopsName(): Observable<string[]> {
-    const shopsName = of(this.tempNames);
-    return shopsName;
+    return this.http.get<string[]>(this.getAllShopsPath)
   }
 }
