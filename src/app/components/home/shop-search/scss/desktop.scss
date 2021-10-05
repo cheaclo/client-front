@@ -1,0 +1,27 @@
+.outer {
+  margin: 8em 2em 2em 2em;
+
+  #search {
+    width: 70%;
+
+    img {
+      margin-left: 2em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  #shops {
+    margin: 3em 0 3em 0;
+
+    img {
+      height: 10em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
