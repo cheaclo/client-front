@@ -1,3 +1,4 @@
+import { ShopService } from './../../../services/shop.service';
 import { Component, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 
@@ -11,14 +12,16 @@ export class ShopSearchComponent implements OnInit {
   IMAGES_EXT = '.png';
   shops: Shop[] = [];
 
-  //TODO: replace this list with service incjection
-  tempNames: string[] = ['hm', 'ca', 'reserved'];
+  constructor(private shopService: ShopService) {
+    shopService.getShopsName()
+      .subscribe(shopsName => {
+        for (let name of shopsName) {
+          name = name.toLowerCase();
+          let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
+          this.shops.push({name, imageSource});
+        }
+      })
 
-  constructor() {
-    for (let name of this.tempNames) {
-      let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
-      this.shops.push({name, imageSource});
-    }
   }
 
   ngOnInit(): void {
