@@ -4,12 +4,18 @@
   #search {
     width: 100%;
 
+    input {
+      padding-left: 1em;
+    }
+
     img {
-      margin-left: 1em;
+      position: absolute;
+      right: 0;
     }
 
     #hints {
       width: 65%;
+      padding-left: 1em;
     }
   }
 

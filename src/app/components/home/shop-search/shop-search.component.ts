@@ -52,7 +52,7 @@ export class ShopSearchComponent implements OnInit {
     this.shopService.getMatchedShops(input)
       .subscribe(shopsName => {
         for (let name of shopsName) {
-          this.hintsToAdd += '<p>' + name + '</p>';
+          this.hintsToAdd += '<p>' + name.toLowerCase() + '</p>';
         }
       })
   }

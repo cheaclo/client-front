@@ -4,8 +4,13 @@
   #search {
     width: 70%;
 
+    input {
+      padding-left: 3em;
+    }
+
     img {
-      margin-left: 2em;
+      position: absolute;
+      right: 0;
 
       &:hover {
         cursor: pointer;
@@ -13,7 +18,8 @@
     }
 
     #hints {
-      width: 75%;
+      width: 85%;
+      padding-left: 3em;
 
       p {
         &:hover {
