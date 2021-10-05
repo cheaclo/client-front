@@ -3,9 +3,11 @@
 .outer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 8em 2em 2em 2em;
 
-  div {
+  #search {
     display: flex;
     width: 70%;
 
@@ -27,6 +29,16 @@
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+
+  #shops {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 8em;
     }
   }
 }

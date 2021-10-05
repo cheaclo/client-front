@@ -1,6 +1,9 @@
 <div class="outer">
-  <div>
+  <div id="search">
     <input placeholder="Search for shop..."/>
     <img src="assets/icons/search.svg" />
+  </div>
+  <div id="shops">
+    <img [src]="shop.imageSource" *ngFor="let shop of shops"/>
   </div>
 </div>
