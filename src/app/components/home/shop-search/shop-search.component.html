@@ -1,7 +1,7 @@
 <div class="outer">
   <div id="search">
-    <input placeholder="Search for shop..."/>
-    <img src="assets/icons/search.svg" />
+    <input type="text" autocomplete="off" placeholder="Search for shop..." [(ngModel)]="shopName" (ngModelChange)="this.searchInputUpdate.next($event)" />
+    <img (click)="ngOnSearch()" src="assets/icons/search.svg" />
   </div>
   <div id="shops">
     <img [src]="shop.imageSource" *ngFor="let shop of shops"/>

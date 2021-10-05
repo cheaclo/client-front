@@ -13,4 +13,8 @@ export class ShopService {
   getShopsName(): Observable<string[]> {
     return this.http.get<string[]>(this.getAllShopsPath)
   }
+
+  getMatchedShops(input: string): Observable<string[]> {
+    return of(["hm", "ca"]);
+  }
 }

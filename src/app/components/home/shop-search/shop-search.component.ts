@@ -1,6 +1,8 @@
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ShopService } from './../../../services/shop.service';
 import { Component, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-shop-search',
@@ -10,7 +12,11 @@ import { Shop } from 'src/app/models/shop';
 export class ShopSearchComponent implements OnInit {
   PATH_TO_IMAGES = 'assets/images/';
   IMAGES_EXT = '.png';
+
   shops: Shop[] = [];
+  shopName!: string;
+  hints!: string[];
+  searchInputUpdate = new Subject<string>();
 
   constructor(private shopService: ShopService) {
     shopService.getShopsName()
@@ -22,9 +28,27 @@ export class ShopSearchComponent implements OnInit {
         }
       })
 
+    this.searchInputUpdate.pipe(
+      debounceTime(400),
+      distinctUntilChanged())
+      .subscribe(input => {
+        this.fetchMatchedShops(input);
+      })
   }
 
   ngOnInit(): void {
   }
 
+  ngOnSearch(): void {
+    console.log(this.shopName);
+  }
+
+  fetchMatchedShops(input: string) {
+    this.shopService.getMatchedShops(input)
+      .subscribe(shopsName => {
+        for (let name of shopsName) {
+          console.log(name);
+        }
+      })
+  }
 }

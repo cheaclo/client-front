@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/home/categories/categories.component';
 import { ShopSearchComponent } from './components/home/shop-search/shop-search.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { ShopSearchComponent } from './components/home/shop-search/shop-search.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
