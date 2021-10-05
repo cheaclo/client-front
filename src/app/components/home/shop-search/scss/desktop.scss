@@ -11,6 +11,15 @@
         cursor: pointer;
       }
     }
+
+    #hints {
+      p {
+        &:hover {
+          cursor: pointer;
+          opacity: 1.0;
+        }
+      }
+    }
   }
 
   #shops {

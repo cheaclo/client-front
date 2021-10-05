@@ -8,11 +8,11 @@
 
   #search {
     display: flex;
+    position: relative;
 
     input {
       flex: 1;
       border: none;
-      border-bottom: 1px solid $dark-grey;
       padding-left: 2em;
 
       &:focus {
@@ -22,6 +22,21 @@
 
     img {
       width: 2em;
+    }
+
+    #hints {
+      width: 80%;
+      position: absolute;
+      top: 2em;
+      padding-left: 3em;
+      background-color: $light-grey;
+      box-shadow: $box-shadow;
+      border-top: 1px solid $dark-grey;
+
+      p {
+        width: fit-content;
+        opacity: 0.8;
+      }
     }
   }
 
