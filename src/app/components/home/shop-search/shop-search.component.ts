@@ -17,6 +17,7 @@ export class ShopSearchComponent implements OnInit {
   shopName!: string;
   hints!: string[];
   searchInputUpdate = new Subject<string>();
+  hintsToAdd!: string;
 
   constructor(private shopService: ShopService) {
     shopService.getShopsName()
@@ -43,11 +44,15 @@ export class ShopSearchComponent implements OnInit {
     console.log(this.shopName);
   }
 
-  fetchMatchedShops(input: string) {
+  fetchMatchedShops(input: string): void {
+    this.hintsToAdd = "";
+    if (input.length == 0)
+      return;
+
     this.shopService.getMatchedShops(input)
       .subscribe(shopsName => {
         for (let name of shopsName) {
-          console.log(name);
+          this.hintsToAdd += '<p>' + name + '</p>';
         }
       })
   }

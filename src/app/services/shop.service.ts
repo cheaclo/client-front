@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -7,14 +7,17 @@ import { Observable, of } from 'rxjs';
 })
 export class ShopService {
   getAllShopsPath = '/shop/all';
+  getMatchedShopsPath = 'shop/match'
+
 
   constructor(private http: HttpClient) { }
 
   getShopsName(): Observable<string[]> {
-    return this.http.get<string[]>(this.getAllShopsPath)
+    return this.http.get<string[]>(this.getAllShopsPath);
   }
 
   getMatchedShops(input: string): Observable<string[]> {
-    return of(["hm", "ca"]);
+    const parameters = new HttpParams().set('value', input);
+    return this.http.get<string[]>(this.getMatchedShopsPath, {params: parameters});
   }
 }
