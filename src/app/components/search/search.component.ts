@@ -1,3 +1,4 @@
+import { ShopService } from './../../services/shop.service';
 import { Component, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 
@@ -7,16 +8,21 @@ import { Shop } from 'src/app/models/shop';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  shops: Shop[] = [
-    {name: 'hm', imageSource: 'assets/images/hm.png'},
-    {name: 'hm', imageSource: 'assets/images/hm.png'},
-    {name: 'hm', imageSource: 'assets/images/hm.png'},
-    {name: 'hm', imageSource: 'assets/images/hm.png'},
-    {name: 'hm', imageSource: 'assets/images/hm.png'},
-    {name: 'hm', imageSource: 'assets/images/hm.png'}
-  ];
+  PATH_TO_IMAGES = 'assets/images/';
+  IMAGES_EXT = '.png';
 
-  constructor() { }
+  shops: Shop[] = [];
+
+  constructor(private shopService: ShopService) {
+    shopService.getShopsName()
+      .subscribe(shopsName => {
+        for (let name of shopsName) {
+          name = name.toLowerCase();
+          let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
+          this.shops.push({name, imageSource});
+        }
+      })
+  }
 
   ngOnInit(): void {
   }
