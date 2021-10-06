@@ -1,7 +1,9 @@
 import { ProductService } from './../../services/product.service';
 import { ShopService } from './../../services/shop.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -14,9 +16,12 @@ export class SearchComponent implements OnInit {
 
   shops: Shop[] = [];
   searchedProduct!: string;
+  @ViewChild('hints') hints!: ElementRef;
+  searchInputUpdate = new Subject<string>();
 
   constructor(private shopService: ShopService,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private renderer: Renderer2) {
     shopService.getShopsName()
       .subscribe(shopsName => {
         for (let name of shopsName) {
@@ -24,6 +29,13 @@ export class SearchComponent implements OnInit {
           let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
           this.shops.push({name, imageSource, selected: true});
         }
+      })
+
+    this.searchInputUpdate.pipe(
+      debounceTime(400),
+      distinctUntilChanged())
+      .subscribe(input => {
+        this.fetchMatchedProducts(input);
       })
   }
 
@@ -49,5 +61,16 @@ export class SearchComponent implements OnInit {
         selectedShops.push(shop)
     }
     return selectedShops;
+  }
+
+  fetchMatchedProducts(input: string): void {
+    this.productService.getFirstFiveMatchedProducts(this.searchedProduct, this.getSelectedShops())
+      .subscribe(products => {
+        for (let product of products) {
+          const p: HTMLParagraphElement = this.renderer.createElement('p');
+          p.innerHTML = product.details.title.charAt(0).toUpperCase() + product.details.title.slice(1).toLowerCase();
+          this.renderer.appendChild(this.hints.nativeElement, p)
+        }
+      });
   }
 }

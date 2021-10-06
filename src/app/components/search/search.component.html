@@ -7,13 +7,9 @@
   </div>
   <div id="search">
     <div id="input-div">
-      <input type="text" autocomplete="off" placeholder="Search for product..." [(ngModel)]="searchedProduct"/>
+      <input type="text" autocomplete="off" placeholder="Search for product..." [(ngModel)]="searchedProduct" (ngModelChange)="this.searchInputUpdate.next($event)"/>
       <img src="assets/icons/search.svg" (click)="ngOnSearch()"/>
     </div>
-    <div id="hints">
-      <p>Ripped jeans</p>
-      <p>Rainy shoes</p>
-      <p>Brand new watch</p>
-    </div>
+    <div id="hints" #hints></div>
   </div>
 </div>
