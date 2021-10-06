@@ -1,0 +1,10 @@
+.outer {
+  flex-direction: column;
+  padding: 0.5em 3em 0em 3em;
+  align-items: center;
+
+  .element {
+    width: 100%;
+    margin: 1em 0 1em 0;
+  }
+}
