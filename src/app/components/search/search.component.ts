@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
     //TODO populate hints with last searched products
   }
 
-  ngOnShopClick(event: Event, shop: Shop): void {
+  ngOnShopClick(shop: Shop): void {
     shop.selected = !shop.selected;
   }
 

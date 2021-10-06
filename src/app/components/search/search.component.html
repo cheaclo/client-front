@@ -2,7 +2,7 @@
   <div id="shops">
     <p>Selected shops</p>
     <div id="shops-icons">
-      <img *ngFor="let shop of shops" [src]="shop.imageSource" [ngClass]="{'enabled-shop': shop.selected, 'disabled-shop': !shop.selected}" (click)="ngOnShopClick($event, shop)"/>
+      <img *ngFor="let shop of shops" [src]="shop.imageSource" [ngClass]="{'enabled-shop': shop.selected, 'disabled-shop': !shop.selected}" (click)="ngOnShopClick(shop)"/>
     </div>
   </div>
   <div id="search">
