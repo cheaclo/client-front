@@ -1,0 +1,75 @@
+@import '/src/styles.scss';
+
+.outer {
+  display: flex;
+  align-items: flex-start;
+  margin: 7em 2em 0 2em;
+
+  #shops {
+    display: flex;
+    flex: 0.3;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      margin: 0.5em;
+    }
+
+    #shops-icons {
+      display: flex;
+      flex-wrap: wrap;
+      width: 70%;
+      margin-top: 2em;
+
+      img {
+        width: 3em;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  #search {
+    display: flex;
+    flex-direction: column;
+    flex: 0.7;
+
+    #input-div {
+      display: flex;
+      width: 100%;
+
+      input {
+        flex: 0.9;
+        border: none;
+        border-bottom: 1px solid $dark-grey;
+        padding-left: 1em;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      img {
+        width: 2em;
+        margin-left: 1em;
+      }
+    }
+  }
+
+  #hints {
+    padding: 2em;
+
+    p {
+      width: fit-content;
+      opacity: 0.8;
+    }
+
+    p:hover {
+      cursor: pointer;
+      opacity: 1.0;
+    }
+
+  }
+}

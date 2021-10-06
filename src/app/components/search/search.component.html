@@ -1,1 +1,19 @@
-<p>search works!</p>
+<div class="outer">
+  <div id="shops">
+    <p>Selected shops</p>
+    <div id="shops-icons">
+      <img [src]="shop.imageSource" *ngFor="let shop of shops"/>
+    </div>
+  </div>
+  <div id="search">
+    <div id="input-div">
+      <input type="text" autocomplete="off" placeholder="Search for shop..." />
+      <img src="assets/icons/search.svg" />
+    </div>
+    <div id="hints">
+      <p>Ripped jeans</p>
+      <p>Rainy shoes</p>
+      <p>Brand new watch</p>
+    </div>
+  </div>
+</div>
