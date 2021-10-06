@@ -8,8 +8,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class NavbarComponent implements OnInit {
   @ViewChild('menuRef')
   menuRef!: ElementRef;
-
-  menuClass = 'menu-closed';
   menuOpened = false;
 
   constructor() { }
@@ -18,10 +16,6 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleMenu(): void {
-    if (this.menuOpened)
-      this.menuClass = 'menu-closed';
-    else
-      this.menuClass = 'menu-opened';
     this.menuOpened = !this.menuOpened;
   }
 }

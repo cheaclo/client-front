@@ -8,7 +8,7 @@
         <a><img src="assets/icons/cart.svg" /></a>
         <a (click)="toggleMenu()"><img src="assets/icons/account.svg" /></a>
     </div>
-    <div #menuRef [ngClass]="menuClass" class="menu">
+    <div class="menu" [ngClass]="{'menu-closed': !menuOpened, 'menu-opened': menuOpened}" #menuRef>
         <a>Account</a>
         <a>Saved</a>
         <a>Recommendations</a>
