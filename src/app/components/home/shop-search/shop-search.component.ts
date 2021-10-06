@@ -1,6 +1,6 @@
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ShopService } from './../../../services/shop.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 import { Subject } from 'rxjs';
 
@@ -15,11 +15,11 @@ export class ShopSearchComponent implements OnInit {
 
   shops: Shop[] = [];
   shopName!: string;
-  hints!: string[];
+  @ViewChild('hints') hints!: ElementRef;
   searchInputUpdate = new Subject<string>();
-  hintsToAdd!: string;
 
-  constructor(private shopService: ShopService) {
+  constructor(private shopService: ShopService,
+              private renderer: Renderer2) {
     shopService.getShopsName()
       .subscribe(shopsName => {
         for (let name of shopsName) {
@@ -45,14 +45,20 @@ export class ShopSearchComponent implements OnInit {
   }
 
   fetchMatchedShops(input: string): void {
-    this.hintsToAdd = "";
-    if (input.length == 0)
+    for (let child of this.hints.nativeElement.children) {
+      this.renderer.removeChild(this.hints.nativeElement, child)
+    }
+
+    if (input.length == 0) {
       return;
+    }
 
     this.shopService.getMatchedShops(input)
       .subscribe(shopsName => {
         for (let name of shopsName) {
-          this.hintsToAdd += '<p>' + name.toLowerCase() + '</p>';
+          const p: HTMLParagraphElement = this.renderer.createElement('p');
+          p.innerHTML = name.toLowerCase();
+          this.renderer.appendChild(this.hints.nativeElement, p)
         }
       })
   }

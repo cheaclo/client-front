@@ -21,11 +21,9 @@
       width: 85%;
       padding-left: 3em;
 
-      p {
-        &:hover {
-          cursor: pointer;
-          opacity: 1.0;
-        }
+      p:hover {
+        cursor: pointer;
+        opacity: 1.0;
       }
     }
   }
