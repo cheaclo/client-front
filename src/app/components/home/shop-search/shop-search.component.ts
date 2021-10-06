@@ -41,7 +41,7 @@ export class ShopSearchComponent implements OnInit {
   }
 
   ngOnSearch(): void {
-    console.log(this.shopName);
+    //TODO redirect to shop page - if exists
   }
 
   fetchMatchedShops(input: string): void {

@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //TODO populate hints with last searched products
   }
 
   ngOnShopClick(event: Event, shop: Shop): void {
