@@ -1,10 +1,10 @@
 <nav>
-    <a id="logo">
+    <a id="logo" routerLink="/home">
         <span id="logo-title">CHEACLO</span>
         <span id="catchy-phrase">For you. And your pocket.</span>
     </a>
     <div id="icons">
-        <a><img src="assets/icons/search.svg" /></a>
+        <a><img src="assets/icons/search.svg" routerLink="/search"/></a>
         <a><img src="assets/icons/cart.svg" /></a>
         <a (click)="toggleMenu()"><img src="assets/icons/account.svg" /></a>
     </div>
