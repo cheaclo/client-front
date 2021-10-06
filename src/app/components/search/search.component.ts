@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
         for (let name of shopsName) {
           name = name.toLowerCase();
           let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
-          this.shops.push({name, imageSource});
+          this.shops.push({name, imageSource, state: true});
         }
       })
   }
@@ -27,4 +27,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnShopClick(event: Event, shop: Shop): void {
+    shop.state = !shop.state;
+  }
 }

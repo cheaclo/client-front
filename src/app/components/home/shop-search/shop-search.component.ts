@@ -25,7 +25,7 @@ export class ShopSearchComponent implements OnInit {
         for (let name of shopsName) {
           name = name.toLowerCase();
           let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
-          this.shops.push({name, imageSource});
+          this.shops.push({name, imageSource, state: true});
         }
       })
 
