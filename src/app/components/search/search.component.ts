@@ -38,7 +38,6 @@ export class SearchComponent implements OnInit {
   ngOnSearch(): void {
     this.productService.getMatchedProducts(this.searchedProduct, this.getSelectedShops())
       .subscribe(products => {
-        console.log(products);
         //TODO redirect to searched products
       });
   }
