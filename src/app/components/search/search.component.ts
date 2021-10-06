@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   IMAGES_EXT = '.png';
 
   shops: Shop[] = [];
+  searchedProduct!: string;
 
   constructor(private shopService: ShopService) {
     shopService.getShopsName()
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
         for (let name of shopsName) {
           name = name.toLowerCase();
           let imageSource = this.PATH_TO_IMAGES + name + this.IMAGES_EXT;
-          this.shops.push({name, imageSource, state: true});
+          this.shops.push({name, imageSource, selected: true});
         }
       })
   }
@@ -29,6 +30,18 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnShopClick(event: Event, shop: Shop): void {
-    shop.state = !shop.state;
+    shop.selected = !shop.selected;
+  }
+
+  ngOnSearch() {
+  }
+
+  getSelectedShops(): Shop[] {
+    let selectedShops: Shop[]  = [];
+    for (let shop of this.shops) {
+      if (shop.selected)
+        selectedShops.push(shop)
+    }
+    return selectedShops;
   }
 }

@@ -2,13 +2,13 @@
   <div id="shops">
     <p>Selected shops</p>
     <div id="shops-icons">
-      <img *ngFor="let shop of shops" [src]="shop.imageSource" [ngClass]="{'enabled-shop': shop.state, 'disabled-shop': !shop.state}" (click)="ngOnShopClick($event, shop)"/>
+      <img *ngFor="let shop of shops" [src]="shop.imageSource" [ngClass]="{'enabled-shop': shop.selected, 'disabled-shop': !shop.selected}" (click)="ngOnShopClick($event, shop)"/>
     </div>
   </div>
   <div id="search">
     <div id="input-div">
-      <input type="text" autocomplete="off" placeholder="Search for shop..." />
-      <img src="assets/icons/search.svg" />
+      <input type="text" autocomplete="off" placeholder="Search for shop..." [(ngModel)]="searchedProduct"/>
+      <img src="assets/icons/search.svg" (click)="ngOnSearch()"/>
     </div>
     <div id="hints">
       <p>Ripped jeans</p>
