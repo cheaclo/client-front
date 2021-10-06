@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { ShopService } from './../../services/shop.service';
 import { Component, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
@@ -14,7 +15,8 @@ export class SearchComponent implements OnInit {
   shops: Shop[] = [];
   searchedProduct!: string;
 
-  constructor(private shopService: ShopService) {
+  constructor(private shopService: ShopService,
+              private productService: ProductService) {
     shopService.getShopsName()
       .subscribe(shopsName => {
         for (let name of shopsName) {
@@ -33,7 +35,12 @@ export class SearchComponent implements OnInit {
     shop.selected = !shop.selected;
   }
 
-  ngOnSearch() {
+  ngOnSearch(): void {
+    this.productService.getMatchedProducts(this.searchedProduct, this.getSelectedShops())
+      .subscribe(products => {
+        console.log(products);
+        //TODO redirect to searched products
+      });
   }
 
   getSelectedShops(): Shop[] {
