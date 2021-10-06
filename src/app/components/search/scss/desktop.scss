@@ -1,0 +1,30 @@
+.outer {
+  flex-direction: row;
+  margin: 7em 2em 0 2em;
+
+  #shops {
+    #shops-icons {
+      width: 70%;
+      margin-top: 2em;
+
+      img {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  #search {
+    img:hover {
+      cursor: pointer;
+    }
+  }
+
+  #hints {
+    p:hover {
+      cursor: pointer;
+      opacity: 1.0;
+    }
+  }
+}

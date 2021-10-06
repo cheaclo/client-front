@@ -1,0 +1,17 @@
+.outer {
+  flex-direction: column;
+  margin: 4em 1em 0 1em;
+  align-items: center;
+
+  #shops {
+
+    p {
+      text-align: center;
+    }
+
+    #shops-icons {
+      margin-bottom: 2em;
+
+    }
+  }
+}

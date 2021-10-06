@@ -3,7 +3,6 @@
 .outer {
   display: flex;
   align-items: flex-start;
-  margin: 7em 2em 0 2em;
 
   #shops {
     display: flex;
@@ -18,15 +17,10 @@
     #shops-icons {
       display: flex;
       flex-wrap: wrap;
-      width: 70%;
-      margin-top: 2em;
+      justify-content: space-between;
 
       img {
         width: 3em;
-
-        &:hover {
-          cursor: pointer;
-        }
       }
     }
   }
@@ -65,11 +59,14 @@
       width: fit-content;
       opacity: 0.8;
     }
-
-    p:hover {
-      cursor: pointer;
-      opacity: 1.0;
-    }
-
   }
+}
+
+/* Mobile */
+@media screen and (max-width: $breakpoint-tablet) {
+  @import './scss/mobile.scss';
+}
+/* Tablet and Desktop */
+@media screen and (min-width: $breakpoint-tablet) {
+  @import './scss/desktop.scss';
 }
