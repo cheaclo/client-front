@@ -7,12 +7,17 @@ import { Shop } from '../models/shop';
   providedIn: 'root'
 })
 export class ProductService {
+  getMatchedProductsPath: string = '/products/match';
 
   constructor(private http: HttpClient) { }
 
   getMatchedProducts(input: string, shops: Shop[]): Observable<string[]> {
-    // const parameters = new HttpParams().set('value', input);
-    return of(['Ripped jeans', 'Nice jeans']);
-    // return this.http.get<string[]>(this.getMatchedShopsPath, {params: parameters});
+    let shopsName: string[] = [];
+    for (let shop of shops) {
+      shopsName.push(shop.name);
+    }
+
+    const parameters = new HttpParams().set('value', input).set('shops', shopsName.toString());
+    return this.http.get<string[]>(this.getMatchedProductsPath, {params: parameters});
   }
 }
