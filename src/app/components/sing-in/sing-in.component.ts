@@ -1,6 +1,7 @@
 import { SignInService } from './../../services/sign-in.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sing-in',
@@ -19,9 +20,11 @@ export class SingInComponent implements OnInit {
 
   @ViewChild('emailErrorMessage') emailErrorMessage!: ElementRef;
   @ViewChild('passwordErrorMessage') passwordErrorMessage!: ElementRef;
+  @ViewChild('signInErrorMessage') signInErrorMessage!: ElementRef;
 
   constructor(private renderer: Renderer2,
-    private signInService: SignInService) { }
+    private signInService: SignInService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +35,15 @@ export class SingInComponent implements OnInit {
 
     this.signInService.signIn(this.email, btoa(this.password))
       .subscribe(response => {
-        console.log(response);
+        if (response.success) {
+          sessionStorage.setItem('userLogged', 'true');
+          sessionStorage.setItem('user', JSON.stringify(response.user));
+          this.router.navigateByUrl('/');
+        } else {
+          this.renderer.setProperty(this.emailErrorMessage.nativeElement, 'innerHTML', '');
+          this.renderer.setProperty(this.passwordErrorMessage.nativeElement, 'innerHTML', '');
+          this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', response.message);
+        }
       })
   }
 
@@ -41,12 +52,14 @@ export class SingInComponent implements OnInit {
   }
 
   ngOnEmailChange(): void {
+    this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', '');
     this.validEmail = this.EMAIL_REGEX.test(this.email);
     let errorMessage = this.validEmail ? '' : this.ERROR_EMAIL_MESSAGE;
     this.renderer.setProperty(this.emailErrorMessage.nativeElement, 'innerHTML', errorMessage);
   }
 
   ngOnPasswordChange(): void {
+    this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', '');
     this.validPassword = this.password.length >= 5 && this.password.length < 30;
     let errorMessage = this.validPassword ? '' : this.ERROR_PASSOWORD_MESSAGE;
     this.renderer.setProperty(this.passwordErrorMessage.nativeElement, 'innerHTML', errorMessage);
