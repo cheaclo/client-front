@@ -15,17 +15,31 @@ body {
     margin: 0;
     font-family: Spartan;
     color: $dark-grey;
-}
 
-a {
-    text-decoration: none;
-    color: $dark-grey;
+    input {
+      border: none;
 
-    &:hover {
-        cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-family: Spartan;
+      }
     }
 
-    &:visited {
-        text-decoration: none;
-    }
+    a {
+      text-decoration: none;
+      color: $dark-grey;
+
+      &:hover {
+          cursor: pointer;
+      }
+
+      &:visited {
+          text-decoration: none;
+      }
+  }
 }
+
+
