@@ -1,0 +1,44 @@
+@import '/src/styles.scss';
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3em;
+
+  h1 {
+    font-weight: normal;
+  }
+
+  input {
+    border-bottom: 1px solid $dark-grey;
+    margin: 2em 0 2em 0;
+    padding-bottom: 1em;
+  }
+
+  button {
+    border: none;
+    background-color: $dark-grey;
+    color: white;
+    font-family: Spartan;
+    font-size: 1em;
+    padding: 1em 5em 1em 5em;
+    margin-top: 2em;
+  }
+
+  p {
+    a {
+      font-weight: bolder;
+    }
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: $breakpoint-tablet) {
+  @import './scss/mobile.scss';
+}
+/* Tablet and Desktop */
+@media screen and (min-width: $breakpoint-tablet) {
+  @import './scss/desktop.scss';
+}
+

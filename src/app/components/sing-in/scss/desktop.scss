@@ -1,0 +1,15 @@
+.outer {
+  h1 {
+    font-size: 3em;
+  }
+
+  input {
+    width: 50%;
+    padding-left: 2em;
+  }
+
+  button:hover {
+    cursor: pointer;
+    opacity: 0.95;
+  }
+}
