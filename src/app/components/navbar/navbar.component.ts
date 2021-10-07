@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ export class NavbarComponent implements OnInit {
   menuRef!: ElementRef;
   menuOpened = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +25,12 @@ export class NavbarComponent implements OnInit {
   isUserLogged() {
     let userLogged = sessionStorage.getItem('userLogged');
     return userLogged == 'true';
+  }
+
+  logout() {
+    sessionStorage.setItem('userLogged', 'false');
+    sessionStorage.setItem('user', 'null');
+    this.router.navigateByUrl('/sign-in');
+    this.menuOpened = false;
   }
 }

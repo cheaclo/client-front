@@ -1,3 +1,5 @@
+import { User } from './../../models/user';
+import { SearchService } from './../../services/search.service';
 import { ProductService } from './../../services/product.service';
 import { ShopService } from './../../services/shop.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
@@ -21,7 +23,8 @@ export class SearchComponent implements OnInit {
 
   constructor(private shopService: ShopService,
               private productService: ProductService,
-              private renderer: Renderer2) {
+              private renderer: Renderer2,
+              private searchService: SearchService) {
     shopService.getShopsName()
       .subscribe(shopsName => {
         for (let name of shopsName) {
@@ -49,6 +52,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnSearch(): void {
+    this.addSearchedPhrase();
+
     this.productService.getMatchedProducts(this.searchedProduct, this.getSelectedShops())
       .subscribe(products => {
         //TODO redirect to searched products
@@ -82,5 +87,13 @@ export class SearchComponent implements OnInit {
           this.renderer.appendChild(this.hints.nativeElement, a)
         }
       });
+  }
+
+  addSearchedPhrase(): void {
+    let userLogged = sessionStorage.getItem('userLogged');
+    if (userLogged == 'true') {
+      let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
+      this.searchService.addPhrase(user.accountInfo.id, this.searchedProduct);
+    }
   }
 }
