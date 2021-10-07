@@ -1,10 +1,15 @@
 <div class="outer">
   <h1>Sign in</h1>
-  <form [formGroup]="userInput">
-    <input autocomplete="off" type="email" placeholder="Email"/>
-    <input autocomplete="off" type="password" placeholder="Password"/>
-    <p #errorMessage>asfsaf</p>
+  <form>
+    <input autocomplete="off" type="email" placeholder="Email" name="email"
+      [ngClass]="{valid: validEmail, invalid: !validEmail}" (change)="ngOnEmailChange()" [(ngModel)]="email"/>
+    <input autocomplete="off" type="password" placeholder="Password" name="password"
+      [ngClass]="{valid: validPassword, invalid: !validPassword}" (change)="ngOnPasswordChange()" [(ngModel)]="password"/>
+    <div id="error">
+      <p #emailErrorMessage></p>
+      <p #passwordErrorMessage></p>
+    </div>
     <button (click)="ngSignIn()">Sign in</button>
   </form>
-  <p>The first time? Click <a>here</a> to sign up</p>
+  <p>The first time? Click <a>here</a> to sign up.</p>
 </div>

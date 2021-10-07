@@ -22,10 +22,18 @@
       padding-bottom: 1em;
     }
 
-    p {
-      color: $error-color;
-      font-weight: bold;
+    #error {
+      height: 2em;
+
+      p {
+        color: $error-color;
+        font-weight: bold;
+        font-size: 0.75em;
+        margin: 0;
+        margin-bottom: 0.5em;
+      }
     }
+
 
     button {
       border: none;
@@ -35,6 +43,22 @@
       font-size: 1em;
       padding: 1em;
       margin-top: 2em;
+    }
+
+    .invalid {
+      border-bottom: 1px solid $error-color;
+
+      &::placeholder {
+        color: $error-color;
+      }
+    }
+
+    .valid {
+      border-bottom: 1px solid $dark-grey;
+
+      &::placeholder {
+        color: rgb(161, 117, 117);
+      }
     }
   }
 
