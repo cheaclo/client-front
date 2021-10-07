@@ -3,13 +3,19 @@
     font-size: 3em;
   }
 
-  input {
-    width: 50%;
-    padding-left: 2em;
-  }
+  form {
+    input {
+      width: 50%;
+      padding-left: 2em;
+    }
 
-  button:hover {
-    cursor: pointer;
-    opacity: 0.95;
+    button {
+      width: 25%;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.95;
+      }
+    }
   }
 }

@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/home/categories/categories.component';
 import { ShopSearchComponent } from './components/home/shop-search/shop-search.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { SingInComponent } from './components/sing-in/sing-in.component';
@@ -29,7 +29,8 @@ import { SingInComponent } from './components/sing-in/sing-in.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

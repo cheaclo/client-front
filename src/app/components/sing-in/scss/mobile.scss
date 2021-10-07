@@ -3,10 +3,17 @@
     font-size: 2em;
   }
 
-  input {
-    width: 75%;
-    padding-left: 1em;
+  form {
+    input {
+      width: 75%;
+      padding-left: 1em;
+    }
+
+    button {
+      width: 80%;
+    }
   }
+
 
   p {
     margin-top: 2em;

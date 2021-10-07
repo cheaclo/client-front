@@ -1,7 +1,10 @@
 <div class="outer">
   <h1>Sign in</h1>
-  <input type="text" placeholder="Email"/>
-  <input type="password" placeholder="Password"/>
-  <button>Sign in</button>
+  <form [formGroup]="userInput">
+    <input autocomplete="off" type="email" placeholder="Email"/>
+    <input autocomplete="off" type="password" placeholder="Password"/>
+    <p #errorMessage>asfsaf</p>
+    <button (click)="ngSignIn()">Sign in</button>
+  </form>
   <p>The first time? Click <a>here</a> to sign up</p>
 </div>
