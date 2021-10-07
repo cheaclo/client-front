@@ -8,8 +8,8 @@ import { Shop } from '../models/shop';
   providedIn: 'root'
 })
 export class ProductService {
-  getMatchedProductsPath: string = '/product/match';
-  getMatchedFiveFirstProductsPath: string = '/product/match/five';
+  getMatchedProductsPath: string = '/clothes/product/match';
+  getMatchedFiveFirstProductsPath: string = '/clothes/product/match/five';
 
   constructor(private http: HttpClient) { }
 

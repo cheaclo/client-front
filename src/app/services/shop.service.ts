@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ShopService {
-  getAllShopsPath = '/shop/all';
-  getMatchedShopsPath = 'shop/match';
+  getAllShopsPath = '/clothes/shop/all';
+  getMatchedShopsPath = '/clothes/shop/match';
 
   constructor(private http: HttpClient) { }
 
