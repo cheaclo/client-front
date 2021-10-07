@@ -30,7 +30,7 @@ export class ShopSearchComponent implements OnInit {
       })
 
     this.searchInputUpdate.pipe(
-      debounceTime(400),
+      debounceTime(500),
       distinctUntilChanged())
       .subscribe(input => {
         this.fetchMatchedShops(input);
@@ -45,9 +45,7 @@ export class ShopSearchComponent implements OnInit {
   }
 
   fetchMatchedShops(input: string): void {
-    for (let child of this.hints.nativeElement.children) {
-      this.renderer.removeChild(this.hints.nativeElement, child)
-    }
+    this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
 
     if (input.length == 0) {
       return;

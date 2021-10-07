@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
       })
 
     this.searchInputUpdate.pipe(
-      debounceTime(400),
+      debounceTime(500),
       distinctUntilChanged())
       .subscribe(input => {
         this.fetchMatchedProducts(input);
@@ -64,7 +64,13 @@ export class SearchComponent implements OnInit {
   }
 
   fetchMatchedProducts(input: string): void {
-    this.productService.getFirstFiveMatchedProducts(this.searchedProduct, this.getSelectedShops())
+    this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
+
+    if (input.length == 0) {
+      return;
+    }
+
+    this.productService.getFirstFiveMatchedProducts(input, this.getSelectedShops())
       .subscribe(products => {
         for (let product of products) {
           const p: HTMLParagraphElement = this.renderer.createElement('p');
