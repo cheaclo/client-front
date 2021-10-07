@@ -73,6 +73,7 @@ export class SearchComponent implements OnInit {
 
     this.productService.getFirstFiveMatchedProducts(input, this.getSelectedShops())
       .subscribe(products => {
+        this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
         for (let product of products) {
           const a: HTMLParagraphElement = this.renderer.createElement('a');
           a.innerHTML = product.details.title.charAt(0).toUpperCase() + product.details.title.slice(1).toLowerCase();
