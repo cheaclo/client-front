@@ -5,6 +5,10 @@
 
   .element {
     width: 25%;
+
+    img:hover {
+      cursor: pointer;
+    }
   }
 
   #about-us:hover {
