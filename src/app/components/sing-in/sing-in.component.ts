@@ -1,3 +1,4 @@
+import { SignInService } from './../../services/sign-in.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -19,12 +20,20 @@ export class SingInComponent implements OnInit {
   @ViewChild('emailErrorMessage') emailErrorMessage!: ElementRef;
   @ViewChild('passwordErrorMessage') passwordErrorMessage!: ElementRef;
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,
+    private signInService: SignInService) { }
 
   ngOnInit(): void {
   }
 
   ngSignIn(): void {
+    if (!this.validEmail || !this.validPassword)
+      return;
+
+    this.signInService.signIn(this.email, btoa(this.password))
+      .subscribe(response => {
+        console.log(response);
+      })
   }
 
   validation(): boolean {
