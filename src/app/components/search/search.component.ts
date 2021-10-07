@@ -45,6 +45,7 @@ export class SearchComponent implements OnInit {
 
   ngOnShopClick(shop: Shop): void {
     shop.selected = !shop.selected;
+    this.fetchMatchedProducts(this.searchedProduct);
   }
 
   ngOnSearch(): void {
@@ -73,9 +74,11 @@ export class SearchComponent implements OnInit {
     this.productService.getFirstFiveMatchedProducts(input, this.getSelectedShops())
       .subscribe(products => {
         for (let product of products) {
-          const p: HTMLParagraphElement = this.renderer.createElement('p');
-          p.innerHTML = product.details.title.charAt(0).toUpperCase() + product.details.title.slice(1).toLowerCase();
-          this.renderer.appendChild(this.hints.nativeElement, p)
+          const a: HTMLParagraphElement = this.renderer.createElement('a');
+          a.innerHTML = product.details.title.charAt(0).toUpperCase() + product.details.title.slice(1).toLowerCase();
+          a.setAttribute('href', product.details.productUrl);
+          a.setAttribute('target', '_blank');
+          this.renderer.appendChild(this.hints.nativeElement, a)
         }
       });
   }

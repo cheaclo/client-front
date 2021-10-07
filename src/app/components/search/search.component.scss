@@ -63,7 +63,8 @@
   #hints {
     padding: 2em;
 
-    p {
+    a {
+      display: block;
       width: fit-content;
       opacity: 0.8;
       margin-bottom: 2em;
