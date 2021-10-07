@@ -12,6 +12,7 @@ import { ShopSearchComponent } from './components/home/shop-search/shop-search.c
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
+import { SingInComponent } from './components/sing-in/sing-in.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SearchComponent } from './components/search/search.component';
     CategoriesComponent,
     ShopSearchComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    SingInComponent
   ],
   imports: [
     BrowserModule,
