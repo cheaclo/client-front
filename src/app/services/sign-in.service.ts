@@ -12,9 +12,6 @@ export class SignInService {
   constructor(private http: HttpClient) { }
 
   signIn(email: string, password: string): Observable<SignIn> {
-    const parameters = new HttpParams()
-      .set('email', email)
-      .set('password', password);
-    return this.http.get<SignIn>(this.signInPath, {params: parameters});
+    return this.http.post<SignIn>(this.signInPath, {email: email, password: password});
   }
 }
