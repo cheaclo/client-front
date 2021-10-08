@@ -1,3 +1,4 @@
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SingInComponent } from './components/sing-in/sing-in.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'sign-in', component: SingInComponent }
+  { path: 'sign-in', component: SingInComponent },
+  { path: 'sign-up', component: SignUpComponent }
 ];
 
 @NgModule({
