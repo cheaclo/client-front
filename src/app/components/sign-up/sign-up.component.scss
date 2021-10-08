@@ -1,0 +1,113 @@
+@import '/src/styles.scss';
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3em 0;
+
+  h1 {
+    font-weight: normal;
+  }
+
+  #extra-info, form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    width: 60%;
+  }
+
+  #extra-info {
+    width: 100%;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    input {
+      border-bottom: 1px solid $dark-grey;
+      margin: 2em 0 2em 0;
+      padding-bottom: 1em;
+      padding-left: 2em;
+    }
+
+    .input-full {
+      min-width: 100%;
+    }
+
+    .input-half {
+      min-width: 40%;
+    }
+
+    .input-one-sixth {
+      min-width: 10%;
+    }
+
+    input[type="date"] {
+      font-family: Spartan;
+      color: $placeholder-color;
+      min-width: 40%;
+      margin-right: 2em;
+
+      &::before {
+        content: attr(placeholder) !important;
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(0.3);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    label {
+      box-sizing: padding-box;
+      align-self: center;
+      padding-bottom: 1em;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: $dark-grey;
+    color: white;
+    font-family: Spartan;
+    font-size: 1em;
+    padding: 1em;
+    margin-top: 2em;
+
+    width: 25%;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.95;
+    }
+  }
+
+  select, select:focus, select:visited {
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    margin: 2em 0;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    color: $placeholder-color;
+    outline: none;
+    font-family: Spartan;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    option {
+      font-family: Spartan;
+    }
+  }
+}
