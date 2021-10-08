@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { SingInComponent } from './components/sing-in/sing-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SingInComponent } from './components/sing-in/sing-in.component';
     ShopSearchComponent,
     FooterComponent,
     SearchComponent,
-    SingInComponent
+    SingInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
