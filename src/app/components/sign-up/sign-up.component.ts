@@ -18,7 +18,6 @@ export class SignUpComponent implements OnInit {
   cityNameError = "";
   postalCodeError = "";
 
-
   constructor() { }
 
   ngOnInit(): void {
