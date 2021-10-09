@@ -23,6 +23,18 @@
       width: 100%;
     }
 
+    .input-full {
+      min-width: 100%;
+    }
+
+    .input-half {
+      min-width: 40%;
+    }
+
+    .input-one-sixth {
+      min-width: 10%;
+    }
+
     .form-row {
       display: flex;
       justify-content: space-between;
@@ -30,21 +42,9 @@
 
       input {
         border-bottom: 1px solid $dark-grey;
-        margin: 2em 0 2em 0;
+        margin: 2em 0 0.5em 0;
         padding-bottom: 1em;
         padding-left: 2em;
-      }
-
-      .input-full {
-        min-width: 100%;
-      }
-
-      .input-half {
-        min-width: 40%;
-      }
-
-      .input-one-sixth {
-        min-width: 10%;
       }
 
       input[type="date"] {
@@ -76,7 +76,7 @@
         appearance: none;
         border: none;
         border-bottom: 1px solid $dark-grey;
-        margin: 2em 0;
+        margin: 3.5em 0 0.5em 0;
         padding-bottom: 1em;
         padding-left: 2em;
         color: $placeholder-color;
@@ -92,6 +92,26 @@
         }
       }
     } //form-row
+
+    .form-error-row {
+      display: flex;
+      justify-content: space-around;
+      width: 95%;
+
+      p {
+        margin: 0;
+        font-size: 0.75em;
+        padding-left: 8em;
+        color: $error-color;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+
+
+
+    } //form-error-row
 
     button {
       border: none;
