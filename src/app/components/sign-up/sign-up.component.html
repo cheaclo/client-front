@@ -7,22 +7,22 @@
       <input class="input-half" autocomplete="off" type="text" placeholder="Lastname"/>
     </div>
     <div class="form-error-row">
-      <p class="input-half">errr</p>
-      <p class="input-half">errr</p>
+      <p class="input-half" [innerText]="firstnameError"></p>
+      <p class="input-half" [innerText]="lastnameError"></p>
     </div>
 
     <div class="form-row">
       <input class="input-full" autocomplete="off" type="email" placeholder="Email"/>
     </div>
     <div class="form-error-row">
-      <p class="input-full">errr</p>
+      <p class="input-full" [innerText]="emailError"></p>
     </div>
 
     <div class="form-row">
       <input class="input-half" autocomplete="off" type="password" placeholder="Password"/>
     </div>
     <div class="form-error-row">
-      <p class="input-full">errr</p>
+      <p class="input-full" [innerText]="passwordError"></p>
     </div>
 
     <div id="extra-info">
@@ -36,7 +36,7 @@
         <label>Other</label>
       </div>
       <div class="form-error-row">
-        <p class="input-full">errr</p>
+        <p class="input-full" [innerText]="birthdayError"></p>
       </div>
 
       <div class="form-row">
@@ -58,8 +58,8 @@
         <input class="input-half" autocomplete="off" type="text" placeholder="Phone number" />
       </div>
       <div class="form-error-row">
-        <p class="input-half"></p>
-        <p class="input-half">errr</p>
+        <p class="input-half" [innerText]="countryError"></p>
+        <p class="input-half" [innerText]="phoneNumberError"></p>
       </div>
 
       <div class="form-row">
@@ -67,8 +67,8 @@
         <input class="input-half" autocomplete="off" type="number" placeholder="Street number" />
       </div>
       <div class="form-error-row">
-        <p class="input-half">errr</p>
-        <p class="input-half">errr</p>
+        <p class="input-half" [innerText]="streetNameError"></p>
+        <p class="input-half" [innerText]="streetNumberError"></p>
       </div>
 
       <div class="form-row">
@@ -76,8 +76,8 @@
         <input class="input-half" autocomplete="off" type="text" placeholder="Postal code" />
       </div>
       <div class="form-error-row">
-        <p class="input-half">errr</p>
-        <p class="input-half">errr</p>
+        <p class="input-half" [innerText]="cityNameError"></p>
+        <p class="input-half" [innerText]="postalCodeError"></p>
       </div>
 
     </div>

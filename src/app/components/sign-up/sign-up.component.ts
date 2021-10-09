@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+  firstnameError = "";
+  lastnameError = "";
+  emailError = "";
+  passwordError = "";
+  birthdayError = "";
+  countryError = "";
+  phoneNumberError = "";
+  streetNameError = "";
+  streetNumberError = "";
+  cityNameError = "";
+  postalCodeError = "";
+
 
   constructor() { }
 
