@@ -18,9 +18,14 @@ export class SignUpComponent implements OnInit {
   cityNameError = "";
   postalCodeError = "";
 
+  showExtraInfo = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleExtraInfo() {
+    this.showExtraInfo = !this.showExtraInfo;
+  }
 }

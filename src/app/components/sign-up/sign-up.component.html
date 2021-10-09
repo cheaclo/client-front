@@ -25,7 +25,8 @@
       <p class="input-full" [innerText]="passwordError"></p>
     </div>
 
-    <div id="extra-info">
+    <p id="add-extra-info" (click)="toggleExtraInfo()">Add more & get more <img src="assets/icons/plus.svg" /></p>
+    <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
       <div class="form-row">
         <input class="input-half" autocomplete="off" type="date" placeholder="Birthday&nbsp;" />
         <input class="input-one-sixth radio-input" type="radio" name="gender" value="man" checked/>

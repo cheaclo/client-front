@@ -16,6 +16,26 @@
     align-items: center;
   }
 
+  #add-extra-info {
+    align-self: flex-start;
+    margin-top: 2em;
+    display: flex;
+    align-items: flex-end;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    img {
+      width: 1.5em;
+      padding-left: 1em;
+    }
+  }
+
+  #extra-info {
+    width: 100%;
+  }
+
   #phoneNumberInput {
     padding-top: 1.5em;
     margin-top: 0.5em;
@@ -23,10 +43,6 @@
 
   form {
     width: 60%;
-
-    #extra-info {
-      width: 100%;
-    }
 
     .input-full {
       min-width: 100%;
@@ -38,6 +54,16 @@
 
     .input-one-sixth {
       min-width: 10%;
+    }
+
+    .visible {
+      visibility: visible;
+      max-height: fit-content;
+    }
+
+    .hidden {
+      visibility: hidden;
+      max-height: 0;
     }
 
     .form-row {
