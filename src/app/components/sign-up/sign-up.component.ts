@@ -10,7 +10,8 @@ export class SignUpComponent implements OnInit {
   lastnameError = "";
   emailError = "";
   passwordError = "";
-  birthdayError = "";
+  repeatPasswordError = "";
+  birthdayError = "Birthday error";
   countryError = "";
   phoneNumberError = "";
   streetNameError = "";
@@ -18,7 +19,7 @@ export class SignUpComponent implements OnInit {
   cityNameError = "";
   postalCodeError = "";
 
-  showExtraInfo = false;
+  showExtraInfo = true;
 
   constructor() { }
 

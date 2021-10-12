@@ -1,5 +1,29 @@
 @import '/src/styles.scss';
 
+#add-extra-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin: 2em 0em 2em 3em;
+
+  img {
+    margin-left: 1em;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#extra-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .outer {
   display: flex;
   flex-direction: column;
@@ -10,70 +34,20 @@
     font-weight: normal;
   }
 
-  #extra-info, form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #add-extra-info {
-    align-self: flex-start;
-    margin-top: 2em;
-    display: flex;
-    align-items: flex-end;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    img {
-      width: 1.5em;
-      padding-left: 1em;
-    }
-  }
-
-  #extra-info {
-    width: 100%;
-  }
-
-  #phoneNumberInput {
-    padding-top: 1.5em;
-    margin-top: 0.5em;
-  }
-
   form {
-    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 75%;
 
-    .input-full {
-      min-width: 100%;
-    }
-
-    .input-half {
-      min-width: 40%;
-    }
-
-    .input-one-sixth {
-      min-width: 10%;
-    }
-
-    .visible {
-      visibility: visible;
-      max-height: fit-content;
-    }
-
-    .hidden {
-      visibility: hidden;
-      max-height: 0;
-    }
-
-    .form-row {
+    .input-element {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
+      flex-direction: column;
+      flex: 1;
 
       input {
         border-bottom: 1px solid $dark-grey;
-        margin: 2em 0 0.5em 0;
+        margin: 2em 2em 0.5em 2em;
         padding-bottom: 1em;
         padding-left: 2em;
       }
@@ -97,17 +71,15 @@
         }
       }
 
-      label {
-        box-sizing: padding-box;
-        align-self: flex-end;
-        padding-bottom: 1.5em;
+      input[type="radio"] {
+        margin: 0;
       }
 
       select, select:focus, select:visited {
         appearance: none;
         border: none;
         border-bottom: 1px solid $dark-grey;
-        margin: 2em 0 0.5em 0;
+        margin: 2em 2em 0.5em 2em;
         padding-bottom: 1em;
         padding-left: 2em;
         color: $placeholder-color;
@@ -122,27 +94,37 @@
           font-family: Spartan;
         }
       }
-    } //form-row
 
-    .form-error-row {
-      display: flex;
-      justify-content: space-around;
-      width: 95%;
-
-      p {
+      .error {
         margin: 0;
         font-size: 0.75em;
-        padding-left: 8em;
+        padding-left: 3em;
+        height: 1em;
         color: $error-color;
-
-        &:first-child {
-          padding-left: 0;
-        }
       }
+    }
 
+    .input-full {
+      min-width: 100%;
+    }
 
+    .input-half {
+      min-width: 50%;
+    }
 
-    } //form-error-row
+    .input-one-sixth {
+      min-width: 16%;
+    }
+
+    .visible {
+      visibility: visible;
+      max-height: fit-content;
+    }
+
+    .hidden {
+      visibility: hidden;
+      max-height: 0;
+    }
 
     button {
       border: none;
@@ -151,8 +133,7 @@
       font-family: Spartan;
       font-size: 1em;
       padding: 1em;
-      margin-top: 2em;
-
+      margin: 4em auto 2em auto;
       width: 50%;
 
       &:hover {
@@ -162,3 +143,13 @@
     }
   } //form
 } //.outer
+
+/* Mobile */
+@media screen and (max-width: $breakpoint-tablet) {
+  @import './scss/mobile.scss';
+}
+/* Tablet and Desktop */
+@media screen and (min-width: $breakpoint-tablet) {
+  @import './scss/desktop.scss';
+}
+

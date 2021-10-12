@@ -2,46 +2,35 @@
   <h1>Sign up</h1>
 
   <form>
-    <div class="form-row">
-      <input class="input-half" autocomplete="off" type="text" placeholder="Firstname"/>
-      <input class="input-half" autocomplete="off" type="text" placeholder="Lastname"/>
+    <div class="input-element input-half">
+      <input autocomplete="off" type="text" placeholder="Firstname"/>
+      <p class="error" [innerText]="firstnameError"></p>
     </div>
-    <div class="form-error-row">
-      <p class="input-half" [innerText]="firstnameError"></p>
-      <p class="input-half" [innerText]="lastnameError"></p>
+    <div class="input-element input-half">
+      <input autocomplete="off" type="text" placeholder="Lastname"/>
+      <p class="error" [innerText]="lastnameError"></p>
     </div>
-
-    <div class="form-row">
-      <input class="input-full" autocomplete="off" type="email" placeholder="Email"/>
+    <div class="input-element input-full">
+      <input autocomplete="off" type="email" placeholder="Email"/>
+      <p class="error" [innerText]="emailError"></p>
     </div>
-    <div class="form-error-row">
-      <p class="input-full" [innerText]="emailError"></p>
-    </div>
-
-    <div class="form-row">
+    <div class="input-element input-half">
       <input class="input-half" autocomplete="off" type="password" placeholder="Password"/>
+      <p class="error" [innerText]="passwordError"></p>
     </div>
-    <div class="form-error-row">
-      <p class="input-full" [innerText]="passwordError"></p>
+    <div class="input-element input-half">
+      <input autocomplete="off" type="password" placeholder="Repeat password"/>
+      <p class="error" [innerText]="repeatPasswordError"></p>
     </div>
 
-    <p id="add-extra-info" (click)="toggleExtraInfo()">Add more & get more <img src="assets/icons/plus.svg" /></p>
+    <div id="add-extra-info" (click)="toggleExtraInfo()">
+        Add more & get more
+      <img src="assets/icons/plus.svg" />
+    </div>
+
     <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
-      <div class="form-row">
-        <input class="input-half" autocomplete="off" type="date" placeholder="Birthday&nbsp;" />
-        <input class="input-one-sixth radio-input" type="radio" name="gender" value="man" checked/>
-        <label>Man</label>
-        <input class="input-one-sixth radio-input" type="radio" name="gender" value="woman"/>
-        <label>Woman</label>
-        <input class="input-one-sixth radio-input" type="radio" name="gender" value="other"/>
-        <label>Other</label>
-      </div>
-      <div class="form-error-row">
-        <p class="input-full" [innerText]="birthdayError"></p>
-      </div>
-
-      <div class="form-row">
-        <select class="input-half">
+      <div class="input-element input-half">
+        <select>
           <option value="" disabled selected>Country</option>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
@@ -56,32 +45,44 @@
           <option value="opel">Opel</option>
           <option value="audi">Audi</option>
         </select>
+        <p class="error" [innerText]="countryError"></p>
+      </div>
+      <div class="input-element input-half">
         <input id="phoneNumberInput" class="input-half" autocomplete="off" type="text" placeholder="Phone number" />
+        <p class="error" [innerText]="phoneNumberError"></p>
       </div>
-      <div class="form-error-row">
-        <p class="input-half" [innerText]="countryError"></p>
-        <p class="input-half" [innerText]="phoneNumberError"></p>
-      </div>
-
-      <div class="form-row">
+      <div class="input-element input-half">
         <input class="input-half" autocomplete="off" type="text" placeholder="Street name" />
+        <p class="error" [innerText]="streetNameError"></p>
+      </div>
+      <div class="input-element input-half">
         <input class="input-half" autocomplete="off" type="number" placeholder="Street number" />
+        <p class="error" [innerText]="streetNumberError"></p>
       </div>
-      <div class="form-error-row">
-        <p class="input-half" [innerText]="streetNameError"></p>
-        <p class="input-half" [innerText]="streetNumberError"></p>
-      </div>
-
-      <div class="form-row">
+      <div class="input-element input-half">
         <input class="input-half" autocomplete="off" type="text" placeholder="City name" />
+        <p class="error" [innerText]="cityNameError"></p>
+      </div>
+      <div class="input-element input-half">
         <input class="input-half" autocomplete="off" type="text" placeholder="Postal code" />
+        <p class="error" [innerText]="postalCodeError"></p>
       </div>
-      <div class="form-error-row">
-        <p class="input-half" [innerText]="cityNameError"></p>
-        <p class="input-half" [innerText]="postalCodeError"></p>
+      <div class="input-element input-half">
+        <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" />
+        <p class="error" [innerText]="birthdayError"></p>
       </div>
-
+      <div class="input-element input-half">
+        <div>
+          <input class="input-one-sixth" type="radio" name="gender" value="man" checked/>
+          <label>Man</label>
+          <input class="input-one-sixth" type="radio" name="gender" value="woman"/>
+          <label>Woman</label>
+          <input class="input-one-sixth" type="radio" name="gender" value="other"/>
+          <label>Other</label>
+        </div>
+      </div>
     </div>
+
     <button>Sign up</button>
   </form>
 </div>
