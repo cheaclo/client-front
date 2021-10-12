@@ -1,6 +1,5 @@
 import { SignInService } from './../../services/sign-in.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({

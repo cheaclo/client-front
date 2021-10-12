@@ -3,34 +3,40 @@
 
   <form>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="text" placeholder="Firstname" [ngClass]="{'valid-input': firstnameValid, 'invalid-input': !firstnameValid}"/>
-      <p class="error-message" [innerText]="firstnameErrorMessage"></p>
+      <input autocomplete="off" type="text" placeholder="Firstname" name="firstname"
+        [(ngModel)]="firstname.value" [ngClass]="{'valid-input': firstname.valid, 'invalid-input': !firstname.valid}"/>
+      <p class="error-message" [innerText]="firstname.currentMessage"></p>
     </div>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="text" placeholder="Lastname" [ngClass]="{'valid-input': lastnameValid, 'invalid-input': !lastnameValid}"/>
-      <p class="error-message" [innerText]="lastnameErrorMessage"></p>
+      <input autocomplete="off" type="text" placeholder="Lastname" name="lastname"
+        [(ngModel)]="lastname.value" [ngClass]="{'valid-input': lastname.valid, 'invalid-input': !lastname.valid}"/>
+      <p class="error-message" [innerText]="lastname.currentMessage"></p>
     </div>
     <div class="input-element input-large">
-      <input autocomplete="off" type="email" placeholder="Email" [ngClass]="{'valid-input': emailValid, 'invalid-input': !emailValid}"/>
-      <p class="error-message" [innerText]="emailErrorMessage"></p>
+      <input autocomplete="off" type="email" placeholder="Email" name="email"
+        [(ngModel)]="email.value" [ngClass]="{'valid-input': email.valid, 'invalid-input': !email.valid}"/>
+      <p class="error-message">{{email.currentMessage}}</p>
     </div>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="password" placeholder="Password" [ngClass]="{'valid-input': passwordValid, 'invalid-input': !passwordValid}"/>
-      <p class="error-message" [innerText]="passwordErrorMessage"></p>
+      <input autocomplete="off" type="password" placeholder="Password" name="email"
+        [(ngModel)]="password.value" [ngClass]="{'valid-input': password.valid, 'invalid-input': !password.valid}">
+      <p class="error-message">{{password.currentMessage}}</p>
     </div>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="password" placeholder="Repeat password" [ngClass]="{'valid-input': repeatPasswordValid, 'invalid-input': !repeatPasswordValid}"/>
-      <p class="error-message" [innerText]="repeatPasswordErrorMessage"></p>
+      <input autocomplete="off" type="password" placeholder="Repeat password" name="repeatPassword"
+        [(ngModel)]="repeatPassword.value" [ngClass]="{'valid-input': repeatPassword.valid, 'invalid-input': !repeatPassword.valid}">
+      <p class="error-message">{{repeatPassword.currentMessage}}</p>
     </div>
 
-    <div id="add-extra-info" (click)="toggleExtraInfo()">
+    <div id="add-extra-info" (click)="ngToggleExtraInfo()">
         Add more & get more
       <img src="assets/icons/plus.svg" />
     </div>
 
     <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
       <div class="input-element input-medium">
-        <select [ngClass]="{'valid-input': countryValid, 'invalid-input': !countryValid}">
+        <select name="country"
+          [(ngModel)]="country.value" [ngClass]="{'valid-input': country.valid, 'invalid-input': !country.valid}">
           <option value="" disabled selected>Country</option>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
@@ -45,44 +51,54 @@
           <option value="opel">Opel</option>
           <option value="audi">Audi</option>
         </select>
-        <p class="error-message" [innerText]="countryErrorMessage"></p>
+        <p class="error-message">{{country.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="Phone number" [ngClass]="{'valid-input': phoneNumberValid, 'invalid-input': !phoneNumberValid}"/>
-        <p class="error-message" [innerText]="phoneNumberErrorMessage"></p>
+        <input autocomplete="off" type="text" placeholder="Phone number" name="phoneNumber"
+          [(ngModel)]="phoneNumber.value" [ngClass]="{'valid-input': phoneNumber.valid, 'invalid-input': !phoneNumber.valid}"/>
+        <p class="error-message" >{{phoneNumber.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="Street name" [ngClass]="{'valid-input': streetNameValid, 'invalid-input': !streetNameValid}"/>
-        <p class="error-message" [innerText]="streetNameErrorMessage"></p>
+        <input autocomplete="off" type="text" placeholder="Street name" name="streetName"
+          [(ngModel)]="street.value" [ngClass]="{'valid-input': street.valid, 'invalid-input': !street.valid}"/>
+        <p class="error-message">{{street.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="number" placeholder="Street number" [ngClass]="{'valid-input': streetNumberValid, 'invalid-input': !streetNumberValid}"/>
-        <p class="error-message" [innerText]="streetNumberErrorMessage"></p>
+        <input autocomplete="off" type="number" placeholder="Street number" name="streetNumber" min="1" max="99999"
+          [(ngModel)]="streetNumber.value" [ngClass]="{'valid-input': streetNumber.valid, 'invalid-input': !streetNumber.valid}"/>
+        <p class="error-message">{{streetNumber.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="City name" [ngClass]="{'valid-input': cityNameValid, 'invalid-input': !cityNameValid}"/>
-        <p class="error-message" [innerText]="cityNameErrorMessage"></p>
+        <input autocomplete="off" type="text" placeholder="City name" name="city"
+          [(ngModel)]="city.value" [ngClass]="{'valid-input': city.valid, 'invalid-input': !city.valid}"/>
+        <p class="error-message">{{city.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="Postal code" [ngClass]="{'valid-input': postalCodeValid, 'invalid-input': !postalCodeValid}"/>
-        <p class="error-message" [innerText]="postalCodeErrorMessage"></p>
+        <input autocomplete="off" type="text" placeholder="Postal code" name="postalCode"
+          [(ngModel)]="postalCode.value" [ngClass]="{'valid-input': postalCode.valid, 'invalid-input': !postalCode.valid}"/>
+        <p class="error-message">{{postalCode.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" [ngClass]="{'valid-input': birthdayValid, 'invalid-input': !birthdayValid}"/>
-        <p class="error-message" [innerText]="birthdayErrorMessage"></p>
+        <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"
+          [(ngModel)]="birthday.value" [ngClass]="{'valid-input': birthday.valid, 'invalid-input': !birthday.valid}"/>
+        <p class="error-message">{{birthday.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <div id="gender-box">
-          <input class="input-small" type="radio" name="gender" value="man" checked/>
+          <input class="input-small" type="radio" name="gender" value="man"
+            [(ngModel)]="gender.value"/>
           <label>Man</label>
-          <input class="input-small" type="radio" name="gender" value="woman"/>
+          <input class="input-small" type="radio" name="gender" value="woman"
+            [(ngModel)]="gender.value"/>
           <label>Woman</label>
-          <input class="input-small" type="radio" name="gender" value="other"/>
+          <input class="input-small" type="radio" name="gender" value="other"
+            [(ngModel)]="gender.value"/>
           <label>Other</label>
         </div>
+        <p class="error-message">{{gender.currentMessage}}</p>
       </div>
     </div>
 
-    <button>Sign up</button>
+    <button (click)="ngSubmit()">Sign up</button>
   </form>
 </div>
