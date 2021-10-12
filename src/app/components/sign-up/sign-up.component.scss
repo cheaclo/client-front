@@ -36,7 +36,6 @@
       flex: 1;
 
       input {
-        border-bottom: 1px solid $dark-grey;
         margin: 2em 2em 0.5em 2em;
         padding-bottom: 1em;
         padding-left: 2em;
@@ -68,7 +67,6 @@
       select, select:focus, select:visited {
         appearance: none;
         border: none;
-        border-bottom: 1px solid $dark-grey;
         margin: 2em 2em 0.5em 2em;
         padding-bottom: 1em;
         color: $placeholder-color;
@@ -84,12 +82,28 @@
         }
       }
 
-      .error {
+      .error-message {
         margin: 0;
         font-size: 0.75em;
         padding-left: 3em;
         height: 1em;
         color: $error-color;
+      }
+
+      .invalid-input {
+        border-bottom: 1px solid $error-color;
+
+        &::placeholder {
+          color: $error-color;
+        }
+      }
+
+      .valid-input {
+        border-bottom: 1px solid $dark-grey;
+
+        &::placeholder {
+          color: $dark-grey;
+        }
       }
     }
 

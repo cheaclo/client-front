@@ -6,20 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  firstnameError = "";
-  lastnameError = "";
-  emailError = "";
-  passwordError = "";
-  repeatPasswordError = "";
-  birthdayError = "Birthday error";
-  countryError = "";
-  phoneNumberError = "";
-  streetNameError = "";
-  streetNumberError = "";
-  cityNameError = "";
-  postalCodeError = "";
+  firstnameValid = true;
+  lastnameValid = true;
+  emailValid = true;
+  passwordValid = true;
+  repeatPasswordValid = true;
+  countryValid = true;
+  phoneNumberValid = true;
+  streetNameValid = true;
+  streetNumberValid = true;
+  cityNameValid = true;
+  postalCodeValid = true;
+  birthdayValid = true;
 
-  showExtraInfo = true;
+  firstnameErrorMessage = "";
+  lastnameErrorMessage = "";
+  emailErrorMessage = "";
+  passwordErrorMessage = "";
+  repeatPasswordErrorMessage = "";
+  countryErrorMessage = "";
+  phoneNumberErrorMessage = "";
+  streetNameErrorMessage = "";
+  streetNumberErrorMessage = "";
+  cityNameErrorMessage = "";
+  postalCodeErrorMessage = "";
+  birthdayErrorMessage = "";
+
+  showExtraInfo = false;
 
   constructor() { }
 

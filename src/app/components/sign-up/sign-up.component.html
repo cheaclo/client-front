@@ -3,24 +3,24 @@
 
   <form>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="text" placeholder="Firstname"/>
-      <p class="error" [innerText]="firstnameError"></p>
+      <input autocomplete="off" type="text" placeholder="Firstname" [ngClass]="{'valid-input': firstnameValid, 'invalid-input': !firstnameValid}"/>
+      <p class="error-message" [innerText]="firstnameErrorMessage"></p>
     </div>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="text" placeholder="Lastname"/>
-      <p class="error" [innerText]="lastnameError"></p>
+      <input autocomplete="off" type="text" placeholder="Lastname" [ngClass]="{'valid-input': lastnameValid, 'invalid-input': !lastnameValid}"/>
+      <p class="error-message" [innerText]="lastnameErrorMessage"></p>
     </div>
     <div class="input-element input-large">
-      <input autocomplete="off" type="email" placeholder="Email"/>
-      <p class="error" [innerText]="emailError"></p>
+      <input autocomplete="off" type="email" placeholder="Email" [ngClass]="{'valid-input': emailValid, 'invalid-input': !emailValid}"/>
+      <p class="error-message" [innerText]="emailErrorMessage"></p>
     </div>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="password" placeholder="Password"/>
-      <p class="error" [innerText]="passwordError"></p>
+      <input autocomplete="off" type="password" placeholder="Password" [ngClass]="{'valid-input': passwordValid, 'invalid-input': !passwordValid}"/>
+      <p class="error-message" [innerText]="passwordErrorMessage"></p>
     </div>
     <div class="input-element input-medium">
-      <input autocomplete="off" type="password" placeholder="Repeat password"/>
-      <p class="error" [innerText]="repeatPasswordError"></p>
+      <input autocomplete="off" type="password" placeholder="Repeat password" [ngClass]="{'valid-input': repeatPasswordValid, 'invalid-input': !repeatPasswordValid}"/>
+      <p class="error-message" [innerText]="repeatPasswordErrorMessage"></p>
     </div>
 
     <div id="add-extra-info" (click)="toggleExtraInfo()">
@@ -30,7 +30,7 @@
 
     <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
       <div class="input-element input-medium">
-        <select>
+        <select [ngClass]="{'valid-input': countryValid, 'invalid-input': !countryValid}">
           <option value="" disabled selected>Country</option>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
@@ -45,31 +45,31 @@
           <option value="opel">Opel</option>
           <option value="audi">Audi</option>
         </select>
-        <p class="error" [innerText]="countryError"></p>
+        <p class="error-message" [innerText]="countryErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="Phone number" />
-        <p class="error" [innerText]="phoneNumberError"></p>
+        <input autocomplete="off" type="text" placeholder="Phone number" [ngClass]="{'valid-input': phoneNumberValid, 'invalid-input': !phoneNumberValid}"/>
+        <p class="error-message" [innerText]="phoneNumberErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="Street name" />
-        <p class="error" [innerText]="streetNameError"></p>
+        <input autocomplete="off" type="text" placeholder="Street name" [ngClass]="{'valid-input': streetNameValid, 'invalid-input': !streetNameValid}"/>
+        <p class="error-message" [innerText]="streetNameErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="number" placeholder="Street number" />
-        <p class="error" [innerText]="streetNumberError"></p>
+        <input autocomplete="off" type="number" placeholder="Street number" [ngClass]="{'valid-input': streetNumberValid, 'invalid-input': !streetNumberValid}"/>
+        <p class="error-message" [innerText]="streetNumberErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="City name" />
-        <p class="error" [innerText]="cityNameError"></p>
+        <input autocomplete="off" type="text" placeholder="City name" [ngClass]="{'valid-input': cityNameValid, 'invalid-input': !cityNameValid}"/>
+        <p class="error-message" [innerText]="cityNameErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="text" placeholder="Postal code" />
-        <p class="error" [innerText]="postalCodeError"></p>
+        <input autocomplete="off" type="text" placeholder="Postal code" [ngClass]="{'valid-input': postalCodeValid, 'invalid-input': !postalCodeValid}"/>
+        <p class="error-message" [innerText]="postalCodeErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
-        <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" />
-        <p class="error" [innerText]="birthdayError"></p>
+        <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" [ngClass]="{'valid-input': birthdayValid, 'invalid-input': !birthdayValid}"/>
+        <p class="error-message" [innerText]="birthdayErrorMessage"></p>
       </div>
       <div class="input-element input-medium">
         <div id="gender-box">
