@@ -1,0 +1,48 @@
+#gender-box {
+}
+
+#add-extra-info {
+  margin: 2em 0em 2em 3em;
+
+  img {
+    margin-left: 1em;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.outer {
+  form {
+    width: 75%;
+
+    .input-element {
+      input {
+        padding-left: 2em;
+      }
+
+      select, select:focus, select:visited {
+        padding-left: 2em;
+      }
+    }
+
+
+    .input-large {
+      min-width: 100%;
+    }
+
+    .input-medium {
+      min-width: 50%;
+    }
+
+    .input-small {
+      min-width: 16%;
+    }
+
+    button:hover {
+      cursor: pointer;
+      opacity: 0.95;
+    }
+  }
+}

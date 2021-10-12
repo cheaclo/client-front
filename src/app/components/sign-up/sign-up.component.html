@@ -2,23 +2,23 @@
   <h1>Sign up</h1>
 
   <form>
-    <div class="input-element input-half">
+    <div class="input-element input-medium">
       <input autocomplete="off" type="text" placeholder="Firstname"/>
       <p class="error" [innerText]="firstnameError"></p>
     </div>
-    <div class="input-element input-half">
+    <div class="input-element input-medium">
       <input autocomplete="off" type="text" placeholder="Lastname"/>
       <p class="error" [innerText]="lastnameError"></p>
     </div>
-    <div class="input-element input-full">
+    <div class="input-element input-large">
       <input autocomplete="off" type="email" placeholder="Email"/>
       <p class="error" [innerText]="emailError"></p>
     </div>
-    <div class="input-element input-half">
-      <input class="input-half" autocomplete="off" type="password" placeholder="Password"/>
+    <div class="input-element input-medium">
+      <input autocomplete="off" type="password" placeholder="Password"/>
       <p class="error" [innerText]="passwordError"></p>
     </div>
-    <div class="input-element input-half">
+    <div class="input-element input-medium">
       <input autocomplete="off" type="password" placeholder="Repeat password"/>
       <p class="error" [innerText]="repeatPasswordError"></p>
     </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
-      <div class="input-element input-half">
+      <div class="input-element input-medium">
         <select>
           <option value="" disabled selected>Country</option>
           <option value="volvo">Volvo</option>
@@ -47,37 +47,37 @@
         </select>
         <p class="error" [innerText]="countryError"></p>
       </div>
-      <div class="input-element input-half">
-        <input id="phoneNumberInput" class="input-half" autocomplete="off" type="text" placeholder="Phone number" />
+      <div class="input-element input-medium">
+        <input autocomplete="off" type="text" placeholder="Phone number" />
         <p class="error" [innerText]="phoneNumberError"></p>
       </div>
-      <div class="input-element input-half">
-        <input class="input-half" autocomplete="off" type="text" placeholder="Street name" />
+      <div class="input-element input-medium">
+        <input autocomplete="off" type="text" placeholder="Street name" />
         <p class="error" [innerText]="streetNameError"></p>
       </div>
-      <div class="input-element input-half">
-        <input class="input-half" autocomplete="off" type="number" placeholder="Street number" />
+      <div class="input-element input-medium">
+        <input autocomplete="off" type="number" placeholder="Street number" />
         <p class="error" [innerText]="streetNumberError"></p>
       </div>
-      <div class="input-element input-half">
-        <input class="input-half" autocomplete="off" type="text" placeholder="City name" />
+      <div class="input-element input-medium">
+        <input autocomplete="off" type="text" placeholder="City name" />
         <p class="error" [innerText]="cityNameError"></p>
       </div>
-      <div class="input-element input-half">
-        <input class="input-half" autocomplete="off" type="text" placeholder="Postal code" />
+      <div class="input-element input-medium">
+        <input autocomplete="off" type="text" placeholder="Postal code" />
         <p class="error" [innerText]="postalCodeError"></p>
       </div>
-      <div class="input-element input-half">
+      <div class="input-element input-medium">
         <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" />
         <p class="error" [innerText]="birthdayError"></p>
       </div>
-      <div class="input-element input-half">
-        <div>
-          <input class="input-one-sixth" type="radio" name="gender" value="man" checked/>
+      <div class="input-element input-medium">
+        <div id="gender-box">
+          <input class="input-small" type="radio" name="gender" value="man" checked/>
           <label>Man</label>
-          <input class="input-one-sixth" type="radio" name="gender" value="woman"/>
+          <input class="input-small" type="radio" name="gender" value="woman"/>
           <label>Woman</label>
-          <input class="input-one-sixth" type="radio" name="gender" value="other"/>
+          <input class="input-small" type="radio" name="gender" value="other"/>
           <label>Other</label>
         </div>
       </div>

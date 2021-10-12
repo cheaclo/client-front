@@ -1,0 +1,45 @@
+#gender-box {
+  display: flex;
+  margin: 2em 1em 0 1em;
+}
+
+#add-extra-info {
+  margin: 2em 0em 2em 2em;
+
+  img {
+    margin-left: 0.5em;
+  }
+}
+
+.outer {
+  form {
+    width: 100%;
+
+    .input-element {
+
+      input {
+        padding-left: 1em;
+      }
+
+      select, select:focus, select:visited {
+        padding-left: 1em;
+      }
+
+      label {
+        font-size: 0.75em;
+      }
+    }
+
+    .input-large {
+      min-width: 100%;
+    }
+
+    .input-medium {
+      min-width: 100%;
+    }
+
+    .input-small {
+      flex: 0.33;
+    }
+  }
+}
