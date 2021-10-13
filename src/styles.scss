@@ -47,6 +47,11 @@ body {
   .products {
 
   }
+
+  app-product {
+    display: flex;
+    align-items: stretch;
+  }
 }
 
 
