@@ -6,9 +6,9 @@
     <input autocomplete="off" type="password" placeholder="Password" name="password"
       [ngClass]="{valid: validPassword, invalid: !validPassword}" (change)="ngOnPasswordChange()" [(ngModel)]="password"/>
     <div id="error">
-      <p #signInErrorMessage></p>
-      <p #emailErrorMessage></p>
-      <p #passwordErrorMessage></p>
+      <p>{{signInErrorMessage}}</p>
+      <p>{{emailErrorMessage}}</p>
+      <p>{{passwordErrorMessage}}</p>
     </div>
     <button (click)="ngSignIn()">Sign in</button>
   </form>

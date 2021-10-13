@@ -1,5 +1,5 @@
 import { SignInService } from './../../services/sign-in.service';
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,12 +17,11 @@ export class SingInComponent implements OnInit {
   password!: string;
   validPassword: boolean = true;
 
-  @ViewChild('emailErrorMessage') emailErrorMessage!: ElementRef;
-  @ViewChild('passwordErrorMessage') passwordErrorMessage!: ElementRef;
-  @ViewChild('signInErrorMessage') signInErrorMessage!: ElementRef;
+  signInErrorMessage = '';
+  emailErrorMessage = '';
+  passwordErrorMessage = '';
 
-  constructor(private renderer: Renderer2,
-    private signInService: SignInService,
+  constructor(private signInService: SignInService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -39,9 +38,9 @@ export class SingInComponent implements OnInit {
           sessionStorage.setItem('user', JSON.stringify(res.user));
           this.router.navigateByUrl('/');
         } else {
-          this.renderer.setProperty(this.emailErrorMessage.nativeElement, 'innerHTML', '');
-          this.renderer.setProperty(this.passwordErrorMessage.nativeElement, 'innerHTML', '');
-          this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', res.message);
+          this.signInErrorMessage = res.message;
+          this.passwordErrorMessage = '';
+          this.emailErrorMessage = '';
         }
       })
   }
@@ -51,16 +50,14 @@ export class SingInComponent implements OnInit {
   }
 
   ngOnEmailChange(): void {
-    this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', '');
+    this.signInErrorMessage = '';
     this.validEmail = this.EMAIL_REGEX.test(this.email);
-    let errorMessage = this.validEmail ? '' : this.ERROR_EMAIL_MESSAGE;
-    this.renderer.setProperty(this.emailErrorMessage.nativeElement, 'innerHTML', errorMessage);
+    this.emailErrorMessage = this.validEmail ? '' : this.ERROR_EMAIL_MESSAGE;
   }
 
   ngOnPasswordChange(): void {
-    this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', '');
+    this.signInErrorMessage = '';
     this.validPassword = this.password.length >= 5 && this.password.length < 30;
-    let errorMessage = this.validPassword ? '' : this.ERROR_PASSOWORD_MESSAGE;
-    this.renderer.setProperty(this.passwordErrorMessage.nativeElement, 'innerHTML', errorMessage);
+    this.passwordErrorMessage = this.validPassword ? '' : this.ERROR_PASSOWORD_MESSAGE;
   }
 }
