@@ -4,27 +4,27 @@
   <form>
     <div class="input-element input-medium">
       <input autocomplete="off" type="text" placeholder="Firstname" name="firstname"
-        [(ngModel)]="firstname.value" [ngClass]="{'valid-input': firstname.valid, 'invalid-input': !firstname.valid}"/>
+        [(ngModel)]="firstname.value" [ngClass]="{'valid-input': firstname.valid, 'invalid-input': !firstname.valid}" (change)="ngOnFieldChange()"/>
       <p class="error-message" [innerText]="firstname.currentMessage"></p>
     </div>
     <div class="input-element input-medium">
       <input autocomplete="off" type="text" placeholder="Lastname" name="lastname"
-        [(ngModel)]="lastname.value" [ngClass]="{'valid-input': lastname.valid, 'invalid-input': !lastname.valid}"/>
+        [(ngModel)]="lastname.value" [ngClass]="{'valid-input': lastname.valid, 'invalid-input': !lastname.valid}" (change)="ngOnFieldChange()"/>
       <p class="error-message" [innerText]="lastname.currentMessage"></p>
     </div>
     <div class="input-element input-large">
       <input autocomplete="off" type="email" placeholder="Email" name="email"
-        [(ngModel)]="email.value" [ngClass]="{'valid-input': email.valid, 'invalid-input': !email.valid}"/>
+        [(ngModel)]="email.value" [ngClass]="{'valid-input': email.valid, 'invalid-input': !email.valid}" (change)="ngOnFieldChange()"/>
       <p class="error-message">{{email.currentMessage}}</p>
     </div>
     <div class="input-element input-medium">
       <input autocomplete="off" type="password" placeholder="Password" name="email"
-        [(ngModel)]="password.value" [ngClass]="{'valid-input': password.valid, 'invalid-input': !password.valid}">
+        [(ngModel)]="password.value" [ngClass]="{'valid-input': password.valid, 'invalid-input': !password.valid}" (change)="ngOnFieldChange()"/>
       <p class="error-message">{{password.currentMessage}}</p>
     </div>
     <div class="input-element input-medium">
       <input autocomplete="off" type="password" placeholder="Repeat password" name="repeatPassword"
-        [(ngModel)]="repeatPassword.value" [ngClass]="{'valid-input': repeatPassword.valid, 'invalid-input': !repeatPassword.valid}">
+        [(ngModel)]="repeatPassword.value" [ngClass]="{'valid-input': repeatPassword.valid, 'invalid-input': !repeatPassword.valid}" (change)="ngOnFieldChange()"/>
       <p class="error-message">{{repeatPassword.currentMessage}}</p>
     </div>
 
@@ -36,7 +36,7 @@
     <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
       <div class="input-element input-medium">
         <select name="country"
-          [(ngModel)]="country.value" [ngClass]="{'valid-input': country.valid, 'invalid-input': !country.valid}" #countrySelector>
+          [(ngModel)]="country.value" [ngClass]="{'valid-input': country.valid, 'invalid-input': !country.valid}" #countrySelector (change)="ngOnFieldChange()">
           <option value="" disabled selected>Country</option>
           <option *ngFor="let c of countries" value="{{c}}">{{c | titlecase }}</option>
         </select>
@@ -44,32 +44,32 @@
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="Phone number" name="phoneNumber"
-          [(ngModel)]="phoneNumber.value" [ngClass]="{'valid-input': phoneNumber.valid, 'invalid-input': !phoneNumber.valid}"/>
+          [(ngModel)]="phoneNumber.value" [ngClass]="{'valid-input': phoneNumber.valid, 'invalid-input': !phoneNumber.valid}" (change)="ngOnFieldChange()"/>
         <p class="error-message" >{{phoneNumber.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="Street name" name="streetName"
-          [(ngModel)]="street.value" [ngClass]="{'valid-input': street.valid, 'invalid-input': !street.valid}"/>
+          [(ngModel)]="street.value" [ngClass]="{'valid-input': street.valid, 'invalid-input': !street.valid}" (change)="ngOnFieldChange()"/>
         <p class="error-message">{{street.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="number" placeholder="Street number" name="streetNumber" min="1" max="99999"
-          [(ngModel)]="streetNumber.value" [ngClass]="{'valid-input': streetNumber.valid, 'invalid-input': !streetNumber.valid}"/>
+          [(ngModel)]="streetNumber.value" [ngClass]="{'valid-input': streetNumber.valid, 'invalid-input': !streetNumber.valid}" (change)="ngOnFieldChange()"/>
         <p class="error-message">{{streetNumber.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="City name" name="city"
-          [(ngModel)]="city.value" [ngClass]="{'valid-input': city.valid, 'invalid-input': !city.valid}"/>
+          [(ngModel)]="city.value" [ngClass]="{'valid-input': city.valid, 'invalid-input': !city.valid}" (change)="ngOnFieldChange()"/>
         <p class="error-message">{{city.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="Postal code" name="postalCode"
-          [(ngModel)]="postalCode.value" [ngClass]="{'valid-input': postalCode.valid, 'invalid-input': !postalCode.valid}"/>
+          [(ngModel)]="postalCode.value" [ngClass]="{'valid-input': postalCode.valid, 'invalid-input': !postalCode.valid}" (change)="ngOnFieldChange()"/>
         <p class="error-message">{{postalCode.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"
-          [(ngModel)]="birthday.value" [ngClass]="{'valid-input': birthday.valid, 'invalid-input': !birthday.valid}"/>
+          [(ngModel)]="birthday.value" [ngClass]="{'valid-input': birthday.valid, 'invalid-input': !birthday.valid}" (change)="ngOnFieldChange()"/>
         <p class="error-message">{{birthday.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">

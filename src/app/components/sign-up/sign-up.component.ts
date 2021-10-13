@@ -140,6 +140,10 @@ export class SignUpComponent implements OnInit {
     this.showExtraInfo = !this.showExtraInfo;
   }
 
+  ngOnFieldChange(): void {
+    this.validFields();
+  }
+
   ngSubmit(): void {
     let valid = this.validFields();
     if (valid) {
