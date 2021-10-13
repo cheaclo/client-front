@@ -1,5 +1,6 @@
+import { SignUpService } from './../../services/sign-up.service';
 import { FormInput } from './../../models/formInput';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +11,8 @@ export class SignUpComponent implements OnInit {
   EMAIL_REGEX = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   CITY_REGEX = new RegExp(/^\w+[\s*\w*]*$/);
   POSTAL_CODE_REGEX = new RegExp(/^\w{6}$/);
+
+  countries: string[] = [];
 
   firstname: FormInput = {
     errorMessage: "Invalid firstname",
@@ -124,9 +127,11 @@ export class SignUpComponent implements OnInit {
 
   showExtraInfo = false;
 
-  constructor() { }
+  constructor(private signUpService: SignUpService) { }
 
   ngOnInit(): void {
+    this.signUpService.getCountires()
+    .subscribe(countries => this.countries = countries)
   }
 
   ngToggleExtraInfo(): void {

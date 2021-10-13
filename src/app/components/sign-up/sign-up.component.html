@@ -36,20 +36,9 @@
     <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
       <div class="input-element input-medium">
         <select name="country"
-          [(ngModel)]="country.value" [ngClass]="{'valid-input': country.valid, 'invalid-input': !country.valid}">
+          [(ngModel)]="country.value" [ngClass]="{'valid-input': country.valid, 'invalid-input': !country.valid}" #countrySelector>
           <option value="" disabled selected>Country</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+          <option *ngFor="let c of countries" value="{{c}}">{{c | titlecase }}</option>
         </select>
         <p class="error-message">{{country.currentMessage}}</p>
       </div>
