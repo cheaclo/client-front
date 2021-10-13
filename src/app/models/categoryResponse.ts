@@ -1,4 +1,4 @@
-export interface CategoryMap {
+export interface CategoryResponse {
   name: string;
   available: boolean;
 }

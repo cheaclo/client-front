@@ -1,5 +1,7 @@
+import { CategoryResponse } from './../../models/categoryResponse';
+import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
-import { CategoryMap } from 'src/app/models/categoryMap';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-by-type',
@@ -7,20 +9,18 @@ import { CategoryMap } from 'src/app/models/categoryMap';
   styleUrls: ['./products-by-type.component.scss']
 })
 export class ProductsByTypeComponent implements OnInit {
-  categories: CategoryMap[] = [
-    {name: 'cat1', available: true},
-    {name: 'ghg', available: true},
-    {name: 'hjkhjk', available: false},
-    {name: 'cat1', available: true},
-    {name: 'cat1', available: true},
-    {name: 'safasfas', available: true},
-    {name: 'cat1', available: false},
-    {name: 'fasfsa', available: false},
-    {name: 'sdgsdgsdgdsg', available: true},
-    {name: 'cat1', available: true}
-  ];
+  categories: CategoryResponse[] = [];
 
-  constructor() { }
+  constructor(private categoryService: CategoryService,
+              private route: ActivatedRoute,
+              private router: Router) {
+
+    this.route.params.subscribe(params => {
+      const type = params['type'];
+      categoryService.getAllCategories(type)
+      .subscribe(categoriesResponse => this.categories = categoriesResponse);
+    });
+   }
 
   ngOnInit(): void {
   }

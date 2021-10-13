@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CategoryMap } from 'src/app/models/categoryMap';
+import { CategoryResponse } from 'src/app/models/categoryResponse';
 
 @Component({
   selector: 'app-categories',
@@ -7,7 +7,7 @@ import { CategoryMap } from 'src/app/models/categoryMap';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  @Input() categories: CategoryMap[] = [];
+  @Input() categories: CategoryResponse[] = [];
 
   constructor() { }
 
