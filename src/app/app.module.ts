@@ -16,6 +16,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ProductsByTypeComponent } from './components/products-by-type/products-by-type.component';
 import { TypesComponent } from './components/home/types/types.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     SignUpComponent,
     ProductsByTypeComponent,
     TypesComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
