@@ -1,1 +1,4 @@
-<p>categories works!</p>
+<p *ngFor="let c of categories"
+  [ngClass]="{'enabled': c.available, 'disabled': !c.available}">
+  {{c.name}}
+</p>
