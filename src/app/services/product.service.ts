@@ -10,6 +10,7 @@ import { Shop } from '../models/shop';
 export class ProductService {
   getMatchedProductsPath: string = '/clothes/product/match';
   getMatchedFiveFirstProductsPath: string = '/clothes/product/match/five';
+  getAllProductsByTypePath: string = '/clothes/product/byType';
 
   constructor(private http: HttpClient) { }
 
@@ -31,5 +32,10 @@ export class ProductService {
       shopsName.push(shop.name);
     }
     return shopsName;
+  }
+
+  getAllProductsByType(type: string): Observable<ProductResponse[]> {
+    const parameters = new HttpParams().set('type', type);
+    return this.http.get<ProductResponse[]>(this.getAllProductsByTypePath, {params: parameters});
   }
 }
