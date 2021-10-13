@@ -15,6 +15,7 @@ import { SingInComponent } from './components/sing-in/sing-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ProductsByTypeComponent } from './components/products-by-type/products-by-type.component';
 import { TypesComponent } from './components/home/types/types.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TypesComponent } from './components/home/types/types.component';
     SingInComponent,
     SignUpComponent,
     ProductsByTypeComponent,
-    TypesComponent
+    TypesComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
