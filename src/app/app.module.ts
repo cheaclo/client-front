@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { SingInComponent } from './components/sing-in/sing-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ProductsByTypeComponent } from './components/products-by-type/products-by-type.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     FooterComponent,
     SearchComponent,
     SingInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProductsByTypeComponent
   ],
   imports: [
     BrowserModule,
