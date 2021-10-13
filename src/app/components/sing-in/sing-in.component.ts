@@ -34,14 +34,14 @@ export class SingInComponent implements OnInit {
 
     this.signInService.signIn(this.email, btoa(this.password))
       .subscribe(res => {
-        if (res.response.success) {
+        if (res.success) {
           sessionStorage.setItem('userLogged', 'true');
           sessionStorage.setItem('user', JSON.stringify(res.user));
           this.router.navigateByUrl('/');
         } else {
           this.renderer.setProperty(this.emailErrorMessage.nativeElement, 'innerHTML', '');
           this.renderer.setProperty(this.passwordErrorMessage.nativeElement, 'innerHTML', '');
-          this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', res.response.message);
+          this.renderer.setProperty(this.signInErrorMessage.nativeElement, 'innerHTML', res.message);
         }
       })
   }

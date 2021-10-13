@@ -1,4 +1,4 @@
-import { SignIn } from './../models/signIn';
+import { SignResponse } from '../models/signResponse';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ export class SignInService {
 
   constructor(private http: HttpClient) { }
 
-  signIn(email: string, password: string): Observable<SignIn> {
-    return this.http.post<SignIn>(this.signInPath, {email: email, password: password});
+  signIn(email: string, password: string): Observable<SignResponse> {
+    return this.http.post<SignResponse>(this.signInPath, {email: email, password: password});
   }
 }

@@ -15,6 +15,11 @@
   width: 100%;
 }
 
+#serverMessage {
+  margin-top: 2em;
+  width: 100%;
+}
+
 .outer {
   display: flex;
   flex-direction: column;
@@ -83,14 +88,6 @@
         }
       }
 
-      .error-message {
-        margin: 0;
-        font-size: 0.75em;
-        padding-left: 3em;
-        height: 1em;
-        color: $error-color;
-      }
-
       .invalid-input {
         border-bottom: 1px solid $error-color;
 
@@ -106,6 +103,14 @@
           color: $dark-grey;
         }
       }
+    }
+
+    .error-message {
+      margin: 0;
+      font-size: 0.75em;
+      padding-left: 3em;
+      height: 1em;
+      color: $error-color;
     }
 
     .visible {
@@ -125,7 +130,7 @@
       font-family: Spartan;
       font-size: 1em;
       padding: 1em;
-      margin: 4em auto 2em auto;
+      margin: 2em auto 2em auto;
       width: 50%;
     }
   } //form

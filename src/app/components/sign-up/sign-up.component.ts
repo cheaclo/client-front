@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SignUpService } from './../../services/sign-up.service';
 import { FormInput } from './../../models/formInput';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
@@ -13,6 +14,8 @@ export class SignUpComponent implements OnInit {
   POSTAL_CODE_REGEX = new RegExp(/^\w{6}$/);
 
   countries: string[] = [];
+  serverMessage = "";
+  showExtraInfo = false;
 
   firstname: FormInput = {
     errorMessage: "Invalid firstname",
@@ -54,42 +57,42 @@ export class SignUpComponent implements OnInit {
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || val === 'Country'}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || val === 'Country')}
   };
   phoneNumber: FormInput = {
     errorMessage: "Ivalid phone number",
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || val.length !== 9}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || val.length !== 9)}
   };
   street: FormInput = {
     errorMessage: "Invalid street name",
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || !(val.length >= 3 && val.length <= 50)}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || !(val.length >= 3 && val.length <= 50))}
   };
   streetNumber: FormInput = {
     errorMessage: "Allowed number between 1 and 99999",
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || Number(val) === NaN || !(Number(val) >= 1 && Number(val) <= 99999)}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || Number(val) === NaN || !(Number(val) >= 1 && Number(val) <= 99999))}
   };
   city: FormInput = {
     errorMessage: "Invalid city",
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || !this.CITY_REGEX.test(val)}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || !this.CITY_REGEX.test(val))}
   };
   postalCode: FormInput = {
     errorMessage: "Invalid postal code",
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || !this.POSTAL_CODE_REGEX.test(val)}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || !this.POSTAL_CODE_REGEX.test(val))}
   };
   birthday: FormInput = {
     errorMessage: "Invalid birthday",
@@ -98,7 +101,7 @@ export class SignUpComponent implements OnInit {
     value: "",
     validate: (val: string) => {
       let date = new Date(val);
-      return val === undefined || isNaN(Date.parse(val)) || date > new Date();
+      return this.showExtraInfo == true && (val === undefined || isNaN(Date.parse(val)) || date > new Date());
     }
   };
   gender: FormInput = {
@@ -106,7 +109,7 @@ export class SignUpComponent implements OnInit {
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || val === ""}
+    validate: (val: string) => {return this.showExtraInfo == true && (val === undefined || val === "")}
   };
 
   formFields: FormInput[] = [
@@ -125,9 +128,8 @@ export class SignUpComponent implements OnInit {
     this.gender
   ]
 
-  showExtraInfo = false;
-
-  constructor(private signUpService: SignUpService) { }
+  constructor(private signUpService: SignUpService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.signUpService.getCountires()
@@ -140,6 +142,18 @@ export class SignUpComponent implements OnInit {
 
   ngSubmit(): void {
     let valid = this.validFields();
+    if (valid) {
+      this.signUpService.signUp(this.getSingUpRequestBody())
+      .subscribe(res => {
+        if (res.success) {
+          sessionStorage.setItem('userLogged', 'true');
+          sessionStorage.setItem('user', JSON.stringify(res.user));
+          this.router.navigateByUrl('/');
+        } else {
+          this.serverMessage = res.message;
+        }
+      })
+    }
   }
 
   validFields(): boolean {
@@ -155,7 +169,6 @@ export class SignUpComponent implements OnInit {
       }
     }
 
-    console.log(this.formFields);
     return valid;
   }
 
@@ -163,6 +176,23 @@ export class SignUpComponent implements OnInit {
     for (let input of this.formFields) {
       input.valid = true;
       input.currentMessage = "";
+    }
+  }
+
+  getSingUpRequestBody(): any {
+    return {
+      firstname: this.firstname.value,
+      lastname: this.lastname.value,
+      email: this.email.value,
+      password: btoa(this.password.value),
+      birthday: this.birthday.value,
+      gender: this.gender.value === "" ? null : this.gender.value,
+      phone: this.phoneNumber.value,
+      street: this.street.value,
+      streetNumber: this.streetNumber.value,
+      city: this.city.value,
+      postalCode: this.postalCode.value,
+      country: this.country.value
     }
   }
 }
