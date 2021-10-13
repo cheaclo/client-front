@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Product } from '../models/product';
+import { ProductResponse } from '../models/productResponse';
 import { Shop } from '../models/shop';
 
 @Injectable({
@@ -13,16 +13,16 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getMatchedProducts(input: string, shops: Shop[]): Observable<Product[]> {
+  getMatchedProducts(input: string, shops: Shop[]): Observable<ProductResponse[]> {
     let shopsName: string[] = this.retrieveShopsNames(shops);
     const parameters = new HttpParams().set('value', input).set('shops', shopsName.toString());
-    return this.http.get<Product[]>(this.getMatchedProductsPath, {params: parameters});
+    return this.http.get<ProductResponse[]>(this.getMatchedProductsPath, {params: parameters});
   }
 
-  getFirstFiveMatchedProducts(input: string, shops: Shop[]): Observable<Product[]> {
+  getFirstFiveMatchedProducts(input: string, shops: Shop[]): Observable<ProductResponse[]> {
     let shopsName: string[] = this.retrieveShopsNames(shops);
     const parameters = new HttpParams().set('value', input).set('shops', shopsName.toString());
-    return this.http.get<Product[]>(this.getMatchedFiveFirstProductsPath, {params: parameters});
+    return this.http.get<ProductResponse[]>(this.getMatchedFiveFirstProductsPath, {params: parameters});
   }
 
   retrieveShopsNames(shops: Shop[]): string[] {
