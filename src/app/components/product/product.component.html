@@ -1,1 +1,14 @@
-<p>product works!</p>
+<div class="outer">
+  <img class="product-image" [src]="product.details.imageUrl" (click)="ngRedirectToProduct()"/>
+  <div class="row">
+    <p>{{product.details.title}}</p>
+    <p>{{product.shop.name}}</p>
+  </div>
+  <div class="row">
+    <div class="price">
+      <p>{{product.details.price}}</p>
+      <p class="regular">{{product.details.regularPrice}}</p>
+    </div>
+    <img src="assets/icons/dots.svg">
+  </div>
+</div>

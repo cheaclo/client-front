@@ -1,0 +1,47 @@
+.outer {
+  margin: 0 0.5em 2em 0.5em;
+
+  .product-image {
+    width: 15em;
+    height: 20em;
+    object-fit: cover;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em 0;
+
+    p {
+      margin: 0;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+
+    .price {
+      display: flex;
+      align-items: flex-end;
+      font-size: 0.85em;
+      font-weight: bold;
+
+      .regular {
+        margin-left: 0.5em;
+        font-size: 0.7em;
+        font-weight: normal;
+      }
+    }
+
+    img {
+      width: 1em;
+      height: 1em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

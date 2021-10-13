@@ -14,34 +14,38 @@ $placeholder-color: rgb(161, 117, 117);
 $breakpoint-tablet: 768px;
 
 body {
-    margin: 0;
-    font-family: Spartan;
-    color: $dark-grey;
+  margin: 0;
+  font-family: Spartan;
+  color: $dark-grey;
 
-    input {
-      border: none;
+  input {
+    border: none;
 
-      &:focus {
-        outline: none;
-      }
-
-      &::placeholder {
-        font-family: Spartan;
-        color: $placeholder-color;
-      }
+    &:focus {
+      outline: none;
     }
 
-    a {
-      text-decoration: none;
-      color: $dark-grey;
+    &::placeholder {
+      font-family: Spartan;
+      color: $placeholder-color;
+    }
+  }
 
-      &:hover {
-          cursor: pointer;
-      }
+  a {
+    text-decoration: none;
+    color: $dark-grey;
 
-      &:visited {
-          text-decoration: none;
-      }
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:visited {
+        text-decoration: none;
+    }
+  }
+
+  .products {
+
   }
 }
 
