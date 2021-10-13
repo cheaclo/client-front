@@ -1,3 +1,4 @@
+import { ProductsByTypeComponent } from './components/products-by-type/products-by-type.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SingInComponent } from './components/sing-in/sing-in.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'sign-in', component: SingInComponent },
-  { path: 'sign-up', component: SignUpComponent }
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'typedProducts/:type', component: ProductsByTypeComponent }
 ];
 
 @NgModule({
