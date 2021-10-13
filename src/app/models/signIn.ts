@@ -1,7 +1,7 @@
+import { Response } from './response';
 import { User } from './user';
 
 export interface SignIn {
-  success: string;
-  message: string;
+  response: Response;
   user: User;
 }
