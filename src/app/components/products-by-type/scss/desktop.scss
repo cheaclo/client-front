@@ -1,0 +1,9 @@
+.outer {
+  flex-direction: row;
+
+  button {
+    display: none;
+  }
+
+  .visible, .hidden {}
+}

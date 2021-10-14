@@ -13,6 +13,7 @@ import { ProductResponse } from 'src/app/models/productResponse';
 export class ProductsByTypeComponent implements OnInit {
   categories: CategoryResponse[] = [];
   products: ProductResponse[] = [];
+  showCategories = false;
 
   constructor(private categoryService: CategoryService,
               private productService: ProductService,
@@ -27,8 +28,6 @@ export class ProductsByTypeComponent implements OnInit {
       .subscribe(products => {
         this.products = products;
       });
-
-
     });
 
    }
@@ -36,4 +35,7 @@ export class ProductsByTypeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngShowCategories(): void {
+    this.showCategories = !this.showCategories;
+  }
 }

@@ -1,5 +1,6 @@
 <div class="outer">
-  <app-categories [categories]="categories"></app-categories>
+  <button (click)="ngShowCategories()">Show categories</button>
+  <app-categories [categories]="categories" [ngClass]="{'visible': showCategories, 'hidden': !showCategories}"></app-categories>
   <app-products-list [products]="products" [numOfProducts]="products.length"></app-products-list>
 </div>
 
