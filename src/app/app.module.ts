@@ -21,6 +21,7 @@ import { DoublePipe } from './pipes/double.pipe';
 import { CategoryNamePipe } from './pipes/category-name.pipe';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProductComponent,
     DoublePipe,
     CategoryNamePipe,
-    ProductsListComponent
+    ProductsListComponent,
+    ProductsByShopComponent
   ],
   imports: [
     BrowserModule,
