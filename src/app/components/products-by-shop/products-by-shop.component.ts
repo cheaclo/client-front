@@ -27,10 +27,11 @@ export class ProductsByShopComponent implements OnInit {
       .subscribe(categoriesResponse => this.categories = categoriesResponse);
 
 
-      // productService.getAllProductsByType(this.shop)
-      // .subscribe(products => {
-      //   this.products = products;
-      // });
+      productService.getAllProductsByShop(this.shop)
+      .subscribe(products => {
+        // Shuffle products
+        this.products = products.sort((a, b) => 0.5 - Math.random());
+      });
     });
 
    }
