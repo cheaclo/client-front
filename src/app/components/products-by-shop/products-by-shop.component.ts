@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CategoryResponse } from 'src/app/models/categoryResponse';
+import { CategoryByShopResponse } from 'src/app/models/categoryByShopResponse';
 import { ProductResponse } from 'src/app/models/productResponse';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./products-by-shop.component.scss']
 })
 export class ProductsByShopComponent implements OnInit {
-  categories: CategoryResponse[] = [];
+  categories: CategoryByShopResponse[] = [];
   products: ProductResponse[] = [];
   showCategories = false;
   shop: string = "";
@@ -22,13 +22,14 @@ export class ProductsByShopComponent implements OnInit {
 
     route.params.subscribe(params => {
       this.shop = params['shop'];
-      categoryService.getAllCategories(this.shop)
-      .subscribe(categoriesResponse => this.categories = categoriesResponse);
+      categoryService.getAllCategoriesByShop(this.shop)
+      .subscribe(categoriesResponse => {this.categories = categoriesResponse;  console.log(this.categories)});
 
-      productService.getAllProductsByType(this.shop)
-      .subscribe(products => {
-        this.products = products;
-      });
+
+      // productService.getAllProductsByType(this.shop)
+      // .subscribe(products => {
+      //   this.products = products;
+      // });
     });
 
    }
