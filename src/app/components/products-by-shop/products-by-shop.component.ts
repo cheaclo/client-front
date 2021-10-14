@@ -33,7 +33,6 @@ export class ProductsByShopComponent implements OnInit {
         this.products = products.sort((a, b) => 0.5 - Math.random());
       });
     });
-
    }
 
   ngOnInit(): void {

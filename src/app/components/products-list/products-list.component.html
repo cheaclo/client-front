@@ -6,5 +6,5 @@
       totalItems: numOfProducts}" [product]="product"></app-product>
   </div>
   <pagination-controls *ngIf="numOfProducts > 24"
-    (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+    (pageChange)="ngOnPageChange($event)" previousLabel="" nextLabel=""></pagination-controls>
 </div>

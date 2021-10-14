@@ -9,10 +9,15 @@ import { Component, Input, OnInit, AfterViewInit, ViewChild, ElementRef, Rendere
 export class ProductsListComponent implements OnInit {
   @Input() products: ProductResponse[] = [];
   @Input() numOfProducts = 0;
-  page: any;
+  page!: number;
 
   constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnPageChange(page: number): void {
+    this.page = page;
+    window.scroll(0, 0);
   }
 }
