@@ -1,17 +1,21 @@
-p {
-  font-size: 0.75em;
-  font-weight: bold;
-  margin: 0.5em;
-}
+.outer {
+  width:max-content;
 
-.enabled {
-  opacity: 1.0;
-
-  &:hover {
-    cursor: pointer;
+  p {
+    font-size: 0.75em;
+    font-weight: bold;
+    margin: 0.5em;
   }
-}
 
-.disabled {
-  opacity: 0.5;
+  .enabled {
+    opacity: 1.0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .disabled {
+    opacity: 0.5;
+  }
 }

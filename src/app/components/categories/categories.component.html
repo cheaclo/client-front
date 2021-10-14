@@ -1,4 +1,6 @@
-<p *ngFor="let c of categories"
+<div class="outer">
+  <p *ngFor="let c of categories"
   [ngClass]="{'enabled': c.available, 'disabled': !c.available}">
-  {{c.name}}
-</p>
+  {{c.name | categoryName}}
+</p></div>
+
