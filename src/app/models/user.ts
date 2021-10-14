@@ -1,8 +1,8 @@
 export interface User {
-  id: Number;
+  id: number;
   createDate: Date;
   accountInfo: {
-    id: Number;
+    id: number;
     firstname: string;
     lastname: string;
     email: string;
@@ -11,7 +11,7 @@ export interface User {
     gender: string;
     phone: string;
     address: {
-      id: Number;
+      id: number;
       street: string;
       streetNumber: string;
       city: string;

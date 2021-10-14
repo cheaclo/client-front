@@ -2,23 +2,23 @@ export interface ProductResponse {
   id: Number;
   details: {
     title: string;
-    price: Number;
-    regularPrice: Number;
+    price: number;
+    regularPrice: number;
     productUrl: string;
     imageUrl: string;
   }
   categories: {
-    id: Number;
+    id: number;
     name: string;
   }
   shop: {
-    id: Number;
+    id: number;
     name: string;
   }
   type: {
-    id: Number;
+    id: number;
     name: string;
   }
   lastUpdate: Date;
-  hash: Number;
+  hash: number;
 }

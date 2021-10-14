@@ -17,6 +17,7 @@ import { ProductsByTypeComponent } from './components/products-by-type/products-
 import { TypesComponent } from './components/home/types/types.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductComponent } from './components/product/product.component';
+import { DoublePipe } from './pipes/double.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductComponent } from './components/product/product.component';
     ProductsByTypeComponent,
     TypesComponent,
     CategoriesComponent,
-    ProductComponent
+    ProductComponent,
+    DoublePipe
   ],
   imports: [
     BrowserModule,
