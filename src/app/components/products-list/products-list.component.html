@@ -1,0 +1,6 @@
+<div class="outer">
+  <div class="products">
+    <app-product *ngFor="let product of products.slice(0, RENDER_SIZE)" [product]="product"></app-product>
+  </div>
+  <button (click)="ngRenderProducts()">Show more</button>
+</div>
