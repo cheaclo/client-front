@@ -14,8 +14,8 @@ export class ShopSearchComponent implements OnInit {
   IMAGES_EXT = '.png';
 
   shops: Shop[] = [];
-  shopName!: string;
-  @ViewChild('hints') hints!: ElementRef;
+  searchedShop!: string;
+  shopsName: string[] = [];
   searchInputUpdate = new Subject<string>();
 
   constructor(private shopService: ShopService,
@@ -45,19 +45,12 @@ export class ShopSearchComponent implements OnInit {
   }
 
   fetchMatchedShops(input: string): void {
-    this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
-
+    this.shopsName = [];
     if (input.length == 0) {
       return;
     }
 
     this.shopService.getMatchedShops(input)
-      .subscribe(shopsName => {
-        for (let name of shopsName.slice(0, 5)) {
-          const p: HTMLParagraphElement = this.renderer.createElement('p');
-          p.innerHTML = name.toLowerCase();
-          this.renderer.appendChild(this.hints.nativeElement, p)
-        }
-      })
+      .subscribe(shopsName => this.shopsName = shopsName.slice(0, 5))
   }
 }
