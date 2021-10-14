@@ -1,3 +1,4 @@
+import { ShopService } from './../../services/shop.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,13 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShopsComponent implements OnInit {
   shopParam: string = "";
-  shops: string[] = ['hm', 'ca', 'reserved', 'hm', 'ca', 'reserved', 'hm', 'ca', 'reserved', 'hm', 'ca', 'reserved'];
+  shops: string[] = [];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private shopService: ShopService) {
     route.params.subscribe(params => {
       this.shopParam = params['shop'];
-    });
 
+      shopService.getMatchedShops(this.shopParam)
+      .subscribe(shops => this.shops = shops);
+    });
   }
 
   ngOnInit(): void {
