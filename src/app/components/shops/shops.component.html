@@ -1,6 +1,6 @@
 <div class="empty" *ngIf="shops.length <= 0">
   <p>Sorry, no shops found</p>
 </div>
-<div *ngIf="shops.length > 0">
-  full
+<div class="full"*ngIf="shops.length > 0">
+  <img *ngFor="let shop of shops" [src]="'assets/images/' + shop + '.png'" [routerLink]="['/products-by-shop', {'shop': shop}]">
 </div>

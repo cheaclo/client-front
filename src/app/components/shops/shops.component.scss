@@ -8,3 +8,17 @@
     font-weight: bold;
   }
 }
+
+.full {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3em;
+
+  img {
+    width: 10em;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

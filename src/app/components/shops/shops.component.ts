@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShopsComponent implements OnInit {
   shopParam: string = "";
-  shops: string[] = [];
+  shops: string[] = ['hm', 'ca', 'reserved', 'hm', 'ca', 'reserved', 'hm', 'ca', 'reserved', 'hm', 'ca', 'reserved'];
 
   constructor(private route: ActivatedRoute) {
     route.params.subscribe(params => {
