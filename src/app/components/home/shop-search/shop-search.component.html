@@ -1,10 +1,11 @@
 <div class="outer">
   <div id="search">
-    <input type="text" autocomplete="off" placeholder="Search for shop..." [(ngModel)]="shopName" (ngModelChange)="this.searchInputUpdate.next($event)" />
+    <input type="text" autocomplete="off" placeholder="Search for shop..."
+      [(ngModel)]="shopName" (ngModelChange)="this.searchInputUpdate.next($event)"/>
     <img (click)="ngOnSearch()" src="assets/icons/search.svg" />
     <div id="hints" #hints></div>
   </div>
   <div id="shops">
-    <img [src]="shop.imageSource" *ngFor="let shop of shops"/>
+    <img [src]="shop.imageSource" *ngFor="let shop of shops" [routerLink]="['/products-by-shop', {'shop': shop.name}]"/>
   </div>
 </div>
