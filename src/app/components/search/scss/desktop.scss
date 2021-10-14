@@ -3,6 +3,8 @@
   margin: 7em 2em 0 2em;
 
   #shops {
+    flex: 0.3;
+
     #shops-icons {
       width: 70%;
       margin-top: 2em;
@@ -16,6 +18,8 @@
   }
 
   #search {
+    flex: 0.7;
+
     img:hover {
       cursor: pointer;
     }

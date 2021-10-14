@@ -6,7 +6,6 @@
 
   #shops {
     display: flex;
-    flex: 0.3;
     flex-direction: column;
     justify-content: center;
 
@@ -36,7 +35,6 @@
   #search {
     display: flex;
     flex-direction: column;
-    flex: 0.7;
 
     #input-div {
       display: flex;

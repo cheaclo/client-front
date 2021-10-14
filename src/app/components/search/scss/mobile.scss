@@ -4,6 +4,7 @@
   align-items: center;
 
   #shops {
+    width: 80%;
 
     p {
       text-align: center;
@@ -13,5 +14,9 @@
       margin-bottom: 2em;
 
     }
+  }
+
+  #search {
+    width: 80%;
   }
 }
