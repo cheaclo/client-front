@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CategoryResponse } from 'src/app/models/categoryResponse';
+import { CategoryType } from 'src/app/models/categoryType';
 
 @Component({
   selector: 'app-categories',
@@ -7,8 +8,10 @@ import { CategoryResponse } from 'src/app/models/categoryResponse';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
+  @Input() type: string = "";
   @Input() categories: CategoryResponse[] = [];
   @Output() changeCategory = new EventEmitter<string>();
+  @Output() changeCategoryByShop = new EventEmitter<CategoryType>();
 
   constructor() { }
 
@@ -18,6 +21,9 @@ export class CategoriesComponent implements OnInit {
   ngOnCategoryClick(category: CategoryResponse) {
     if (category.available) {
       this.changeCategory.emit(category.name);
+      this.changeCategoryByShop.emit({
+        category: category.name,
+        type: this.type});
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryByShopResponse } from 'src/app/models/categoryByShopResponse';
+import { CategoryType } from 'src/app/models/categoryType';
 import { ProductResponse } from 'src/app/models/productResponse';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -41,6 +42,7 @@ export class ProductsByShopComponent implements OnInit {
     this.showCategories = !this.showCategories;
   }
 
-  ngChangeCategory(category: string): void {
+  ngChangeCategory(category: CategoryType): void {
+    console.log(category);
   }
 }

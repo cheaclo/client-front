@@ -3,7 +3,7 @@
   <div>
     <div class="categories" *ngFor="let category of categories">
       <p>{{category.type.name}}</p>
-      <app-categories (changeCategory)="ngChangeCategory($event)" [categories]="category.categories" [ngClass]="{'visible': showCategories, 'hidden': !showCategories}"></app-categories>
+      <app-categories (changeCategoryByShop)="ngChangeCategory($event)" [type]="category.type.name" [categories]="category.categories" [ngClass]="{'visible': showCategories, 'hidden': !showCategories}"></app-categories>
     </div>
   </div>
   <app-products-list [products]="products" [numOfProducts]="products.length"></app-products-list>
