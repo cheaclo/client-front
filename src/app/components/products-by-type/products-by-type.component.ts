@@ -27,7 +27,8 @@ export class ProductsByTypeComponent implements OnInit {
 
       productService.getAllProductsByType(this.type)
       .subscribe(products => {
-        this.products = products;
+        // Shuffle products
+        this.products = products.sort((a, b) => 0.5 - Math.random());
       });
     });
 
