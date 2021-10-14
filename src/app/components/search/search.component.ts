@@ -72,7 +72,7 @@ export class SearchComponent implements OnInit {
   fetchMatchedProducts(input: string): void {
     this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
 
-    if (input.length == 0) {
+    if (input === undefined || input.length == 0) {
       return;
     }
 
