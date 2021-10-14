@@ -25,7 +25,7 @@ export class ProductsByTypeComponent implements OnInit {
 
       productService.getAllProductsByType(type)
       .subscribe(products => {
-        this.products = products.slice(0, 25); //slice protection
+        this.products = products;
       });
 
 

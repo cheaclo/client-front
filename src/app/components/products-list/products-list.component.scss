@@ -11,20 +11,8 @@
     padding-left: 1em;
   }
 
-  button {
+  pagination-controls {
     align-self: center;
-    border: 1px solid $medium-grey;
-    background-color: $light-grey;
-    color: $dark-grey;
-    box-shadow: $box-shadow;
-    font-family: Spartan;
-    font-size: 1em;
-    padding: 1em 3em;
-    margin-top: 2em;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 }
 

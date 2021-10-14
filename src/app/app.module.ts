@@ -20,6 +20,7 @@ import { ProductComponent } from './components/product/product.component';
 import { DoublePipe } from './pipes/double.pipe';
 import { CategoryNamePipe } from './pipes/category-name.pipe';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProductsListComponent } from './components/products-list/products-list.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

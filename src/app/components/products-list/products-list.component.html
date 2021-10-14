@@ -1,6 +1,9 @@
 <div class="outer">
-  <div class="products">
-    <app-product *ngFor="let product of products.slice(0, RENDER_SIZE)" [product]="product"></app-product>
+  <div class="products" #productsBox>
+    <app-product *ngFor="let product of products | paginate: {
+      itemsPerPage: 24,
+      currentPage: page,
+      totalItems: numOfProducts}" [product]="product"></app-product>
   </div>
-  <button (click)="ngRenderProducts()">Show more</button>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>"
 </div>

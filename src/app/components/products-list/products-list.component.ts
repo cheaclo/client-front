@@ -1,6 +1,5 @@
 import { ProductResponse } from 'src/app/models/productResponse';
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, Input, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-products-list',
@@ -8,16 +7,12 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  RENDER_SIZE = 24;
-
   @Input() products: ProductResponse[] = [];
+  @Input() numOfProducts = 0;
+  page: any;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
-  }
-
-  ngRenderProducts(): void {
-
   }
 }
