@@ -53,7 +53,7 @@ export class ShopSearchComponent implements OnInit {
 
     this.shopService.getMatchedShops(input)
       .subscribe(shopsName => {
-        for (let name of shopsName) {
+        for (let name of shopsName.slice(0, 5)) {
           const p: HTMLParagraphElement = this.renderer.createElement('p');
           p.innerHTML = name.toLowerCase();
           this.renderer.appendChild(this.hints.nativeElement, p)
