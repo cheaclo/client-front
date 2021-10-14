@@ -8,6 +8,7 @@ import { ProductResponse } from 'src/app/models/productResponse';
 })
 export class ProductComponent implements OnInit {
   @Input() product!: ProductResponse;
+  showActionBox = false;
 
   constructor() { }
 
@@ -19,5 +20,17 @@ export class ProductComponent implements OnInit {
       this.product.details.productUrl,
       '_blank'
     );
+  }
+
+  ngToggleActionBox(): void {
+    this.showActionBox = !this.showActionBox;
+  }
+
+  ngAddToCart(): void {
+
+  }
+
+  ngAddToSaved(): void {
+
   }
 }

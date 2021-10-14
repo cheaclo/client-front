@@ -9,6 +9,10 @@
       <p>{{product.details.price}}</p>
       <p class="regular">{{product.details.regularPrice}}</p>
     </div>
-    <img src="assets/icons/dots.svg">
+    <img src="assets/icons/dots.svg" (click)="ngToggleActionBox()">
+    <div class="actionBox" [ngClass]="{'visible': showActionBox, 'hidden': !showActionBox}">
+      <p (click)="ngAddToCart()">Add to cart</p>
+      <p class="last" (click)="ngAddToSaved()">Add to saved</p>
+    </div>
   </div>
 </div>
