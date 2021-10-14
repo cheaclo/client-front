@@ -46,5 +46,6 @@ export class ProductsByTypeComponent implements OnInit {
       .subscribe(products => {
         this.products = products;
       });
+    window.scroll(0, 0);
   }
 }

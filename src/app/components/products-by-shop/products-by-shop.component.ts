@@ -43,6 +43,12 @@ export class ProductsByShopComponent implements OnInit {
   }
 
   ngChangeCategory(category: CategoryType): void {
-    console.log(category);
+    this.productService.getAllProductsByShopAndTypeAndCategory(this.shop, category.type, category.category)
+      .subscribe(products => {
+        // Shuffle products
+        this.products = products.sort((a, b) => 0.5 - Math.random());
+        console.log('Products ' + products);
+      });
+    window.scroll(0, 0);
   }
 }

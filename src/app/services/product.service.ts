@@ -13,6 +13,7 @@ export class ProductService {
   getAllProductsByTypePath: string = '/clothes/product/by-type';
   getAllProductsByTypeAndCategoryPath: string = '/clothes/product/by-type-and-category';
   getAllProductsByShopPath: string = '/clothes/product/by-shop';
+  getAllProductsByShopAndTypeAndCategoryPath: string = '/clothes/product/by-shop-type-and-category';
 
   constructor(private http: HttpClient) { }
 
@@ -55,5 +56,13 @@ export class ProductService {
   getAllProductsByShop(shop: string): Observable<ProductResponse[]> {
     const parameters = new HttpParams().set('shopName', shop);
     return this.http.get<ProductResponse[]>(this.getAllProductsByShopPath, {params: parameters});
+  }
+
+  getAllProductsByShopAndTypeAndCategory(shop: string, type: string, category: string): Observable<ProductResponse[]> {
+    const parameters = new HttpParams()
+                        .set('shopName', shop)
+                        .set('type', type)
+                        .set('category', category);
+    return this.http.get<ProductResponse[]>(this.getAllProductsByShopAndTypeAndCategoryPath, {params: parameters});
   }
 }
