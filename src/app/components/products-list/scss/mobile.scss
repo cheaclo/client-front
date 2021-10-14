@@ -1,0 +1,10 @@
+.outer {
+  ::ng-deep .ngx-pagination a {
+    font-size: 0.75em;
+    padding: 0.5em
+  }
+
+  ::ng-deep .ngx-pagination .current {
+    font-size: 0.75em;
+  }
+}
