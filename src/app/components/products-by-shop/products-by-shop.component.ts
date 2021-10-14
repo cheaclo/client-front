@@ -23,7 +23,7 @@ export class ProductsByShopComponent implements OnInit {
     route.params.subscribe(params => {
       this.shop = params['shop'];
       categoryService.getAllCategoriesByShop(this.shop)
-      .subscribe(categoriesResponse => {this.categories = categoriesResponse;  console.log(this.categories)});
+      .subscribe(categoriesResponse => this.categories = categoriesResponse);
 
 
       // productService.getAllProductsByType(this.shop)
