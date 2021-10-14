@@ -1,3 +1,4 @@
+import { ShopsComponent } from './components/shops/shops.component';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
 import { ProductsByTypeComponent } from './components/products-by-type/products-by-type.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'sign-in', component: SingInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'products-by-type', component: ProductsByTypeComponent },
-  { path: 'products-by-shop', component: ProductsByShopComponent }
+  { path: 'products-by-shop', component: ProductsByShopComponent },
+  { path: 'shops', component: ShopsComponent },
 ];
 
 @NgModule({
