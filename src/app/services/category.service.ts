@@ -7,7 +7,7 @@ import { CategoryResponse } from '../models/categoryResponse';
   providedIn: 'root'
 })
 export class CategoryService {
-  getAllCategoriesPath = '/clothes/category/byType';
+  getAllCategoriesPath = '/clothes/category/by-type';
 
   constructor(private http: HttpClient) { }
 
