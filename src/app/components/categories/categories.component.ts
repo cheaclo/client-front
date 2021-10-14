@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CategoryResponse } from 'src/app/models/categoryResponse';
 
 @Component({
@@ -8,10 +8,16 @@ import { CategoryResponse } from 'src/app/models/categoryResponse';
 })
 export class CategoriesComponent implements OnInit {
   @Input() categories: CategoryResponse[] = [];
+  @Output() changeCategory = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  ngOnCategoryClick(category: CategoryResponse) {
+    if (category.available) {
+      this.changeCategory.emit(category.name);
+    }
+  }
 }

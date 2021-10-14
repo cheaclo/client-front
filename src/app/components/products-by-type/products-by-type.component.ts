@@ -14,17 +14,18 @@ export class ProductsByTypeComponent implements OnInit {
   categories: CategoryResponse[] = [];
   products: ProductResponse[] = [];
   showCategories = false;
+  type: string = "";
 
   constructor(private categoryService: CategoryService,
               private productService: ProductService,
               private route: ActivatedRoute) {
 
     route.params.subscribe(params => {
-      const type = params['type'];
-      categoryService.getAllCategories(type)
+      this.type = params['type'];
+      categoryService.getAllCategories(this.type)
       .subscribe(categoriesResponse => this.categories = categoriesResponse);
 
-      productService.getAllProductsByType(type)
+      productService.getAllProductsByType(this.type)
       .subscribe(products => {
         this.products = products;
       });
@@ -37,5 +38,14 @@ export class ProductsByTypeComponent implements OnInit {
 
   ngShowCategories(): void {
     this.showCategories = !this.showCategories;
+  }
+
+  ngChangeCategory(category: string): void {
+    console.log('Category name ' + category);
+
+    this.productService.getAllProductsByTypeAndCategory(this.type, category)
+      .subscribe(products => {
+        this.products = products;
+      });
   }
 }

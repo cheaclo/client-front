@@ -1,6 +1,7 @@
 <div class="outer">
-  <p *ngFor="let c of categories"
-  [ngClass]="{'enabled': c.available, 'disabled': !c.available}">
-  {{c.name | categoryName}}
+  <p *ngFor="let category of categories"
+  (click)="ngOnCategoryClick(category)"
+  [ngClass]="{'enabled': category.available, 'disabled': !category.available}">
+  {{category.name | categoryName}}
 </p></div>
 
