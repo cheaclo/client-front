@@ -2,7 +2,7 @@
   <div id="search">
     <input type="text" autocomplete="off" placeholder="Search for shop..."
       [(ngModel)]="searchedShop" (ngModelChange)="this.searchInputUpdate.next($event)"/>
-    <img (click)="ngOnSearch()" src="assets/icons/search.svg" [routerLink]="['/shops', {'shop': searchedShop}]" />
+    <img src="assets/icons/search.svg" [routerLink]="['/shops', {'shop': searchedShop}]" />
     <div id="hints">
       <a *ngFor="let name of shopsName" [routerLink]="['/products-by-shop', {'shop': name}]">{{name | lowercase}}</a>
     </div>
