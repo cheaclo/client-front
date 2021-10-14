@@ -13,6 +13,21 @@
 
   pagination-controls {
     align-self: center;
+    font-family: Spartan;
+
+    ::ng-deep .ngx-pagination a {
+      font-family: Spartan;
+      color: $dark-grey;
+    }
+
+    ::ng-deep .ngx-pagination .current {
+      font-family: Spartan;
+      background-color: $dark-grey;
+    }
   }
+
+
 }
+
+
 
