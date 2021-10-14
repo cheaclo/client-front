@@ -1,1 +1,6 @@
-<p>shops works!</p>
+<div class="empty" *ngIf="shops.length <= 0">
+  <p>Sorry, no shops found</p>
+</div>
+<div *ngIf="shops.length > 0">
+  full
+</div>
