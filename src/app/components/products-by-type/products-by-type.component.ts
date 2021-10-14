@@ -41,8 +41,6 @@ export class ProductsByTypeComponent implements OnInit {
   }
 
   ngChangeCategory(category: string): void {
-    console.log('Category name ' + category);
-
     this.productService.getAllProductsByTypeAndCategory(this.type, category)
       .subscribe(products => {
         this.products = products;

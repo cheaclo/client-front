@@ -1,1 +1,6 @@
-<p>products-by-shop works!</p>
+<div class="outer">
+  <button (click)="ngShowCategories()">Show categories</button>
+  <app-categories (changeCategory)="ngChangeCategory($event)" [categories]="categories" [ngClass]="{'visible': showCategories, 'hidden': !showCategories}"></app-categories>
+  <app-products-list [products]="products" [numOfProducts]="products.length"></app-products-list>
+</div>
+

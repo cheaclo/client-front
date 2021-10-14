@@ -1,0 +1,26 @@
+.outer {
+  flex-direction: column;
+  align-items: center;
+
+  app-categories {
+    margin-bottom: 2em;
+  }
+
+  .visible {
+    display: flex;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  button {
+    border: none;
+    background-color: $dark-grey;
+    color: white;
+    font-family: Spartan;
+    font-size: 1em;
+    padding: 1em;
+    margin: 2em 0;
+  }
+}
