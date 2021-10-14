@@ -22,6 +22,7 @@ import { CategoryNamePipe } from './pipes/category-name.pipe';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
+import { ShopsComponent } from './components/shops/shops.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProductsByShopComponent } from './components/products-by-shop/products-
     DoublePipe,
     CategoryNamePipe,
     ProductsListComponent,
-    ProductsByShopComponent
+    ProductsByShopComponent,
+    ShopsComponent
   ],
   imports: [
     BrowserModule,
