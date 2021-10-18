@@ -18,10 +18,13 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getMatchedProducts(input: string, shops: Shop[]): Observable<ProductResponse[]> {
-    let shopsName: string[] = this.retrieveShopsNames(shops);
+    return this.getMatchedProductsByShopString(input, this.retrieveShopsNames(shops).toString());
+  }
+
+  getMatchedProductsByShopString(input: string, shops: string): Observable<ProductResponse[]> {
     const parameters = new HttpParams()
                         .set('value', input)
-                        .set('shops', shopsName.toString());
+                        .set('shops', shops);
     return this.http.get<ProductResponse[]>(this.getMatchedProductsPath, {params: parameters});
   }
 

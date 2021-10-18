@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from './../../models/user';
 import { SearchService } from './../../services/search.service';
 import { ProductService } from './../../services/product.service';
@@ -24,7 +25,8 @@ export class SearchComponent implements OnInit {
   constructor(private shopService: ShopService,
               private productService: ProductService,
               private renderer: Renderer2,
-              private searchService: SearchService) {
+              private searchService: SearchService,
+              private router: Router) {
     shopService.getShopsName()
       .subscribe(shopsName => {
         for (let name of shopsName) {
@@ -43,7 +45,6 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //TODO populate hints with last searched products
   }
 
   ngOnShopClick(shop: Shop): void {
@@ -53,11 +54,8 @@ export class SearchComponent implements OnInit {
 
   ngOnSearch(): void {
     this.addSearchedPhrase();
-
-    this.productService.getMatchedProducts(this.searchedProduct, this.getSelectedShops())
-      .subscribe(products => {
-        //TODO redirect to searched products
-      });
+    let shopsName = this.productService.retrieveShopsNames(this.getSelectedShops());
+    this.router.navigate(['products-by-title', {'title': this.searchedProduct, 'shops': shopsName}]);
   }
 
   getSelectedShops(): Shop[] {

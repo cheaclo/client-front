@@ -1,3 +1,4 @@
+import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
 import { ShopsComponent } from './components/shops/shops.component';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
 import { ProductsByTypeComponent } from './components/products-by-type/products-by-type.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'products-by-type', component: ProductsByTypeComponent },
   { path: 'products-by-shop', component: ProductsByShopComponent },
+  { path: 'products-by-title', component: ProductsByTitleComponent},
   { path: 'shops', component: ShopsComponent },
 ];
 
