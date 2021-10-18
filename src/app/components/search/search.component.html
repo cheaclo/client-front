@@ -10,6 +10,8 @@
       <input type="text" autocomplete="off" placeholder="Search for product..." [(ngModel)]="searchedProduct" (ngModelChange)="this.searchInputUpdate.next($event)"/>
       <img src="assets/icons/search.svg" (click)="ngOnSearch()"/>
     </div>
-    <div id="hints" #hints></div>
+    <div id="hints">
+      <a target="blank" *ngFor="let product of fiveMatchedProducts" [href]="product.details.productUrl">{{product.details.title}}</a>
+    </div>
   </div>
 </div>

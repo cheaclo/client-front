@@ -1,3 +1,4 @@
+import { ProductResponse } from './../../models/productResponse';
 import { Router } from '@angular/router';
 import { User } from './../../models/user';
 import { SearchService } from './../../services/search.service';
@@ -19,8 +20,8 @@ export class SearchComponent implements OnInit {
 
   shops: Shop[] = [];
   searchedProduct!: string;
-  @ViewChild('hints') hints!: ElementRef;
   searchInputUpdate = new Subject<string>();
+  fiveMatchedProducts: ProductResponse[] = [];
 
   constructor(private shopService: ShopService,
               private productService: ProductService,
@@ -68,22 +69,15 @@ export class SearchComponent implements OnInit {
   }
 
   fetchMatchedProducts(input: string): void {
-    this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
-
+    this.fiveMatchedProducts = []
     if (input === undefined || input.length == 0) {
       return;
     }
 
     this.productService.getFirstFiveMatchedProducts(input, this.getSelectedShops())
       .subscribe(products => {
-        this.renderer.setProperty(this.hints.nativeElement, 'innerHTML', '');
-        for (let product of products) {
-          const a: HTMLParagraphElement = this.renderer.createElement('a');
-          a.innerHTML = product.details.title.charAt(0).toUpperCase() + product.details.title.slice(1).toLowerCase();
-          a.setAttribute('href', product.details.productUrl);
-          a.setAttribute('target', '_blank');
-          this.renderer.appendChild(this.hints.nativeElement, a)
-        }
+        this.fiveMatchedProducts = products;
+        console.log(products);
       });
   }
 
