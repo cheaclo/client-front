@@ -23,6 +23,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
 import { ShopsComponent } from './components/shops/shops.component';
+import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ShopsComponent } from './components/shops/shops.component';
     CategoryNamePipe,
     ProductsListComponent,
     ProductsByShopComponent,
-    ShopsComponent
+    ShopsComponent,
+    ProductsByTitleComponent
   ],
   imports: [
     BrowserModule,
