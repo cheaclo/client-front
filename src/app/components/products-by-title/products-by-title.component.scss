@@ -1,0 +1,14 @@
+@import '/src/styles.scss';
+
+/* Mobile */
+@media screen and (max-width: $breakpoint-tablet) {
+  .outer {
+    margin: 4em 0;
+  }
+}
+/* Tablet and Desktop */
+@media screen and (min-width: $breakpoint-tablet) {
+  .outer {
+    margin: 4em 3em 4em 3em;
+  }
+}

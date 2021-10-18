@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductResponse } from 'src/app/models/productResponse';
 import { Shop } from 'src/app/models/shop';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -12,6 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductsByTitleComponent implements OnInit {
   searchedTitle = "";
   selectedShops = "";
+  products: ProductResponse[] = [];
 
   constructor(private categoryService: CategoryService,
             private productService: ProductService,
@@ -22,7 +24,7 @@ export class ProductsByTitleComponent implements OnInit {
 
       this.productService.getMatchedProductsByShopString(this.searchedTitle, this.selectedShops)
       .subscribe(products => {
-        console.log(products);
+        this.products = products;
       });
     });
   }
