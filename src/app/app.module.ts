@@ -24,6 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
 import { ShopsComponent } from './components/shops/shops.component';
 import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProductsByTitleComponent } from './components/products-by-title/product
     ProductsListComponent,
     ProductsByShopComponent,
     ShopsComponent,
-    ProductsByTitleComponent
+    ProductsByTitleComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
