@@ -1,3 +1,4 @@
+import { CartComponent } from './components/cart/cart.component';
 import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
 import { ShopsComponent } from './components/shops/shops.component';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'products-by-shop', component: ProductsByShopComponent },
   { path: 'products-by-title', component: ProductsByTitleComponent},
   { path: 'shops', component: ShopsComponent },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({
