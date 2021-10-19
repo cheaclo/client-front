@@ -4,8 +4,8 @@
     <div class="product-actions" *ngFor="let product of savedProducts">
       <app-product [product]="product" [outerMarginBottom]="false"></app-product>
       <div class="buttons">
-        <button class="white-button">Remove</button>
-        <button class="dark-button">Already bought</button>
+        <button class="white-button" (click)="ngRemoveFromSaved(product)">Remove</button>
+        <button class="dark-button" (click)="ngAlreadyBought(product)">Already bought</button>
       </div>
     </div>
   </div>
