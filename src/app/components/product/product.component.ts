@@ -1,5 +1,5 @@
+import { ProductResponse } from './../../models/productResponse';
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductResponse } from 'src/app/models/productResponse';
 
 @Component({
   selector: 'app-product',
@@ -27,10 +27,16 @@ export class ProductComponent implements OnInit {
   }
 
   ngAddToCart(): void {
-
+    let cart: ProductResponse[] = JSON.parse(sessionStorage.getItem('cart') || '{}');
+    let duplicate = cart.find(product => this.product.id === product.id);
+    if (duplicate === undefined) {
+      cart.push(this.product);
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+    this.showActionBox = false;
   }
 
   ngAddToSaved(): void {
-
+    this.showActionBox = false;
   }
 }

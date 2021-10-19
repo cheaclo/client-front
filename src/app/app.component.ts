@@ -10,5 +10,6 @@ export class AppComponent {
   ngOnInit(): void {
     sessionStorage.setItem('userLogged', 'false');
     sessionStorage.setItem('user', 'null');
+    sessionStorage.setItem('cart', JSON.stringify([]));
   }
 }
