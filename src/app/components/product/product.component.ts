@@ -1,5 +1,7 @@
+import { SavedService } from './../../services/saved.service';
 import { ProductResponse } from './../../models/productResponse';
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +14,7 @@ export class ProductComponent implements OnInit {
   @Input() showActionDots = true;
   showActionBox = false;
 
-  constructor() { }
+  constructor(private savedService: SavedService) { }
 
   ngOnInit(): void {
   }
@@ -40,5 +42,9 @@ export class ProductComponent implements OnInit {
 
   ngAddToSaved(): void {
     this.showActionBox = false;
+    let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
+    if (user !== null) {
+      this.savedService.addSavedProduct(user.id, this.product.id);
+    }
   }
 }
