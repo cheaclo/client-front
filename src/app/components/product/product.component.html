@@ -1,4 +1,4 @@
-<div class="outer">
+<div class="outer" [ngClass]="{'outer-margin-bottom': outerMarginBottom, 'outer-margin-top': !outerMarginBottom}">
   <img class="product-image" [src]="product.details.imageUrl" (click)="ngRedirectToProduct()"/>
   <div class="row">
     <p>{{product.details.title}}</p>

@@ -1,10 +1,17 @@
 @import '/src/styles.scss';
 
+.outer-margin-bottom {
+  margin: 0em 0.5em 2em 0.5em;
+}
+
+.outer-margin-top {
+  margin: 2em 0.5em 0em 0.5em;
+}
+
 .outer {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin: 0 0.5em 2em 0.5em;
   width: 15em;
 
   .product-image {
