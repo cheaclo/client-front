@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from './../../models/user';
 import { ProductResponse } from './../../models/productResponse';
 import { SavedService } from './../../services/saved.service';
@@ -11,8 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class SavedComponent implements OnInit {
   savedProducts: ProductResponse[] = [];
 
-  constructor(private savedService: SavedService) {
+  constructor(private savedService: SavedService,
+            private router: Router) {
     let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
+    if (user === null) {
+      router.navigate(['/']);
+    }
 
     savedService.getSavedProductsIds(user.id)
     .subscribe(idsResponse => {
