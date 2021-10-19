@@ -9,15 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved.component.scss']
 })
 export class SavedComponent implements OnInit {
-  products: ProductResponse[] = [];
+  savedProducts: ProductResponse[] = [];
 
   constructor(private savedService: SavedService) {
-    let user: User = JSON.parse(sessionStorage.getItem('user') || '{id: -1}');
+    let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
 
     savedService.getSavedProductsIds(user.id)
     .subscribe(idsResponse => {
       savedService.getSavedProducts(idsResponse.savedProducts)
-      .subscribe(products => {this.products = products; console.log(products)})
+      .subscribe(products => {this.savedProducts = products; console.log(products)})
     });
   }
 

@@ -1,1 +1,12 @@
-<p>saved works!</p>
+<div class="outer">
+  <h1>Saved products</h1>
+  <div class="cart-list">
+    <div class="product-actions" *ngFor="let product of savedProducts">
+      <app-product [product]="product" [outerMarginBottom]="false" [showActionDots]="false"></app-product>
+      <div class="buttons">
+        <button class="white-button">Remove</button>
+        <button class="dark-button">Already bought</button>
+      </div>
+    </div>
+  </div>
+</div>

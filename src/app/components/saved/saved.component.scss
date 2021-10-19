@@ -1,0 +1,56 @@
+@import '/src/styles.scss';
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em 0;
+
+  h1 {
+    font-weight: normal;
+  }
+
+  .cart-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 4em 3em;
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0 0.5em 2em 0.5em;
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+
+        button {
+          box-shadow: $box-shadow;
+          font-family: Spartan;
+          font-size: 1em;
+          padding: 1em;
+          margin-bottom: 1em;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .white-button {
+          color: $dark-grey;
+          border: none;
+          border: 1px solid $dark-grey;
+          background-color: white;
+        }
+
+        .dark-button {
+          color: white;
+          border: none;
+          background-color: $dark-grey;
+        }
+      }
+    }
+  }
+}
