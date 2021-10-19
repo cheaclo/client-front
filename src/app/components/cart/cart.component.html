@@ -3,8 +3,10 @@
   <div class="cart-list">
     <div class="product-actions" *ngFor="let product of cartProducts">
       <app-product [product]="product" [outerMarginBottom]="false" [showActionDots]="false"></app-product>
-      <button class="white-button">Remove</button>
-      <button class="dark-button">Already bought</button>
+      <div class="buttons">
+        <button class="white-button">Remove</button>
+        <button class="dark-button">Already bought</button>
+      </div>
     </div>
   </div>
 </div>
