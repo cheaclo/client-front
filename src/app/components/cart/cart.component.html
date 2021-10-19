@@ -1,5 +1,11 @@
 <div class="outer">
   <h1>Your cart</h1>
-  <div class="products"></div>
+  <div class="cart-list">
+    <div class="product-actions" *ngFor="let product of cartProducts">
+      <app-product [product]="product"></app-product>
+      <button class="white-button">Remove</button>
+      <button class="dark-button">Already bought</button>
+    </div>
+  </div>
 </div>
 
