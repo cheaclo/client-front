@@ -9,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
   @Input() product!: ProductResponse;
   @Input() outerMarginBottom = true;
+  @Input() showActionDots = true;
   showActionBox = false;
 
   constructor() { }
