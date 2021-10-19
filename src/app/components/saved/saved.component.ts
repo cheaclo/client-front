@@ -30,12 +30,13 @@ export class SavedComponent implements OnInit {
   }
 
   ngRemoveFromSaved(product: ProductResponse): void {
-    //send info to server
+    this.savedService.deleteSavedProduct(product.id);
     this.savedProducts = this.savedProducts.filter(obj => obj !== product);
   }
 
   ngAlreadyBought(product: ProductResponse): void {
     //send info to server
+    this.savedService.deleteSavedProduct(product.id);
     this.savedProducts = this.savedProducts.filter(obj => obj !== product);
   }
 }

@@ -11,6 +11,7 @@ export class SavedService {
   postSavedProductPath: string = '/user/saved-product/add';
   getSavedProductsPath: string = '/user/saved-product/get';
   getProductsByIdPath: string = '/clothes/product/ids';
+  deleteSavedProductPath: string = '/user/saved-product/delete/id';
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,11 @@ export class SavedService {
     const parameters = new HttpParams()
                         .set('ids', ids.toString());
     return this.http.get<ProductResponse[]>(this.getProductsByIdPath, {params: parameters});
+  }
+
+  deleteSavedProduct(id: number): void {
+    const parameters = new HttpParams()
+                        .set('id', id);
+    this.http.delete(this.deleteSavedProductPath, {params: parameters}).subscribe();
   }
 }
