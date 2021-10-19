@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { SavedComponent } from './components/saved/saved.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'products-by-title', component: ProductsByTitleComponent},
   { path: 'shops', component: ShopsComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'saved', component: SavedComponent },
 ];
 
 @NgModule({
