@@ -1,3 +1,5 @@
+import { User } from './../../models/user';
+import { ProductResponse } from './../../models/productResponse';
 import { SavedService } from './../../services/saved.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved.component.scss']
 })
 export class SavedComponent implements OnInit {
+  products: ProductResponse[] = [];
 
   constructor(private savedService: SavedService) {
-    savedService.getSavedProducts(1)
-    .subscribe(products => {
+    let user: User = JSON.parse(sessionStorage.getItem('user') || '{id: -1}');
 
+    savedService.getSavedProductsIds(user.id)
+    .subscribe(idsResponse => {
+      savedService.getSavedProducts(idsResponse.savedProducts)
+      .subscribe(products => {this.products = products; console.log(products)})
     });
   }
 

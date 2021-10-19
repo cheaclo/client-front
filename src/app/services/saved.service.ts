@@ -10,6 +10,7 @@ import { SavedProductsResponse } from '../models/savedProductsResponse';
 export class SavedService {
   postSavedProductPath: string = '/user/saved-product/add';
   getSavedProductsPath: string = '/user/saved-product/get';
+  getProductsByIdPath: string = '/clothes/product/ids';
 
   constructor(private http: HttpClient) { }
 
@@ -17,14 +18,15 @@ export class SavedService {
     this.http.post<any>(this.postSavedProductPath, {userId: userId, productId: productId}).subscribe();
   }
 
-  getSavedProducts(userId: number): Observable<ProductResponse[]> {
+  getSavedProductsIds(userId: number): Observable<SavedProductsResponse> {
     const parameters = new HttpParams()
                         .set('id', userId);
-    this.http.get<SavedProductsResponse>(this.getSavedProductsPath, {params: parameters})
-    .subscribe(response => {
+    return this.http.get<SavedProductsResponse>(this.getSavedProductsPath, {params: parameters});
+  }
 
-    });
-
-    return new Observable;
+  getSavedProducts(ids: number[]): Observable<ProductResponse[]> {
+    const parameters = new HttpParams()
+                        .set('ids', ids.toString());
+    return this.http.get<ProductResponse[]>(this.getProductsByIdPath, {params: parameters});
   }
 }
