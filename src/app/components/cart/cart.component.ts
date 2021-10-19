@@ -16,4 +16,12 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngRemoveFromCart(product: ProductResponse): void {
+    this.cartProducts = this.cartProducts.filter(obj => obj !== product);
+  }
+
+  ngAlreadyBought(product: ProductResponse): void {
+    //send info to database
+    this.ngRemoveFromCart(product);
+  }
 }

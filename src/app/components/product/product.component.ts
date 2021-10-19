@@ -11,13 +11,9 @@ import { User } from 'src/app/models/user';
 export class ProductComponent implements OnInit {
   @Input() product!: ProductResponse;
   @Input() outerMarginBottom = true;
-  @Input() showActionDots;
   showActionBox = false;
 
-  constructor(private savedService: SavedService) {
-    let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
-    this.showActionDots = user !== null;
-  }
+  constructor(private savedService: SavedService) {}
 
   ngOnInit(): void {
   }
