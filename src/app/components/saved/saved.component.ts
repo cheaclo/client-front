@@ -1,3 +1,4 @@
+import { SavedService } from './../../services/saved.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private savedService: SavedService) {
+    savedService.getSavedProducts(1)
+    .subscribe(products => {
+
+    });
+  }
 
   ngOnInit(): void {
   }
