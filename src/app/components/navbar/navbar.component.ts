@@ -16,6 +16,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnMenuItemClick(): void {
+    this.menuOpened = false;
+  }
+
   toggleMenu(): void {
     if (this.isUserLogged()) {
       this.menuOpened = !this.menuOpened;
