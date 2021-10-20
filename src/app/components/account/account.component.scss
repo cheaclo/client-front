@@ -7,22 +7,29 @@
   margin-top: 2em;
 
   .account-details {
+    margin-top: 3em;
 
     .details-row {
       display: flex;
+      justify-content: space-between;
+      margin: 1em 1em;
 
       p {
         margin: 0;
       }
 
       .label {
-        flex: 0.2;
-        margin-right: 2em;
+        min-width: 8em;
       }
 
       .value {
-        flex: 0.8;
+        flex: 0.7;
         font-weight: bold;
+      }
+
+      input {
+        flex: 0.7;
+        border-bottom: 1px solid $dark-grey;
       }
     }
   }

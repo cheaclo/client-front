@@ -3,12 +3,10 @@
   <div class="account-details">
     <div class="details-row">
       <p class="label">Firstname</p>
-      <p class="value">Piotr</p>
-      <img src="assets/icons/pen.svg">
-    </div>
-    <div class="details-row">
-      <p class="label">Firstname</p>
-      <p class="value">Piotr</p>
+      <p class="value"
+        *ngIf="!editFirstname">Piotr</p>
+      <input autocomplete="off" type="email" name="email"
+        *ngIf="editFirstname"/>
       <img src="assets/icons/pen.svg">
     </div>
   </div>
