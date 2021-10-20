@@ -60,6 +60,25 @@ body {
       cursor: pointer;
     }
   }
+
+  input[type="date"] {
+    font-family: Spartan;
+    color: $placeholder-color;
+    min-width: 40%;
+    margin-right: 2em;
+
+    &::before {
+      content: attr(placeholder) !important;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(0.3);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 

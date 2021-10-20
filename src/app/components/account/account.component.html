@@ -34,5 +34,12 @@
         <label>Other</label>
       </div>
     </div>
+    <div class="details-row">
+      <p class="label">Birthday</p>
+      <p class="value" *ngIf="!editFields">01/05/1999</p>
+      <div *ngIf="editFields">
+        <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"/>
+      </div>
+    </div>
   </div>
 </div>
