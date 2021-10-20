@@ -41,5 +41,15 @@
         <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"/>
       </div>
     </div>
+    <div class="details-row">
+      <p class="label">Street name</p>
+      <p class="value" *ngIf="!editFields">Cambell</p>
+      <input autocomplete="off" type="text" name="streetName" *ngIf="editFields"/>
+    </div>
+    <div class="details-row">
+      <p class="label">Street number</p>
+      <p class="value" *ngIf="!editFields">23</p>
+      <input autocomplete="off" type="number" name="streetName" min="1" max="99999" *ngIf="editFields"/>
+    </div>
   </div>
 </div>
