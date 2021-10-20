@@ -11,9 +11,9 @@ export class AccountComponent implements OnInit {
 
   constructor(private router: Router) {
     let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
-    if (user === null) {
-    router.navigate(['/']);
-    }
+    // if (user === null) {
+    //   router.navigate(['/']);
+    // }
   }
 
   ngOnInit(): void {
