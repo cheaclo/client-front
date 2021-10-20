@@ -3,11 +3,24 @@
   <div class="account-details">
     <div class="details-row">
       <p class="label">Firstname</p>
-      <p class="value"
-        *ngIf="!editFirstname">Piotr</p>
-      <input autocomplete="off" type="email" name="email"
-        *ngIf="editFirstname"/>
-      <img src="assets/icons/pen.svg">
+      <p class="value" *ngIf="!editFields">Piotr</p>
+      <input autocomplete="off" type="text" name="firstname" *ngIf="editFields"/>
+    </div>
+    <div class="details-row">
+      <p class="label">Lastname</p>
+      <p class="value" *ngIf="!editFields">Kalota</p>
+      <input autocomplete="off" type="text" name="lastname" *ngIf="editFields"/>
+    </div>
+    <div class="details-row">
+      <p class="label">Email</p>
+      <p class="value" *ngIf="!editFields">piotrkalotaspam@gmail.com</p>
+      <input autocomplete="off" type="email" name="email" *ngIf="editFields"/>
+    </div>
+    <div class="details-row">
+      <p class="label">Password</p>
+      <div>
+        <button>Change password</button>
+      </div>
     </div>
   </div>
 </div>

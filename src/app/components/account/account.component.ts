@@ -8,18 +8,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  editFirstname = false;
-  editLastname = false;
-  editEmail = false;
-  editPassword = false;
-  editGender = false;
-  editBirthday = false;
-  editStreetName = false;
-  editStreetNumber = false;
-  editCityName = false;
-  editPostalCode = false;
-  editCountry = false;
-  editPhoneNumber = false;
+  editFields = false;
 
   constructor(private router: Router) {
     let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
