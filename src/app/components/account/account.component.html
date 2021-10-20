@@ -55,7 +55,23 @@
     <div class="details-row">
       <p class="label">Street number</p>
       <p class="value" *ngIf="!editFields">23</p>
-      <input autocomplete="off" type="number" name="streetName" min="1" max="99999" *ngIf="editFields"/>
+      <input autocomplete="off" type="number" name="streetNumber" min="1" max="99999" *ngIf="editFields"/>
+    </div>
+    <div class="details-row">
+      <p class="label">City name</p>
+      <p class="value" *ngIf="!editFields">Los Angeles</p>
+      <input autocomplete="off" type="text" name="cityName" *ngIf="editFields"/>
+    </div>
+    <div class="details-row">
+      <p class="label">Postal code</p>
+      <p class="value" *ngIf="!editFields">Y09YU1</p>
+      <input autocomplete="off" type="text" name="postalCode" *ngIf="editFields"/>
+    </div>
+    <!-- add country selector-->
+    <div class="details-row">
+      <p class="label">Phone number</p>
+      <p class="value" *ngIf="!editFields">333 222 111</p>
+      <input autocomplete="off" type="text" name="phoneNumber" *ngIf="editFields"/>
     </div>
   </div>
 </div>
