@@ -1,3 +1,4 @@
+import { AccountComponent } from './components/account/account.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
 import { ShopsComponent } from './components/shops/shops.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'shops', component: ShopsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'saved', component: SavedComponent },
+  { path: 'account', component: AccountComponent },
 ];
 
 @NgModule({

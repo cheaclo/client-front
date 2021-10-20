@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-account',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+    let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
+    if (user === null) {
+    router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
   }

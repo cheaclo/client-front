@@ -9,7 +9,7 @@
         <a (click)="toggleMenu()" [routerLink]="isUserLogged() ? [] : ['/sign-in']"><img src="assets/icons/account.svg" /></a>
     </div>
     <div class="menu" [ngClass]="{'menu-closed': !menuOpened, 'menu-opened': menuOpened}" #menuRef>
-        <a (click)="ngOnMenuItemClick()">Account</a>
+        <a [routerLink]="['/account']" (click)="ngOnMenuItemClick()">Account</a>
         <a [routerLink]="['/saved']" (click)="ngOnMenuItemClick()">Saved</a>
         <a (click)="ngOnMenuItemClick()">Recommendations</a>
         <a (click)="logout()">Log out</a>
