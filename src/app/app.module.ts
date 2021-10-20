@@ -27,6 +27,7 @@ import { ProductsByTitleComponent } from './components/products-by-title/product
 import { CartComponent } from './components/cart/cart.component';
 import { StoredProductComponent } from './components/stored-product/stored-product.component';
 import { SavedComponent } from './components/saved/saved.component';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SavedComponent } from './components/saved/saved.component';
     ProductsByTitleComponent,
     CartComponent,
     StoredProductComponent,
-    SavedComponent
+    SavedComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
