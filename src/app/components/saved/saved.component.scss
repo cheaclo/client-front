@@ -54,3 +54,12 @@
     }
   }
 }
+
+/* Mobile */
+@media screen and (max-width: $breakpoint-tablet) {
+  @import './scss/mobile.scss';
+}
+/* Tablet and Desktop */
+@media screen and (min-width: $breakpoint-tablet) {
+  @import './scss/desktop.scss';
+}
