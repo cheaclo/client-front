@@ -23,7 +23,7 @@
       }
 
       .label {
-        min-width: 6em;
+        min-width: 8em;
       }
 
       .value {
@@ -47,6 +47,7 @@
       }
 
       .gender-box {
+        display: flex;
 
         label {
           margin-right: 1em;

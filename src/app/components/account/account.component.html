@@ -26,12 +26,18 @@
       <p class="label">Gender</p>
       <p class="value" *ngIf="!editFields">Man</p>
       <div class="gender-box" *ngIf="editFields">
-        <input class="input-small" type="radio" name="gender" value="man"/>
-        <label>Man</label>
-        <input class="input-small" type="radio" name="gender" value="woman"/>
-        <label>Woman</label>
-        <input class="input-small" type="radio" name="gender" value="other"/>
-        <label>Other</label>
+        <div>
+          <input class="input-small" type="radio" name="gender" value="man"/>
+          <label>Man</label>
+        </div>
+        <div>
+          <input class="input-small" type="radio" name="gender" value="woman"/>
+          <label>Woman</label>
+        </div>
+        <div>
+          <input class="input-small" type="radio" name="gender" value="other"/>
+          <label>Other</label>
+        </div>
       </div>
     </div>
     <div class="details-row">
