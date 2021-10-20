@@ -45,13 +45,20 @@ body {
     }
   }
 
-  .products {
-
-  }
-
   app-product {
     display: flex;
     align-items: stretch;
+  }
+
+  button {
+    border: none;
+    box-shadow: $box-shadow;
+    color: white;
+    font-family: Spartan;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
