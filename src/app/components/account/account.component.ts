@@ -21,6 +21,7 @@ export class AccountComponent implements OnInit {
     if (this.user === null) {
       router.navigate(['/']);
     }
+    this.initForm();
   }
 
   ngOnInit(): void {
@@ -42,5 +43,19 @@ export class AccountComponent implements OnInit {
 
   ngCancelAccountChanges(): void {
     this.editFields = false;
+  }
+
+  initForm(): void {
+    this.formInputs.firstname.value = this.user.accountInfo.firstname;
+    this.formInputs.lastname.value = this.user.accountInfo.lastname;
+    this.formInputs.email.value = this.user.accountInfo.email;
+    this.formInputs.gender.value = this.user.accountInfo.gender;
+    this.formInputs.birthday.value = this.user.accountInfo.birthdayDate;
+    this.formInputs.street.value = this.user.accountInfo.address.street;
+    this.formInputs.streetNumber.value = this.user.accountInfo.address.streetNumber;
+    this.formInputs.city.value = this.user.accountInfo.address.city;
+    this.formInputs.postalCode.value = this.user.accountInfo.address.postalCode;
+    this.formInputs.country.value = this.user.accountInfo.address.country;
+    this.formInputs.phoneNumber.value = this.user.accountInfo.phone;
   }
 }
