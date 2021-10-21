@@ -11,6 +11,10 @@ import { SignUpService } from 'src/app/services/sign-up.service';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
+  SAME_PASSWORD = "New password must be different";
+  REPEAT_PASSWORD = "Repeated password must match the new one";
+  PASSWORD_CONSTRAINTS = "Allowed password between 5 and 30";
+
   editFields = false;
   countries: string[] = [];
   formInputs: FormInputs = new FormInputs();
@@ -18,6 +22,11 @@ export class AccountComponent implements OnInit {
   deletePopupVisible = false;
   changePasswordPopupVisible = false;
   passwordErrorMessage = "";
+
+  password = "";
+  newPassword = "";
+  newPasswordRepeat = "";
+  changePasswordSuccess = false;
 
   constructor(private signUpService: SignUpService,
               private router: Router,
@@ -80,7 +89,26 @@ export class AccountComponent implements OnInit {
   }
 
   ngChangePassword(): void {
-    this.changePasswordPopupVisible = false;
+    if (this.password === this.newPassword) {
+      this.passwordErrorMessage = this.SAME_PASSWORD;
+    } else if (!(this.newPassword.length >= 5 && this.newPassword.length <= 30)) {
+      this.passwordErrorMessage = this.PASSWORD_CONSTRAINTS;
+    } else if (this.newPassword !== this.newPasswordRepeat) {
+      this.passwordErrorMessage = this.REPEAT_PASSWORD;
+    } else {
+      this.userService.editUserPassword(this.user.id, this.user.accountInfo.email, this.newPassword)
+      .subscribe(response => {
+        if (response.success)  {
+          this.changePasswordSuccess = true;
+          setTimeout(() => this.changePasswordPopupVisible = false, 2000);
+          this.user = response.user;
+          sessionStorage.setItem('user', JSON.stringify(this.user));
+        }
+        else {
+          this.passwordErrorMessage = response.message;
+        }
+      });
+    }
   }
 
   ngCancelPasswordChanging(): void {

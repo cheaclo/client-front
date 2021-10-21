@@ -131,6 +131,7 @@
       .error {
         color: $error-color;
         font-size: 0.75em;
+        word-break: break-all;
       }
     }
 
