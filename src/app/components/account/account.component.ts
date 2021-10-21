@@ -65,12 +65,11 @@ export class AccountComponent implements OnInit {
   }
 
   ngDeleteAccountNo(): void {
-
     this.deletePopupVisible = false;
   }
 
   ngDeleteAccountYes(): void {
-
+    this.userService.deleteUser(this.user.id);
     this.deletePopupVisible = false;
   }
 
