@@ -21,7 +21,6 @@ export class AccountComponent implements OnInit {
     if (this.user === null) {
       router.navigate(['/']);
     }
-    this.initForm();
   }
 
   ngOnInit(): void {
@@ -35,6 +34,7 @@ export class AccountComponent implements OnInit {
 
   ngEditAccount(): void {
     this.editFields = true;
+    this.initForm();
   }
 
   ngSaveAccountChanges(): void {
@@ -51,6 +51,7 @@ export class AccountComponent implements OnInit {
   }
 
   initForm(): void {
+    this.formInputs.showExtraInfo = true;
     this.formInputs.firstname.value = this.user.accountInfo.firstname;
     this.formInputs.lastname.value = this.user.accountInfo.lastname;
     this.formInputs.email.value = this.user.accountInfo.email;

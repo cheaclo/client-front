@@ -6,7 +6,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.firstname}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="firstname"
-          [(ngModel)]="formInputs.firstname.value"/>
+          [(ngModel)]="formInputs.firstname.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.firstname.currentMessage}}</p>
       </div>
     </div>
@@ -15,7 +15,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.lastname}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="lastname" *ngIf="editFields"
-          [(ngModel)]="formInputs.lastname.value"/>
+          [(ngModel)]="formInputs.lastname.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.lastname.currentMessage}}</p>
       </div>
     </div>
@@ -24,7 +24,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.email}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="email" name="email" *ngIf="editFields"
-          [(ngModel)]="formInputs.email.value"/>
+          [(ngModel)]="formInputs.email.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.email.currentMessage}}</p>
       </div>
     </div>
@@ -60,7 +60,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.birthdayDate}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"
-          [(ngModel)]="formInputs.birthday.value"/>
+          [(ngModel)]="formInputs.birthday.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.birthday.currentMessage}}</p>
       </div>
     </div>
@@ -69,7 +69,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.address.street}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="streetName" *ngIf="editFields"
-          [(ngModel)]="formInputs.street.value"/>
+          [(ngModel)]="formInputs.street.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.street.currentMessage}}</p>
       </div>
     </div>
@@ -78,8 +78,8 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.address.streetNumber}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="number" name="streetNumber" min="1" max="99999" *ngIf="editFields"
-          [(ngModel)]="formInputs.streetNumber.value"/>
-        <p>{{formInputs.street.currentMessage}}</p>
+          [(ngModel)]="formInputs.streetNumber.value" (change)="ngOnFieldChange()"/>
+        <p>{{formInputs.streetNumber.currentMessage}}</p>
       </div>
     </div>
     <div class="details-row">
@@ -87,7 +87,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.address.city}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="cityName" *ngIf="editFields"
-          [(ngModel)]="formInputs.city.value"/>
+          [(ngModel)]="formInputs.city.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.city.currentMessage}}</p>
       </div>
     </div>
@@ -96,7 +96,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.address.postalCode}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="postalCode" *ngIf="editFields"
-          [(ngModel)]="formInputs.postalCode.value"/>
+          [(ngModel)]="formInputs.postalCode.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.postalCode.currentMessage}}</p>
       </div>
     </div>
@@ -104,7 +104,7 @@
       <p class="label">Country</p>
       <p class="value" *ngIf="!editFields">{{user.accountInfo.address.country}}</p>
       <div class="input-box" *ngIf="editFields">
-        <select name="country" *ngIf="editFields">
+        <select name="country" *ngIf="editFields" (change)="ngOnFieldChange()">
           <option value="" selected>{{user.accountInfo.address.country}}</option>
           <option *ngFor="let c of countries" value="{{c}}">{{c | titlecase }}</option>
         </select>
@@ -116,7 +116,7 @@
       <p class="value" *ngIf="!editFields">{{user.accountInfo.phone}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="phoneNumber" *ngIf="editFields"
-          [(ngModel)]="formInputs.phoneNumber.value"/>
+          [(ngModel)]="formInputs.phoneNumber.value" (change)="ngOnFieldChange()"/>
         <p>{{formInputs.phoneNumber.currentMessage}}</p>
       </div>
     </div>
