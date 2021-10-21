@@ -1,5 +1,4 @@
 import { EditUserResponse } from './../models/editUserResponse';
-import { FormInputs } from './../common/FormInputs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormInputs } from 'src/app/common/FormInputs';
@@ -16,7 +17,8 @@ export class AccountComponent implements OnInit {
   user!: User;
 
   constructor(private signUpService: SignUpService,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
     this.user = JSON.parse(sessionStorage.getItem('user') || '{}');
     if (this.user === null) {
       router.navigate(['/']);
@@ -38,7 +40,18 @@ export class AccountComponent implements OnInit {
   }
 
   ngSaveAccountChanges(): void {
-
+    let valid = this.formInputs.validFields();
+    if (valid) {
+      this.userService.editUserAll(this.getEditAllRequestBody())
+      .subscribe(response => {
+        console.log(response);
+        if (response.success) {
+          this.user = response.user;
+          sessionStorage.setItem('user', JSON.stringify(this.user));
+        }
+        this.editFields = false;
+      })
+    }
   }
 
   ngCancelAccountChanges(): void {
@@ -51,6 +64,7 @@ export class AccountComponent implements OnInit {
   }
 
   initForm(): void {
+    this.formInputs.checkPassword = false;
     this.formInputs.showExtraInfo = true;
     this.formInputs.firstname.value = this.user.accountInfo.firstname;
     this.formInputs.lastname.value = this.user.accountInfo.lastname;
@@ -69,6 +83,25 @@ export class AccountComponent implements OnInit {
     for (let input of this.formInputs.formFields) {
       input.valid = true;
       input.currentMessage = "";
+    }
+  }
+
+
+  getEditAllRequestBody(): any {
+    return {
+      userId: this.user.id,
+      email: this.user.accountInfo.email,
+      newFirstname: this.formInputs.firstname.value,
+      newLastname: this.formInputs.lastname.value,
+      newEmail: this.formInputs.email.value,
+      newGender: this.formInputs.gender.value,
+      newBirthday: this.formInputs.birthday.value,
+      newStreet: this.formInputs.street.value,
+      newStreetNumber: Number.parseInt(this.formInputs.streetNumber.value),
+      newCity: this.formInputs.city.value,
+      newPostalCode: this.formInputs.postalCode.value,
+      newCountry: this.formInputs.country.value,
+      newPhone: this.formInputs.phoneNumber.value,
     }
   }
 }
