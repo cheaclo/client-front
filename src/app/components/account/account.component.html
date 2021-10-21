@@ -67,7 +67,14 @@
       <p class="value" *ngIf="!editFields">Y09YU1</p>
       <input autocomplete="off" type="text" name="postalCode" *ngIf="editFields"/>
     </div>
-    <!-- add country selector-->
+    <div class="details-row">
+      <p class="label">Country</p>
+      <p class="value" *ngIf="!editFields">Poland</p>
+      <select name="country" *ngIf="editFields">
+        <option value="" disabled selected>Country</option>
+        <option *ngFor="let c of countries" value="{{c}}">{{c | titlecase }}</option>
+      </select>
+    </div>
     <div class="details-row">
       <p class="label">Phone number</p>
       <p class="value" *ngIf="!editFields">333 222 111</p>

@@ -79,6 +79,25 @@ body {
       }
     }
   }
+
+  select, select:focus, select:visited {
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    margin: 2em 2em 0.5em 2em;
+    padding-bottom: 1em;
+    color: $placeholder-color;
+    outline: none;
+    font-family: Spartan;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    option {
+      font-family: Spartan;
+    }
+  }
 }
 
 
