@@ -31,7 +31,7 @@
     <div class="details-row">
       <p class="label">Password</p>
       <div>
-        <button class="black-button">Change password</button>
+        <button class="black-button" (click)="ngShowPasswordPopup()">Change password</button>
       </div>
     </div>
     <div class="details-row">
@@ -135,5 +135,16 @@
       <button class="black-button" (click)="ngDeleteAccountNo()">No</button>
       <button class="white-button" (click)="ngDeleteAccountYes()">Yes</button>
     </div>
+  </div>
+  <div class="change-password-popup" [ngClass]="{'change-password-popup-visible': changePasswordPopupVisible, 'change-password-popup-invisible': !changePasswordPopupVisible}">
+    <p>Change password</p>
+    <div class="password-inputs">
+      <input autocomplete="off" type="password" placeholder="Password" name="password"/>
+      <input autocomplete="off" type="password" placeholder="New password" name="newPassword"/>
+      <input autocomplete="off" type="password" placeholder="New password repeat" name="newPasswordRepeat"/>
+      <p class="error">{{passwordErrorMessage}}</p>
+    </div>
+    <button class="black-button" (click)="ngChangePassword()">Change password</button>
+    <button class="white-button" (click)="ngCancelPasswordChanging()">Cancel</button>
   </div>
 </div>

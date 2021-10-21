@@ -16,6 +16,8 @@ export class AccountComponent implements OnInit {
   formInputs: FormInputs = new FormInputs();
   user!: User;
   deletePopupVisible = false;
+  changePasswordPopupVisible = false;
+  passwordErrorMessage = "";
 
   constructor(private signUpService: SignUpService,
               private router: Router,
@@ -33,6 +35,10 @@ export class AccountComponent implements OnInit {
 
   ngShowDeletePopup(): void {
     this.deletePopupVisible = true;
+  }
+
+  ngShowPasswordPopup(): void {
+    this.changePasswordPopupVisible = true;
   }
 
   ngEditAccount(): void {
@@ -71,6 +77,14 @@ export class AccountComponent implements OnInit {
   ngDeleteAccountYes(): void {
     this.userService.deleteUser(this.user.id);
     this.deletePopupVisible = false;
+  }
+
+  ngChangePassword(): void {
+    this.changePasswordPopupVisible = false;
+  }
+
+  ngCancelPasswordChanging(): void {
+    this.changePasswordPopupVisible = false;
   }
 
   initForm(): void {
