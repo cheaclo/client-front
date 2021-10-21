@@ -62,6 +62,7 @@ body {
   }
 
   input[type="date"] {
+    background-color: white;
     font-family: Spartan;
     color: $placeholder-color;
     min-width: 40%;
@@ -81,6 +82,7 @@ body {
   }
 
   select, select:focus, select:visited {
+    background-color: white;
     appearance: none;
     border: none;
     border-bottom: 1px solid $dark-grey;
