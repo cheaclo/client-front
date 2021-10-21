@@ -15,6 +15,7 @@ export class AccountComponent implements OnInit {
   countries: string[] = [];
   formInputs: FormInputs = new FormInputs();
   user!: User;
+  deletePopupVisible = false;
 
   constructor(private signUpService: SignUpService,
               private router: Router,
@@ -30,8 +31,8 @@ export class AccountComponent implements OnInit {
     .subscribe(countries => this.countries = countries);
   }
 
-  ngDeleteAccount(): void {
-
+  ngShowDeletePopup(): void {
+    this.deletePopupVisible = true;
   }
 
   ngEditAccount(): void {
@@ -61,6 +62,16 @@ export class AccountComponent implements OnInit {
   ngOnFieldChange(): void {
     this.clearErrorMessages();
     this.formInputs.validFields();
+  }
+
+  ngDeleteAccountNo(): void {
+
+    this.deletePopupVisible = false;
+  }
+
+  ngDeleteAccountYes(): void {
+
+    this.deletePopupVisible = false;
   }
 
   initForm(): void {

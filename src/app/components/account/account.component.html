@@ -121,12 +121,19 @@
       </div>
     </div>
     <div class="action-buttons">
-      <button class="white-button" (click)="ngDeleteAccount()">Delete account</button>
+      <button class="white-button" (click)="ngShowDeletePopup()">Delete account</button>
       <div>
         <button class="black-button" (click)="ngEditAccount()" *ngIf="!editFields">Edit</button>
         <button class="white-button" (click)="ngCancelAccountChanges()" *ngIf="editFields">Cancel</button>
         <button class="black-button" (click)="ngSaveAccountChanges()" *ngIf="editFields">Save</button>
       </div>
+    </div>
+  </div>
+  <div class="delete-popup" [ngClass]="{'delete-popup-visible': deletePopupVisible, 'delete-popup-invisible': !deletePopupVisible}">
+    <p>Are you sure you want to delete your account?</p>
+    <div class="buttons">
+      <button class="black-button" (click)="ngDeleteAccountNo()">No</button>
+      <button class="white-button" (click)="ngDeleteAccountYes()">Yes</button>
     </div>
   </div>
 </div>
