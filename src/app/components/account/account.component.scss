@@ -32,9 +32,22 @@
         font-weight: bold;
       }
 
-      input {
+      .input-box {
+        display: flex;
+        flex-direction: column;
         flex: 0.9;
-        border-bottom: 1px solid $dark-grey;
+
+        input {
+          flex: 1;
+          border-bottom: 1px solid $dark-grey;
+        }
+
+        p {
+          color: $error-color;
+          margin-top: 0.5em;
+          font-size: 0.75em;
+          height: 0.75em;
+        }
       }
 
       div {

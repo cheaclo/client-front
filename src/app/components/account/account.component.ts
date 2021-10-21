@@ -9,7 +9,7 @@ import { SignUpService } from 'src/app/services/sign-up.service';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  editFields = false;
+  editFields = true;
   countries: string[] = [];
 
   constructor(private signUpService: SignUpService,
