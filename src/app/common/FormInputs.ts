@@ -1,3 +1,4 @@
+import { trigger } from "@angular/animations";
 import { FormInput } from "../models/formInput";
 
 export class FormInputs {
@@ -6,6 +7,7 @@ export class FormInputs {
   POSTAL_CODE_REGEX = new RegExp(/^\w{6}$/);
 
   showExtraInfo = false;
+  checkPassword = true;
 
   firstname: FormInput = {
     errorMessage: "Invalid firstname",
@@ -33,14 +35,14 @@ export class FormInputs {
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || !(val.length >= 5 && val.length <= 30)}
+    validate: (val: string) => {return this.checkPassword && (val === undefined || !(val.length >= 5 && val.length <= 30))}
   };
   repeatPassword: FormInput = {
     errorMessage: "Passwords have to be the same",
     currentMessage: "",
     valid: true,
     value: "",
-    validate: (val: string) => {return val === undefined || val !== this.password.value}
+    validate: (val: string) => {return this.checkPassword && (val === undefined || val !== this.password.value)}
   };
   country: FormInput = {
     errorMessage: "Invalid country",
@@ -123,6 +125,7 @@ export class FormInputs {
 
     for (let input of this.formFields) {
       if (input.validate(input.value)) {
+        console.log(input);
         input.valid = false;
         input.currentMessage = input.errorMessage;
         valid = false;
