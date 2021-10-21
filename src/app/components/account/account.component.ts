@@ -45,6 +45,11 @@ export class AccountComponent implements OnInit {
     this.editFields = false;
   }
 
+  ngOnFieldChange(): void {
+    this.clearErrorMessages();
+    this.formInputs.validFields();
+  }
+
   initForm(): void {
     this.formInputs.firstname.value = this.user.accountInfo.firstname;
     this.formInputs.lastname.value = this.user.accountInfo.lastname;
@@ -57,5 +62,12 @@ export class AccountComponent implements OnInit {
     this.formInputs.postalCode.value = this.user.accountInfo.address.postalCode;
     this.formInputs.country.value = this.user.accountInfo.address.country;
     this.formInputs.phoneNumber.value = this.user.accountInfo.phone;
+  }
+
+  clearErrorMessages(): void {
+    for (let input of this.formInputs.formFields) {
+      input.valid = true;
+      input.currentMessage = "";
+    }
   }
 }
