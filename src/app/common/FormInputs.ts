@@ -134,21 +134,4 @@ export class FormInputs {
 
     return valid;
   }
-
-  getSingUpRequestBody(): any {
-    return {
-      firstname: this.firstname.value,
-      lastname: this.lastname.value,
-      email: this.email.value,
-      password: btoa(this.password.value),
-      birthday: this.birthday.value,
-      gender: this.gender.value === "" ? null : this.gender.value,
-      phone: this.phoneNumber.value,
-      street: this.street.value,
-      streetNumber: this.streetNumber.value,
-      city: this.city.value,
-      postalCode: this.postalCode.value,
-      country: this.country.value
-    }
-  }
 }

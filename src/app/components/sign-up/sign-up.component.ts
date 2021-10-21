@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
   ngSubmit(): void {
     let valid = this.formInputs.validFields();
     if (valid) {
-      this.signUpService.signUp(this.formInputs.getSingUpRequestBody())
+      this.signUpService.signUp(this.getSingUpRequestBody())
       .subscribe(res => {
         if (res.success) {
           sessionStorage.setItem('userLogged', 'true');
@@ -50,6 +50,23 @@ export class SignUpComponent implements OnInit {
     for (let input of this.formInputs.formFields) {
       input.valid = true;
       input.currentMessage = "";
+    }
+  }
+
+  getSingUpRequestBody(): any {
+    return {
+      firstname: this.formInputs.firstname.value,
+      lastname: this.formInputs.lastname.value,
+      email: this.formInputs.email.value,
+      password: btoa(this.formInputs.password.value),
+      birthday: this.formInputs.birthday.value,
+      gender: this.formInputs.gender.value === "" ? null : this.formInputs.gender.value.toUpperCase(),
+      phone: this.formInputs.phoneNumber.value,
+      street: this.formInputs.street.value,
+      streetNumber: this.formInputs.streetNumber.value,
+      city: this.formInputs.city.value,
+      postalCode: this.formInputs.postalCode.value,
+      country: this.formInputs.country.value
     }
   }
 }
