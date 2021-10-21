@@ -14,5 +14,17 @@
         font-size: 1.25em;
       }
     }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 1.5em 1em;
+
+      div {
+        button {
+          margin-left: 1em;
+        }
+      }
+    }
   }
 }

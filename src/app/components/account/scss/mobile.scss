@@ -21,5 +21,20 @@
         flex-direction: column;
       }
     }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      margin: 1.5em 1em;
+
+      button {
+        margin-bottom: 1em;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 }
