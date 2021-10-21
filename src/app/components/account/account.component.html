@@ -19,7 +19,7 @@
     <div class="details-row">
       <p class="label">Password</p>
       <div>
-        <button>Change password</button>
+        <button class="black-button">Change password</button>
       </div>
     </div>
     <div class="details-row">
@@ -79,6 +79,14 @@
       <p class="label">Phone number</p>
       <p class="value" *ngIf="!editFields">333 222 111</p>
       <input autocomplete="off" type="text" name="phoneNumber" *ngIf="editFields"/>
+    </div>
+    <div class="action-buttons">
+      <button class="white-button">Delete account</button>
+      <div>
+        <button class="black-button" *ngIf="!editFields">Edit</button>
+        <button class="white-button" *ngIf="editFields">Cancel</button>
+        <button class="black-button" *ngIf="editFields">Save</button>
+      </div>
     </div>
   </div>
 </div>
