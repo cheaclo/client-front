@@ -50,7 +50,7 @@ export class AccountComponent implements OnInit {
     this.formInputs.lastname.value = this.user.accountInfo.lastname;
     this.formInputs.email.value = this.user.accountInfo.email;
     this.formInputs.gender.value = this.user.accountInfo.gender;
-    this.formInputs.birthday.value = this.user.accountInfo.birthdayDate;
+    this.formInputs.birthday.value = this.user.accountInfo.birthdayDate.toString().slice(0, 10);
     this.formInputs.street.value = this.user.accountInfo.address.street;
     this.formInputs.streetNumber.value = this.user.accountInfo.address.streetNumber;
     this.formInputs.city.value = this.user.accountInfo.address.city;
