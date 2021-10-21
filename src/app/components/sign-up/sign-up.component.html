@@ -4,28 +4,28 @@
   <form>
     <div class="input-element input-medium">
       <input autocomplete="off" type="text" placeholder="Firstname" name="firstname"
-        [(ngModel)]="firstname.value" [ngClass]="{'valid-input': firstname.valid, 'invalid-input': !firstname.valid}" (change)="ngOnFieldChange()"/>
-      <p class="error-message" [innerText]="firstname.currentMessage"></p>
+        [(ngModel)]="formInputs.firstname.value" [ngClass]="{'valid-input': formInputs.firstname.valid, 'invalid-input': !formInputs.firstname.valid}" (change)="ngOnFieldChange()"/>
+      <p class="error-message" [innerText]="formInputs.firstname.currentMessage"></p>
     </div>
     <div class="input-element input-medium">
       <input autocomplete="off" type="text" placeholder="Lastname" name="lastname"
-        [(ngModel)]="lastname.value" [ngClass]="{'valid-input': lastname.valid, 'invalid-input': !lastname.valid}" (change)="ngOnFieldChange()"/>
-      <p class="error-message" [innerText]="lastname.currentMessage"></p>
+        [(ngModel)]="formInputs.lastname.value" [ngClass]="{'valid-input': formInputs.lastname.valid, 'invalid-input': !formInputs.lastname.valid}" (change)="ngOnFieldChange()"/>
+      <p class="error-message" [innerText]="formInputs.lastname.currentMessage"></p>
     </div>
     <div class="input-element input-large">
       <input autocomplete="off" type="email" placeholder="Email" name="email"
-        [(ngModel)]="email.value" [ngClass]="{'valid-input': email.valid, 'invalid-input': !email.valid}" (change)="ngOnFieldChange()"/>
-      <p class="error-message">{{email.currentMessage}}</p>
+        [(ngModel)]="formInputs.email.value" [ngClass]="{'valid-input': formInputs.email.valid, 'invalid-input': !formInputs.email.valid}" (change)="ngOnFieldChange()"/>
+      <p class="error-message">{{formInputs.email.currentMessage}}</p>
     </div>
     <div class="input-element input-medium">
       <input autocomplete="off" type="password" placeholder="Password" name="email"
-        [(ngModel)]="password.value" [ngClass]="{'valid-input': password.valid, 'invalid-input': !password.valid}" (change)="ngOnFieldChange()"/>
-      <p class="error-message">{{password.currentMessage}}</p>
+        [(ngModel)]="formInputs.password.value" [ngClass]="{'valid-input': formInputs.password.valid, 'invalid-input': !formInputs.password.valid}" (change)="ngOnFieldChange()"/>
+      <p class="error-message">{{formInputs.password.currentMessage}}</p>
     </div>
     <div class="input-element input-medium">
       <input autocomplete="off" type="password" placeholder="Repeat password" name="repeatPassword"
-        [(ngModel)]="repeatPassword.value" [ngClass]="{'valid-input': repeatPassword.valid, 'invalid-input': !repeatPassword.valid}" (change)="ngOnFieldChange()"/>
-      <p class="error-message">{{repeatPassword.currentMessage}}</p>
+        [(ngModel)]="formInputs.repeatPassword.value" [ngClass]="{'valid-input': formInputs.repeatPassword.valid, 'invalid-input': !formInputs.repeatPassword.valid}" (change)="ngOnFieldChange()"/>
+      <p class="error-message">{{formInputs.repeatPassword.currentMessage}}</p>
     </div>
 
     <div id="add-extra-info" (click)="ngToggleExtraInfo()">
@@ -33,58 +33,58 @@
       <img src="assets/icons/plus.svg" />
     </div>
 
-    <div id="extra-info" [ngClass]="{'visible': showExtraInfo, 'hidden': !showExtraInfo}">
+    <div id="extra-info" [ngClass]="{'visible': formInputs.showExtraInfo, 'hidden': !formInputs.showExtraInfo}">
       <div class="input-element input-medium">
         <select name="country"
-          [(ngModel)]="country.value" [ngClass]="{'valid-input': country.valid, 'invalid-input': !country.valid}" #countrySelector (change)="ngOnFieldChange()">
+          [(ngModel)]="formInputs.country.value" [ngClass]="{'valid-input': formInputs.country.valid, 'invalid-input': !formInputs.country.valid}" #countrySelector (change)="ngOnFieldChange()">
           <option value="" disabled selected>Country</option>
           <option *ngFor="let c of countries" value="{{c}}">{{c | titlecase }}</option>
         </select>
-        <p class="error-message">{{country.currentMessage}}</p>
+        <p class="error-message">{{formInputs.country.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="Phone number" name="phoneNumber"
-          [(ngModel)]="phoneNumber.value" [ngClass]="{'valid-input': phoneNumber.valid, 'invalid-input': !phoneNumber.valid}" (change)="ngOnFieldChange()"/>
-        <p class="error-message" >{{phoneNumber.currentMessage}}</p>
+          [(ngModel)]="formInputs.phoneNumber.value" [ngClass]="{'valid-input': formInputs.phoneNumber.valid, 'invalid-input': !formInputs.phoneNumber.valid}" (change)="ngOnFieldChange()"/>
+        <p class="error-message" >{{formInputs.phoneNumber.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="Street name" name="streetName"
-          [(ngModel)]="street.value" [ngClass]="{'valid-input': street.valid, 'invalid-input': !street.valid}" (change)="ngOnFieldChange()"/>
-        <p class="error-message">{{street.currentMessage}}</p>
+          [(ngModel)]="formInputs.street.value" [ngClass]="{'valid-input': formInputs.street.valid, 'invalid-input': !formInputs.street.valid}" (change)="ngOnFieldChange()"/>
+        <p class="error-message">{{formInputs.street.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="number" placeholder="Street number" name="streetNumber" min="1" max="99999"
-          [(ngModel)]="streetNumber.value" [ngClass]="{'valid-input': streetNumber.valid, 'invalid-input': !streetNumber.valid}" (change)="ngOnFieldChange()"/>
-        <p class="error-message">{{streetNumber.currentMessage}}</p>
+          [(ngModel)]="formInputs.streetNumber.value" [ngClass]="{'valid-input': formInputs.streetNumber.valid, 'invalid-input': !formInputs.streetNumber.valid}" (change)="ngOnFieldChange()"/>
+        <p class="error-message">{{formInputs.streetNumber.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="City name" name="city"
-          [(ngModel)]="city.value" [ngClass]="{'valid-input': city.valid, 'invalid-input': !city.valid}" (change)="ngOnFieldChange()"/>
-        <p class="error-message">{{city.currentMessage}}</p>
+          [(ngModel)]="formInputs.city.value" [ngClass]="{'valid-input': formInputs.city.valid, 'invalid-input': !formInputs.city.valid}" (change)="ngOnFieldChange()"/>
+        <p class="error-message">{{formInputs.city.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="text" placeholder="Postal code" name="postalCode"
-          [(ngModel)]="postalCode.value" [ngClass]="{'valid-input': postalCode.valid, 'invalid-input': !postalCode.valid}" (change)="ngOnFieldChange()"/>
-        <p class="error-message">{{postalCode.currentMessage}}</p>
+          [(ngModel)]="formInputs.postalCode.value" [ngClass]="{'valid-input': formInputs.postalCode.valid, 'invalid-input': !formInputs.postalCode.valid}" (change)="ngOnFieldChange()"/>
+        <p class="error-message">{{formInputs.postalCode.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"
-          [(ngModel)]="birthday.value" [ngClass]="{'valid-input': birthday.valid, 'invalid-input': !birthday.valid}" (change)="ngOnFieldChange()"/>
-        <p class="error-message">{{birthday.currentMessage}}</p>
+          [(ngModel)]="formInputs.birthday.value" [ngClass]="{'valid-input': formInputs.birthday.valid, 'invalid-input': !formInputs.birthday.valid}" (change)="ngOnFieldChange()"/>
+        <p class="error-message">{{formInputs.birthday.currentMessage}}</p>
       </div>
       <div class="input-element input-medium">
         <div id="gender-box">
           <input class="input-small" type="radio" name="gender" value="man"
-            [(ngModel)]="gender.value"/>
+            [(ngModel)]="formInputs.gender.value"/>
           <label>Man</label>
           <input class="input-small" type="radio" name="gender" value="woman"
-            [(ngModel)]="gender.value"/>
+            [(ngModel)]="formInputs.gender.value"/>
           <label>Woman</label>
           <input class="input-small" type="radio" name="gender" value="other"
-            [(ngModel)]="gender.value"/>
+            [(ngModel)]="formInputs.gender.value"/>
           <label>Other</label>
         </div>
-        <p class="error-message">{{gender.currentMessage}}</p>
+        <p class="error-message">{{formInputs.gender.currentMessage}}</p>
       </div>
     </div>
 
