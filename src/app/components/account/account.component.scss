@@ -16,7 +16,7 @@
     .details-row {
       display: flex;
       justify-content: space-between;
-      margin: 1.5em 1em;
+      margin: 2em 1em;
 
       p {
         margin: 0;
@@ -35,7 +35,6 @@
       input {
         flex: 0.9;
         border-bottom: 1px solid $dark-grey;
-        margin-bottom: 1em;
       }
 
       div {
@@ -53,7 +52,6 @@
       select {
         margin: 0;
         flex: 0.9;
-        margin-bottom: 1em;
       }
     }
   }

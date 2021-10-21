@@ -81,11 +81,11 @@
       <input autocomplete="off" type="text" name="phoneNumber" *ngIf="editFields"/>
     </div>
     <div class="action-buttons">
-      <button class="white-button">Delete account</button>
+      <button class="white-button" (click)="ngDeleteAccount()">Delete account</button>
       <div>
-        <button class="black-button" *ngIf="!editFields">Edit</button>
-        <button class="white-button" *ngIf="editFields">Cancel</button>
-        <button class="black-button" *ngIf="editFields">Save</button>
+        <button class="black-button" (click)="ngEditAccount()" *ngIf="!editFields">Edit</button>
+        <button class="white-button" (click)="ngCancelAccountChanges()" *ngIf="editFields">Cancel</button>
+        <button class="black-button" (click)="ngSaveAccountChanges()" *ngIf="editFields">Save</button>
       </div>
     </div>
   </div>

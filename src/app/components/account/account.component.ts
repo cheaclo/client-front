@@ -25,4 +25,19 @@ export class AccountComponent implements OnInit {
     .subscribe(countries => this.countries = countries);
   }
 
+  ngDeleteAccount(): void {
+
+  }
+
+  ngEditAccount(): void {
+    this.editFields = true;
+  }
+
+  ngSaveAccountChanges(): void {
+
+  }
+
+  ngCancelAccountChanges(): void {
+    this.editFields = false;
+  }
 }
