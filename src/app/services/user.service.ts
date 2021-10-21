@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  editUserAllPath = '/user/edit/all';
+  editUserAllPath = '/user/edit';
 
   constructor(private http: HttpClient) { }
 
