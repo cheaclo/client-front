@@ -1,7 +1,6 @@
 import { FormInputs } from './../../common/FormInputs';
 import { Router } from '@angular/router';
 import { SignUpService } from './../../services/sign-up.service';
-import { FormInput } from './../../models/formInput';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
@@ -12,7 +11,6 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 export class SignUpComponent implements OnInit {
   countries: string[] = [];
   serverMessage = "";
-
   formInputs: FormInputs = new FormInputs();
 
   constructor(private signUpService: SignUpService,

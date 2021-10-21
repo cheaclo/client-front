@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormInputs } from 'src/app/common/FormInputs';
 import { User } from 'src/app/models/user';
 import { SignUpService } from 'src/app/services/sign-up.service';
 
@@ -9,15 +10,17 @@ import { SignUpService } from 'src/app/services/sign-up.service';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  editFields = true;
+  editFields = false;
   countries: string[] = [];
+  formInputs: FormInputs = new FormInputs();
+  user!: User;
 
   constructor(private signUpService: SignUpService,
               private router: Router) {
-    let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
-    // if (user === null) {
-    //   router.navigate(['/']);
-    // }
+    this.user = JSON.parse(sessionStorage.getItem('user') || '{}');
+    if (this.user === null) {
+      router.navigate(['/']);
+    }
   }
 
   ngOnInit(): void {

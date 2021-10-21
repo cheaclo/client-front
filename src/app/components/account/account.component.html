@@ -3,7 +3,7 @@
   <div class="account-details">
     <div class="details-row">
       <p class="label">Firstname</p>
-      <p class="value" *ngIf="!editFields">Piotr</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.firstname}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="firstname"/>
         <p></p>
@@ -11,7 +11,7 @@
     </div>
     <div class="details-row">
       <p class="label">Lastname</p>
-      <p class="value" *ngIf="!editFields">Kalota</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.lastname}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="lastname" *ngIf="editFields"/>
         <p></p>
@@ -19,7 +19,7 @@
     </div>
     <div class="details-row">
       <p class="label">Email</p>
-      <p class="value" *ngIf="!editFields">piotrkalotaspam@gmail.com</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.email}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="email" name="email" *ngIf="editFields"/>
         <p></p>
@@ -33,7 +33,7 @@
     </div>
     <div class="details-row">
       <p class="label">Gender</p>
-      <p class="value" *ngIf="!editFields">Man</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.gender}}</p>
       <div class="gender-box" *ngIf="editFields">
         <div>
           <input class="input-small" type="radio" name="gender" value="man"/>
@@ -51,7 +51,7 @@
     </div>
     <div class="details-row">
       <p class="label">Birthday</p>
-      <p class="value" *ngIf="!editFields">01/05/1999</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.birthdayDate}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="date" placeholder="Birthday&nbsp;" name="birthday"/>
         <p></p>
@@ -59,7 +59,7 @@
     </div>
     <div class="details-row">
       <p class="label">Street name</p>
-      <p class="value" *ngIf="!editFields">Cambell</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.address.street}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="streetName" *ngIf="editFields"/>
         <p></p>
@@ -67,7 +67,7 @@
     </div>
     <div class="details-row">
       <p class="label">Street number</p>
-      <p class="value" *ngIf="!editFields">23</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.address.streetNumber}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="number" name="streetNumber" min="1" max="99999" *ngIf="editFields"/>
         <p></p>
@@ -75,7 +75,7 @@
     </div>
     <div class="details-row">
       <p class="label">City name</p>
-      <p class="value" *ngIf="!editFields">Los Angeles</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.address.city}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="cityName" *ngIf="editFields"/>
         <p></p>
@@ -83,7 +83,7 @@
     </div>
     <div class="details-row">
       <p class="label">Postal code</p>
-      <p class="value" *ngIf="!editFields">Y09YU1</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.address.postalCode}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="postalCode" *ngIf="editFields"/>
         <p></p>
@@ -91,7 +91,7 @@
     </div>
     <div class="details-row">
       <p class="label">Country</p>
-      <p class="value" *ngIf="!editFields">Poland</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.address.country}}</p>
       <div class="input-box" *ngIf="editFields">
         <select name="country" *ngIf="editFields">
           <option value="" disabled selected>Country</option>
@@ -102,7 +102,7 @@
     </div>
     <div class="details-row">
       <p class="label">Phone number</p>
-      <p class="value" *ngIf="!editFields">333 222 111</p>
+      <p class="value" *ngIf="!editFields">{{user.accountInfo.phone}}</p>
       <div class="input-box" *ngIf="editFields">
         <input autocomplete="off" type="text" name="phoneNumber" *ngIf="editFields"/>
         <p></p>
