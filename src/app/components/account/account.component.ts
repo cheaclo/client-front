@@ -1,3 +1,4 @@
+import { AccountDataPipe } from './../../pipes/account-data.pipe';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -121,8 +122,8 @@ export class AccountComponent implements OnInit {
     this.formInputs.firstname.value = this.user.accountInfo.firstname;
     this.formInputs.lastname.value = this.user.accountInfo.lastname;
     this.formInputs.email.value = this.user.accountInfo.email;
-    this.formInputs.gender.value = this.user.accountInfo.gender.toUpperCase();
-    this.formInputs.birthday.value = this.user.accountInfo.birthdayDate.toString().slice(0, 10);
+    this.formInputs.gender.value = this.user.accountInfo.gender == null ? '' : this.user.accountInfo.gender.toUpperCase();
+    this.formInputs.birthday.value = this.user.accountInfo.birthdayDate == null ? '' : this.user.accountInfo.birthdayDate.toString().slice(0, 10);
     this.formInputs.street.value = this.user.accountInfo.address.street;
     this.formInputs.streetNumber.value = this.user.accountInfo.address.streetNumber;
     this.formInputs.city.value = this.user.accountInfo.address.city;
@@ -146,7 +147,7 @@ export class AccountComponent implements OnInit {
       newFirstname: this.formInputs.firstname.value,
       newLastname: this.formInputs.lastname.value,
       newEmail: this.formInputs.email.value,
-      newGender: this.formInputs.gender.value,
+      newGender: this.formInputs.gender.value == null ? null : this.formInputs.gender.value.toUpperCase(),
       newBirthday: this.formInputs.birthday.value,
       newStreet: this.formInputs.street.value,
       newStreetNumber: Number.parseInt(this.formInputs.streetNumber.value),

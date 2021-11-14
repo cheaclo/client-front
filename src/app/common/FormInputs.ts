@@ -125,7 +125,6 @@ export class FormInputs {
 
     for (let input of this.formFields) {
       if (input.validate(input.value)) {
-        console.log(input);
         input.valid = false;
         input.currentMessage = input.errorMessage;
         valid = false;

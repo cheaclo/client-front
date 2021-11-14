@@ -28,6 +28,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { StoredProductComponent } from './components/stored-product/stored-product.component';
 import { SavedComponent } from './components/saved/saved.component';
 import { AccountComponent } from './components/account/account.component';
+import { AccountDataPipe } from './pipes/account-data.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AccountComponent } from './components/account/account.component';
     CartComponent,
     StoredProductComponent,
     SavedComponent,
-    AccountComponent
+    AccountComponent,
+    AccountDataPipe
   ],
   imports: [
     BrowserModule,

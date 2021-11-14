@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // testUser = '{"id":6,"createDate":"2021-09-23T16:51:03.451+00:00","accountInfo":{"id":6,"firstname":"Piotr","lastname":"Kalota","email":"random@gmail.com","password":"cGFzc3dvcmQ=","birthdayDate":"1999-04-23T00:00:00.000+00:00","gender":"MAN","phone":"222333111","address":{"id":6,"street":"Cambell","streetNumber":57,"city":"York City","postalCode":"Y010ET","country":"United Kingdom"}}}';
+  //testUser = '{"id":14,"createDate":"2021-11-14T18:33:10.038+00:00","accountInfo":{"id":14,"firstname":"Jack","lastname":"Jackson","email":"jack@gmail.com","password":"cGFzc3dvcmQ=","birthdayDate":"2021-11-03T00:00:00.000+00:00","gender":"MAN","phone":"222333444","address":{"id":14,"street":"safasf","streetNumber":45,"city":"asfasf","postalCode":"222222","country":"belgium"}}}';
 
   ngOnInit(): void {
     sessionStorage.setItem('userLogged', 'false');
