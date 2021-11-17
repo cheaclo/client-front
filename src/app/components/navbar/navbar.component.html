@@ -10,7 +10,7 @@
     </div>
     <div class="menu" [ngClass]="{'menu-closed': !menuOpened, 'menu-opened': menuOpened}" #menuRef>
         <a [routerLink]="['/account']" (click)="ngOnMenuItemClick()">Account</a>
-        <a [routerLink]="['/saved']" (click)="ngOnMenuItemClick()">Saved</a>
+        <a [routerLink]="['/favourite']" (click)="ngOnMenuItemClick()">Favourites</a>
         <a (click)="ngOnMenuItemClick()">Recommendations</a>
         <a (click)="logout()">Log out</a>
     </div>

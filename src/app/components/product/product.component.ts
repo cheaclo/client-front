@@ -1,4 +1,4 @@
-import { SavedService } from './../../services/saved.service';
+import { FavouriteService } from '../../services/favourite.service';
 import { ProductResponse } from './../../models/productResponse';
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
@@ -13,7 +13,7 @@ export class ProductComponent implements OnInit {
   @Input() outerMarginBottom = true;
   showActionBox = false;
 
-  constructor(private savedService: SavedService) {}
+  constructor(private favouriteService: FavouriteService) {}
 
   ngOnInit(): void {
   }
@@ -39,11 +39,11 @@ export class ProductComponent implements OnInit {
     this.showActionBox = false;
   }
 
-  ngAddToSaved(): void {
+  ngAddToFavourite(): void {
     this.showActionBox = false;
     let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
     if (user !== null) {
-      this.savedService.addSavedProduct(user.id, this.product.id);
+      this.favouriteService.addFavouriteProduct(user.id, this.product.id);
     }
   }
 }

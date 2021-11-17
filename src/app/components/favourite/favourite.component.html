@@ -1,10 +1,10 @@
 <div class="outer">
-  <h1>Saved products</h1>
+  <h1>Favourite products</h1>
   <div class="cart-list">
-    <div class="product-actions" *ngFor="let product of savedProducts">
+    <div class="product-actions" *ngFor="let product of favouriteProducts">
       <app-product [product]="product" [outerMarginBottom]="false"></app-product>
       <div class="buttons">
-        <button class="white-button" (click)="ngRemoveFromSaved(product)">Remove</button>
+        <button class="white-button" (click)="ngRemoveFromFavourite(product)">Remove</button>
         <button class="dark-button" (click)="ngAlreadyBought(product)">Already bought</button>
       </div>
     </div>

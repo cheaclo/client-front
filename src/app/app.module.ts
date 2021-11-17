@@ -26,7 +26,7 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
 import { CartComponent } from './components/cart/cart.component';
 import { StoredProductComponent } from './components/stored-product/stored-product.component';
-import { SavedComponent } from './components/saved/saved.component';
+import { FavouriteComponent } from './components/favourite/favourite.component';
 import { AccountComponent } from './components/account/account.component';
 import { AccountDataPipe } from './pipes/account-data.pipe';
 
@@ -52,7 +52,7 @@ import { AccountDataPipe } from './pipes/account-data.pipe';
     ProductsByTitleComponent,
     CartComponent,
     StoredProductComponent,
-    SavedComponent,
+    FavouriteComponent,
     AccountComponent,
     AccountDataPipe
   ],
