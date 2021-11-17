@@ -10,6 +10,12 @@
     font-weight: normal;
   }
 
+  .remove-all {
+    color: white;
+    background-color: $dark-grey;
+    padding: 2em 5em;
+  }
+
   .product-list {
     display: flex;
     justify-content: center;
@@ -40,11 +46,6 @@
           color: $dark-grey;
           border: 1px solid $dark-grey;
           background-color: white;
-        }
-
-        .dark-button {
-          color: white;
-          background-color: $dark-grey;
         }
       }
     }

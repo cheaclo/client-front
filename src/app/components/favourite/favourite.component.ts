@@ -23,7 +23,7 @@ export class FavouriteComponent implements OnInit {
     favouriteService.getFavouriteProductsIds(this.user.id)
     .subscribe(idsResponse => {
       favouriteService.getFavouriteProducts(idsResponse.favouriteProducts)
-      .subscribe(products => {this.favouriteProducts = products; console.log(products)})
+      .subscribe(products => {this.favouriteProducts = products})
     });
   }
 
@@ -35,9 +35,9 @@ export class FavouriteComponent implements OnInit {
     this.favouriteProducts = this.favouriteProducts.filter(obj => obj !== product);
   }
 
-  ngAlreadyBought(product: ProductResponse): void {
-    //send info to server
-    this.favouriteService.deleteFavouriteProduct(product.id, this.user.id);
-    this.favouriteProducts = this.favouriteProducts.filter(obj => obj !== product);
+  ngRemoveAllFromFavourite(): void {
+    for (let product of this.favouriteProducts) {
+      this.ngRemoveFromFavourite(product);
+    }
   }
 }
