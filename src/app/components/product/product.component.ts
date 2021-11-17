@@ -11,11 +11,27 @@ import { User } from 'src/app/models/user';
 export class ProductComponent implements OnInit {
   @Input() product!: ProductResponse;
   @Input() outerMarginBottom = true;
-  showActionBox = false;
+  @Input() showHeart = true;
+  heart = {
+    active: false,
+    deactivePath: 'assets/icons/heart-empty.svg',
+    activePath: 'assets/icons/heart-full.svg'
+  }
+  user!: User;
 
   constructor(private favouriteService: FavouriteService) {}
 
   ngOnInit(): void {
+    this.user = JSON.parse(sessionStorage.getItem('user') || '{}');
+    if (this.user === null) {
+      this.showHeart = false;
+    } else {
+      this.favouriteService.findFavouriteProduct(this.product.id, this.user.id)
+      .subscribe(resposne => {
+        if (resposne.success)
+          this.heart.active = true
+      });
+    }
   }
 
   ngRedirectToProduct(): void {
@@ -25,15 +41,16 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  ngToggleActionBox(): void {
-    this.showActionBox = !this.showActionBox;
-  }
-
-  ngAddToFavourite(): void {
-    this.showActionBox = false;
-    let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
-    if (user !== null) {
-      this.favouriteService.addFavouriteProduct(user.id, this.product.id);
+  ngToggleFavourite(): void {
+    if (this.heart.active) {
+      this.favouriteService.deleteFavouriteProduct(this.product.id, this.user.id);
+    } else {
+      let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');
+      if (user !== null) {
+        this.favouriteService.addFavouriteProduct(user.id, this.product.id);
+      }
     }
+
+    this.heart.active = !this.heart.active;
   }
 }

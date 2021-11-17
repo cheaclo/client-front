@@ -12,6 +12,7 @@ export class FavouriteService {
   getFavouriteProductsPath: string = '/user/favourite-product/get';
   getProductsByIdPath: string = '/clothes/product/ids';
   deleteFavouriteProductPath: string = '/user/favourite-product/delete/id';
+  findFavouriteProductPath: string = '/user/favourite-product/find';
 
   constructor(private http: HttpClient) { }
 
@@ -31,9 +32,17 @@ export class FavouriteService {
     return this.http.get<ProductResponse[]>(this.getProductsByIdPath, {params: parameters});
   }
 
-  deleteFavouriteProduct(id: number): void {
+  deleteFavouriteProduct(productId: number, userId: number): void {
     const parameters = new HttpParams()
-                        .set('id', id);
+                        .set('productId', productId)
+                        .set('userId', userId);
     this.http.delete(this.deleteFavouriteProductPath, {params: parameters}).subscribe();
+  }
+
+  findFavouriteProduct(productId: number, userId: number): Observable<FavouriteProductsResponse> {
+    const parameters = new HttpParams()
+                          .set('productId', productId)
+                          .set('userId', userId);
+    return this.http.get<FavouriteProductsResponse>(this.findFavouriteProductPath, {params: parameters});
   }
 }

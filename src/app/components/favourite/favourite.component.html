@@ -2,7 +2,7 @@
   <h1>Favourite products</h1>
   <div class="product-list">
     <div class="product-actions" *ngFor="let product of favouriteProducts">
-      <app-product [product]="product" [outerMarginBottom]="false"></app-product>
+      <app-product [showHeart]="false" [product]="product" [outerMarginBottom]="false"></app-product>
       <div class="buttons">
         <button class="white-button" (click)="ngRemoveFromFavourite(product)">Remove</button>
         <button class="dark-button" (click)="ngAlreadyBought(product)">Already bought</button>

@@ -10,6 +10,6 @@ export class AppComponent {
 
   ngOnInit(): void {
     sessionStorage.setItem('userLogged', 'false');
-    sessionStorage.setItem('user', '{}');
+    sessionStorage.setItem('user', 'null');
   }
 }
