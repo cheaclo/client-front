@@ -5,7 +5,6 @@
     </a>
     <div id="icons">
         <a><img src="assets/icons/search.svg" routerLink="/search"/></a>
-        <a [routerLink]="['/cart']"><img src="assets/icons/cart.svg" /></a>
         <a (click)="toggleMenu()" [routerLink]="isUserLogged() ? [] : ['/sign-in']"><img src="assets/icons/account.svg" /></a>
     </div>
     <div class="menu" [ngClass]="{'menu-closed': !menuOpened, 'menu-opened': menuOpened}" #menuRef>

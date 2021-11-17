@@ -29,16 +29,6 @@ export class ProductComponent implements OnInit {
     this.showActionBox = !this.showActionBox;
   }
 
-  ngAddToCart(): void {
-    let cart: ProductResponse[] = JSON.parse(sessionStorage.getItem('cart') || '{}');
-    let duplicate = cart.find(product => this.product.id === product.id);
-    if (duplicate === undefined) {
-      cart.push(this.product);
-      sessionStorage.setItem('cart', JSON.stringify(cart));
-    }
-    this.showActionBox = false;
-  }
-
   ngAddToFavourite(): void {
     this.showActionBox = false;
     let user: User = JSON.parse(sessionStorage.getItem('user') || '{}');

@@ -24,7 +24,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductsByShopComponent } from './components/products-by-shop/products-by-shop.component';
 import { ShopsComponent } from './components/shops/shops.component';
 import { ProductsByTitleComponent } from './components/products-by-title/products-by-title.component';
-import { CartComponent } from './components/cart/cart.component';
 import { StoredProductComponent } from './components/stored-product/stored-product.component';
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { AccountComponent } from './components/account/account.component';
@@ -50,7 +49,6 @@ import { AccountDataPipe } from './pipes/account-data.pipe';
     ProductsByShopComponent,
     ShopsComponent,
     ProductsByTitleComponent,
-    CartComponent,
     StoredProductComponent,
     FavouriteComponent,
     AccountComponent,
