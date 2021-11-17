@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +14,11 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.menuOpened = false;
   }
 
   ngOnMenuItemClick(): void {
