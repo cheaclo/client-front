@@ -8,15 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shops.component.scss']
 })
 export class ShopsComponent implements OnInit {
-  shopParam: string = "";
   shops: string[] = [];
 
   constructor(private route: ActivatedRoute,
               private shopService: ShopService) {
     route.params.subscribe(params => {
-      this.shopParam = params['shop'];
+      let shopParam = params['shop'];
+      shopParam = shopParam==='undefined' ? "" : shopParam;
 
-      shopService.getMatchedShops(this.shopParam)
+      shopService.getMatchedShops(shopParam)
       .subscribe(shops => this.shops = shops);
     });
   }
