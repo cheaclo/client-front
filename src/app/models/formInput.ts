@@ -4,4 +4,5 @@ export interface FormInput {
   valid: boolean;
   validate: any;
   value: any;
+  required: boolean;
 }
