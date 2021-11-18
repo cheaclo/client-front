@@ -25,9 +25,15 @@ export class SignUpComponent implements OnInit {
     this.formInputs.showExtraInfo = !this.formInputs.showExtraInfo;
   }
 
-  ngOnFieldChange(): void {
-    this.clearErrorMessages();
-    this.formInputs.validFields();
+  ngOnFieldChange(field: any): void {
+    field.valid = true;
+    field.currentMessage = "";
+
+    if (field.validate(field.value)) {
+      field.valid = false;
+      field.currentMessage = field.errorMessage;
+      field = false;
+    }
   }
 
   ngSubmit(): void {
@@ -43,13 +49,6 @@ export class SignUpComponent implements OnInit {
           this.serverMessage = res.message;
         }
       })
-    }
-  }
-
-  clearErrorMessages(): void {
-    for (let input of this.formInputs.formFields) {
-      input.valid = true;
-      input.currentMessage = "";
     }
   }
 
