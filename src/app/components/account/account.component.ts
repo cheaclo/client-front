@@ -75,9 +75,15 @@ export class AccountComponent implements OnInit {
     this.editFields = false;
   }
 
-  ngOnFieldChange(): void {
-    this.clearErrorMessages();
-    this.formInputs.validFields();
+  ngOnFieldChange(field: any): void {
+    field.valid = true;
+    field.currentMessage = "";
+
+    if (field.validate(field.value)) {
+      field.valid = false;
+      field.currentMessage = field.errorMessage;
+      field = false;
+    }
   }
 
   ngDeleteAccountNo(): void {
@@ -134,14 +140,6 @@ export class AccountComponent implements OnInit {
     this.formInputs.country.value = this.user.accountInfo.address.country;
     this.formInputs.phoneNumber.value = this.user.accountInfo.phone;
   }
-
-  clearErrorMessages(): void {
-    for (let input of this.formInputs.formFields) {
-      input.valid = true;
-      input.currentMessage = "";
-    }
-  }
-
 
   getEditAllRequestBody(): any {
     return {
