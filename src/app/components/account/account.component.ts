@@ -87,6 +87,9 @@ export class AccountComponent implements OnInit {
   ngDeleteAccountYes(): void {
     this.userService.deleteUser(this.user.id);
     this.deletePopupVisible = false;
+    sessionStorage.setItem('userLogged', 'false');
+    sessionStorage.setItem('user', 'null');
+    this.router.navigateByUrl('/sign-in');
   }
 
   ngChangePassword(): void {
