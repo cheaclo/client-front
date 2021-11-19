@@ -6,8 +6,8 @@
   </div>
   <div class="row">
     <div class="price">
-      <p>{{product.details.price | double}}</p>
-      <del>{{product.details.regularPrice | double}}</del>
+      <p>£{{product.details.price | double}}</p>
+      <del>£{{product.details.regularPrice | double}}</del>
     </div>
     <img *ngIf="showHeart" [src]="heart.active ? heart.activePath : heart.deactivePath" (click)="ngToggleFavourite()">
   </div>
