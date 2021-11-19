@@ -77,7 +77,6 @@ export class SearchComponent implements OnInit {
     this.productService.getFirstFiveMatchedProducts(input, this.getSelectedShops())
       .subscribe(products => {
         this.fiveMatchedProducts = products;
-        console.log(products);
       });
   }
 

@@ -61,7 +61,6 @@ export class AccountComponent implements OnInit {
     if (valid) {
       this.userService.editUserAll(this.getEditAllRequestBody())
       .subscribe(response => {
-        console.log(response);
         if (response.success) {
           this.user = response.user;
           sessionStorage.setItem('user', JSON.stringify(this.user));

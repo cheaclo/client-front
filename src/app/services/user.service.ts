@@ -17,13 +17,10 @@ export class UserService {
   }
 
   deleteUser(userId: number): void {
-    userId = 11;
-    console.log(this.deleteUserPath + userId);
     this.http.delete(this.deleteUserPath + userId).subscribe();
   }
 
   editUserPassword(userId: number, email: string, newPassword: string): Observable<EditUserResponse> {
-    console.log(btoa(newPassword));
     return this.http.put<EditUserResponse>(this.editUserAllPath, {
       userId: userId,
       email: email,
