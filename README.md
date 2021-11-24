@@ -25,3 +25,7 @@ Cheaclo is an aggregator of clothes discounts. User can find here desired produc
 - Add products to favourite
 - Edit account details
 
+## Presentation
+
+https://user-images.githubusercontent.com/55396985/143323414-87bda324-0b6f-49ed-a1ed-22310758cddc.mp4
+
