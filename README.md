@@ -1,6 +1,6 @@
 # Client Front Microservice
 
-Project is a microservice, which is part of Cheaclo project. The application is a implementation of client side, based on [Angular](https://angular.io) framework.
+Project is a microservice, which is part of [Cheaclo](https://github.com/cheaclo/about) project. The application is a implementation of client side, based on [Angular](https://angular.io) framework.
 
 
 ## Tech stack
